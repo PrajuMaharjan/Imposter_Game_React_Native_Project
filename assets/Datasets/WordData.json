@@ -204,12 +204,6 @@
     "hints": "beak|colorful|jungle"
   },
   {
-    "id": 35,
-    "word": "Lemur",
-    "category": "animals",
-    "hints": "eyes|tail|Madagascar"
-  },
-  {
     "id": 36,
     "word": "Bald Eagle",
     "category": "animals",
@@ -222,12 +216,6 @@
     "hints": "spots|mountain|rare"
   },
   {
-    "id": 38,
-    "word": "Mandrill",
-    "category": "animals",
-    "hints": "colorful|face|jungle"
-  },
-  {
     "id": 39,
     "word": "Capybara",
     "category": "animals",
@@ -238,18 +226,6 @@
     "word": "Wombat",
     "category": "animals",
     "hints": "round|burrow|Australian"
-  },
-  {
-    "id": 41,
-    "word": "Tapir",
-    "category": "animals",
-    "hints": "snout|forest|odd"
-  },
-  {
-    "id": 42,
-    "word": "Pangolin",
-    "category": "animals",
-    "hints": "scales|curl|rare"
   },
   {
     "id": 43,
@@ -276,28 +252,10 @@
     "hints": "hump|herd|plains"
   },
   {
-    "id": 47,
-    "word": "Cassowary",
-    "category": "animals",
-    "hints": "kick|colorful|dangerous"
-  },
-  {
-    "id": 48,
-    "word": "Manatee",
-    "category": "animals",
-    "hints": "slow|gentle|water"
-  },
-  {
     "id": 49,
     "word": "Puma",
     "category": "animals",
     "hints": "mountain|silent|leap"
-  },
-  {
-    "id": 50,
-    "word": "Ocelot",
-    "category": "animals",
-    "hints": "spots|small|nocturnal"
   },
   {
     "id": 51,
@@ -310,12 +268,6 @@
     "word": "Condor",
     "category": "animals",
     "hints": "wide|soar|mountain"
-  },
-  {
-    "id": 53,
-    "word": "Tasmanian Devil",
-    "category": "animals",
-    "hints": "screech|fierce|island"
   },
   {
     "id": 54,
@@ -354,24 +306,6 @@
     "hints": "tongue|long|insects"
   },
   {
-    "id": 60,
-    "word": "Flying Fox",
-    "category": "animals",
-    "hints": "hang|wing|night"
-  },
-  {
-    "id": 61,
-    "word": "Barracuda",
-    "category": "animals",
-    "hints": "fast|teeth|silver"
-  },
-  {
-    "id": 62,
-    "word": "Ibis",
-    "category": "animals",
-    "hints": "beak|white|water"
-  },
-  {
     "id": 63,
     "word": "Hyena",
     "category": "animals",
@@ -390,138 +324,6 @@
     "hints": "punch|color|fast"
   },
   {
-    "id": 66,
-    "word": "Gharial",
-    "category": "animals",
-    "hints": "snout|river|rare"
-  },
-  {
-    "id": 67,
-    "word": "Okapi",
-    "category": "animals",
-    "hints": "stripes|rare|jungle"
-  },
-  {
-    "id": 68,
-    "word": "Quokka",
-    "category": "animals",
-    "hints": "smile|small|island"
-  },
-  {
-    "id": 69,
-    "word": "Binturong",
-    "category": "animals",
-    "hints": "popcorn|tree|slow"
-  },
-  {
-    "id": 70,
-    "word": "Mudskipper",
-    "category": "animals",
-    "hints": "walk|mud|odd"
-  },
-  {
-    "id": 71,
-    "word": "Proboscis Monkey",
-    "category": "animals",
-    "hints": "nose|large|Borneo"
-  },
-  {
-    "id": 72,
-    "word": "Fossa",
-    "category": "animals",
-    "hints": "cat|Madagascar|climb"
-  },
-  {
-    "id": 73,
-    "word": "Saiga",
-    "category": "animals",
-    "hints": "nose|steppe|odd"
-  },
-  {
-    "id": 74,
-    "word": "Shoebill",
-    "category": "animals",
-    "hints": "beak|stare|swamp"
-  },
-  {
-    "id": 75,
-    "word": "Aye-aye",
-    "category": "animals",
-    "hints": "finger|nocturnal|odd"
-  },
-  {
-    "id": 76,
-    "word": "Blobfish",
-    "category": "animals",
-    "hints": "sad|deep|soft"
-  },
-  {
-    "id": 77,
-    "word": "Sun Bear",
-    "category": "animals",
-    "hints": "small|chest|Southeast Asia"
-  },
-  {
-    "id": 78,
-    "word": "Numbat",
-    "category": "animals",
-    "hints": "stripe|termite|Australian"
-  },
-  {
-    "id": 79,
-    "word": "Olm",
-    "category": "animals",
-    "hints": "cave|blind|pale"
-  },
-  {
-    "id": 80,
-    "word": "Tarsier",
-    "category": "animals",
-    "hints": "eyes|small|island"
-  },
-  {
-    "id": 81,
-    "word": "Dugong",
-    "category": "animals",
-    "hints": "gentle|ocean|round"
-  },
-  {
-    "id": 82,
-    "word": "Springbok",
-    "category": "animals",
-    "hints": "leap|African|fast"
-  },
-  {
-    "id": 83,
-    "word": "Gerenuk",
-    "category": "animals",
-    "hints": "neck|stand|African"
-  },
-  {
-    "id": 84,
-    "word": "Kinkajou",
-    "category": "animals",
-    "hints": "honey|tree|tail"
-  },
-  {
-    "id": 85,
-    "word": "Serval",
-    "category": "animals",
-    "hints": "ears|spotted|tall"
-  },
-  {
-    "id": 86,
-    "word": "Caracal",
-    "category": "animals",
-    "hints": "ears|leap|fast"
-  },
-  {
-    "id": 87,
-    "word": "Musk Ox",
-    "category": "animals",
-    "hints": "wool|cold|herd"
-  },
-  {
     "id": 88,
     "word": "Walrus",
     "category": "animals",
@@ -534,22 +336,10 @@
     "hints": "bark|flipper|rock"
   },
   {
-    "id": 90,
-    "word": "Kookaburra",
-    "category": "animals",
-    "hints": "laugh|Australian|bird"
-  },
-  {
     "id": 91,
     "word": "Wolverine",
     "category": "animals",
     "hints": "tough|claws|north"
-  },
-  {
-    "id": 92,
-    "word": "Dingo",
-    "category": "animals",
-    "hints": "wild|Australian|dog"
   },
   {
     "id": 93,
@@ -576,12 +366,6 @@
     "hints": "fast|tiny|hover"
   },
   {
-    "id": 97,
-    "word": "Secretary Bird",
-    "category": "animals",
-    "hints": "kick|tall|African"
-  },
-  {
     "id": 98,
     "word": "Whale Shark",
     "category": "animals",
@@ -600,22 +384,10 @@
     "hints": "orange|tree|smart"
   },
   {
-    "id": 101,
-    "word": "Bonobo",
-    "category": "animals",
-    "hints": "peace|smart|social"
-  },
-  {
-    "id": 102,
-    "word": "Resplendent Quetzal",
-    "category": "animals",
-    "hints": "green|tail|sacred"
-  },
-  {
     "id": 103,
-    "word": "Mandarin Duck",
+    "word": "Duck",
     "category": "animals",
-    "hints": "colorful|water|male"
+    "hints": "ugly|water|fly"
   },
   {
     "id": 104,
@@ -697,15 +469,9 @@
   },
   {
     "id": 117,
-    "word": "Lychee",
+    "word": "Litchi",
     "category": "fruit",
     "hints": "sweet|tropical|shell"
-  },
-  {
-    "id": 118,
-    "word": "Plum",
-    "category": "fruit",
-    "hints": "purple|stone|tart"
   },
   {
     "id": 119,
@@ -726,18 +492,6 @@
     "hints": "orange|autumn|sweet"
   },
   {
-    "id": 122,
-    "word": "Starfruit",
-    "category": "fruit",
-    "hints": "shape|yellow|tart"
-  },
-  {
-    "id": 123,
-    "word": "Tamarind",
-    "category": "fruit",
-    "hints": "sour|pod|brown"
-  },
-  {
     "id": 124,
     "word": "Durian",
     "category": "fruit",
@@ -756,52 +510,16 @@
     "hints": "red|tart|bog"
   },
   {
-    "id": 127,
-    "word": "Quince",
-    "category": "fruit",
-    "hints": "golden|hard|ancient"
-  },
-  {
-    "id": 128,
-    "word": "Mulberry",
-    "category": "fruit",
-    "hints": "dark|stain|tree"
-  },
-  {
     "id": 129,
     "word": "Banana",
     "category": "fruit",
     "hints": "yellow|peel|curved"
   },
   {
-    "id": 130,
-    "word": "Apricot",
-    "category": "fruit",
-    "hints": "orange|stone|velvet"
-  },
-  {
-    "id": 131,
-    "word": "Passion Fruit",
-    "category": "fruit",
-    "hints": "purple|tropical|tart"
-  },
-  {
     "id": 132,
     "word": "Kiwi",
     "category": "fruit",
     "hints": "fuzzy|green|small"
-  },
-  {
-    "id": 133,
-    "word": "Raspberry",
-    "category": "fruit",
-    "hints": "red|tart|tiny"
-  },
-  {
-    "id": 134,
-    "word": "Blackberry",
-    "category": "fruit",
-    "hints": "dark|thorny|wild"
   },
   {
     "id": 135,
@@ -832,132 +550,6 @@
     "word": "Pear",
     "category": "fruit",
     "hints": "teardrop|green|sweet"
-  },
-  {
-    "id": 140,
-    "word": "Grapefruit",
-    "category": "fruit",
-    "hints": "bitter|large|pink"
-  },
-  {
-    "id": 141,
-    "word": "Cantaloupe",
-    "category": "fruit",
-    "hints": "orange|net|summer"
-  },
-  {
-    "id": 142,
-    "word": "Honeydew",
-    "category": "fruit",
-    "hints": "pale|sweet|round"
-  },
-  {
-    "id": 143,
-    "word": "Jackfruit",
-    "category": "fruit",
-    "hints": "large|spiky|tropical"
-  },
-  {
-    "id": 144,
-    "word": "Longan",
-    "category": "fruit",
-    "hints": "sweet|shell|Asian"
-  },
-  {
-    "id": 145,
-    "word": "Rambutan",
-    "category": "fruit",
-    "hints": "hairy|red|tropical"
-  },
-  {
-    "id": 146,
-    "word": "Feijoa",
-    "category": "fruit",
-    "hints": "fragrant|green|South America"
-  },
-  {
-    "id": 147,
-    "word": "Ackee",
-    "category": "fruit",
-    "hints": "Caribbean|red|national"
-  },
-  {
-    "id": 148,
-    "word": "Breadfruit",
-    "category": "fruit",
-    "hints": "starchy|round|island"
-  },
-  {
-    "id": 149,
-    "word": "Soursop",
-    "category": "fruit",
-    "hints": "spiky|creamy|tropical"
-  },
-  {
-    "id": 150,
-    "word": "Cherimoya",
-    "category": "fruit",
-    "hints": "creamy|heart|South America"
-  },
-  {
-    "id": 151,
-    "word": "Salak",
-    "category": "fruit",
-    "hints": "scale|snake|Indonesian"
-  },
-  {
-    "id": 152,
-    "word": "Noni",
-    "category": "fruit",
-    "hints": "smell|tropical|health"
-  },
-  {
-    "id": 153,
-    "word": "Jabuticaba",
-    "category": "fruit",
-    "hints": "trunk|dark|Brazilian"
-  },
-  {
-    "id": 154,
-    "word": "Tamarillo",
-    "category": "fruit",
-    "hints": "red|tangy|New Zealand"
-  },
-  {
-    "id": 155,
-    "word": "Cactus Pear",
-    "category": "fruit",
-    "hints": "spiny|red|desert"
-  },
-  {
-    "id": 156,
-    "word": "Kumquat",
-    "category": "fruit",
-    "hints": "tiny|orange|eat whole"
-  },
-  {
-    "id": 157,
-    "word": "Ugli Fruit",
-    "category": "fruit",
-    "hints": "wrinkled|citrus|Caribbean"
-  },
-  {
-    "id": 158,
-    "word": "Buddha Hand",
-    "category": "fruit",
-    "hints": "finger|citrus|odd"
-  },
-  {
-    "id": 159,
-    "word": "Miracle Fruit",
-    "category": "fruit",
-    "hints": "sweet|trick|West Africa"
-  },
-  {
-    "id": 160,
-    "word": "Marula",
-    "category": "fruit",
-    "hints": "African|elephant|cream"
   },
   {
     "id": 161,
@@ -1038,12 +630,6 @@
     "hints": "skewer|grill|spiced"
   },
   {
-    "id": 174,
-    "word": "Paella",
-    "category": "food",
-    "hints": "yellow|Spanish|pan"
-  },
-  {
     "id": 175,
     "word": "Lasagna",
     "category": "food",
@@ -1056,40 +642,16 @@
     "hints": "crispy|wrap|Asian"
   },
   {
-    "id": 177,
-    "word": "Hummus",
-    "category": "food",
-    "hints": "dip|smooth|Middle East"
-  },
-  {
     "id": 178,
     "word": "Biryani",
     "category": "food",
     "hints": "rice|spiced|layered"
   },
   {
-    "id": 179,
-    "word": "Falafel",
-    "category": "food",
-    "hints": "fried|round|chickpea"
-  },
-  {
     "id": 180,
     "word": "Tiramisu",
     "category": "food",
     "hints": "coffee|layer|Italian"
-  },
-  {
-    "id": 181,
-    "word": "Ceviche",
-    "category": "food",
-    "hints": "raw|citrus|coastal"
-  },
-  {
-    "id": 182,
-    "word": "Baklava",
-    "category": "food",
-    "hints": "sweet|layer|honey"
   },
   {
     "id": 183,
@@ -1122,52 +684,10 @@
     "hints": "egg|fold|pan"
   },
   {
-    "id": 188,
-    "word": "Fondue",
-    "category": "food",
-    "hints": "dip|Swiss|melt"
-  },
-  {
-    "id": 189,
-    "word": "Risotto",
-    "category": "food",
-    "hints": "creamy|Italian|stir"
-  },
-  {
-    "id": 190,
-    "word": "Moussaka",
-    "category": "food",
-    "hints": "layer|Greek|baked"
-  },
-  {
     "id": 191,
     "word": "Goulash",
     "category": "food",
     "hints": "stew|Hungarian|paprika"
-  },
-  {
-    "id": 192,
-    "word": "Pierogi",
-    "category": "food",
-    "hints": "dumpling|Polish|boil"
-  },
-  {
-    "id": 193,
-    "word": "Shakshuka",
-    "category": "food",
-    "hints": "egg|tomato|Middle East"
-  },
-  {
-    "id": 194,
-    "word": "Tagine",
-    "category": "food",
-    "hints": "slow|Moroccan|cone"
-  },
-  {
-    "id": 195,
-    "word": "Dim Sum",
-    "category": "food",
-    "hints": "small|Chinese|basket"
   },
   {
     "id": 196,
@@ -1182,18 +702,6 @@
     "hints": "fold|Japanese|crispy"
   },
   {
-    "id": 198,
-    "word": "Souvlaki",
-    "category": "food",
-    "hints": "skewer|Greek|grill"
-  },
-  {
-    "id": 199,
-    "word": "Borscht",
-    "category": "food",
-    "hints": "red|beet|Eastern Europe"
-  },
-  {
     "id": 200,
     "word": "Tempura",
     "category": "food",
@@ -1206,40 +714,10 @@
     "hints": "gravy|Canadian|fries"
   },
   {
-    "id": 202,
-    "word": "Empanada",
-    "category": "food",
-    "hints": "fold|Latin|baked"
-  },
-  {
     "id": 203,
     "word": "Bibimbap",
     "category": "food",
     "hints": "bowl|Korean|mix"
-  },
-  {
-    "id": 204,
-    "word": "Injera",
-    "category": "food",
-    "hints": "spongy|Ethiopian|sour"
-  },
-  {
-    "id": 205,
-    "word": "Rendang",
-    "category": "food",
-    "hints": "dark|Indonesian|slow"
-  },
-  {
-    "id": 206,
-    "word": "Jerk Chicken",
-    "category": "food",
-    "hints": "spicy|Jamaican|smoke"
-  },
-  {
-    "id": 207,
-    "word": "Brigadeiro",
-    "category": "food",
-    "hints": "chocolate|Brazilian|sweet"
   },
   {
     "id": 208,
@@ -1254,22 +732,10 @@
     "hints": "thin|French|fill"
   },
   {
-    "id": 210,
-    "word": "Cannoli",
-    "category": "food",
-    "hints": "tube|Sicilian|cream"
-  },
-  {
     "id": 211,
     "word": "Peking Duck",
     "category": "food",
     "hints": "crispy|Chinese|wrap"
-  },
-  {
-    "id": 212,
-    "word": "Tom Yum",
-    "category": "food",
-    "hints": "sour|Thai|hot"
   },
   {
     "id": 213,
@@ -1284,42 +750,6 @@
     "hints": "triangle|Indian|fried"
   },
   {
-    "id": 215,
-    "word": "Dolma",
-    "category": "food",
-    "hints": "stuffed|leaf|Mediterranean"
-  },
-  {
-    "id": 216,
-    "word": "Arepas",
-    "category": "food",
-    "hints": "corn|Colombian|flat"
-  },
-  {
-    "id": 217,
-    "word": "Khachapuri",
-    "category": "food",
-    "hints": "cheese|Georgian|bread"
-  },
-  {
-    "id": 218,
-    "word": "Knafeh",
-    "category": "food",
-    "hints": "orange|sweet|Middle East"
-  },
-  {
-    "id": 219,
-    "word": "Custard Tart",
-    "category": "food",
-    "hints": "egg|Portuguese|pastry"
-  },
-  {
-    "id": 220,
-    "word": "Clam Chowder",
-    "category": "food",
-    "hints": "creamy|New England|bowl"
-  },
-  {
     "id": 221,
     "word": "Fish and Chips",
     "category": "food",
@@ -1332,66 +762,6 @@
     "hints": "pastry|British|beef"
   },
   {
-    "id": 223,
-    "word": "Lobster Roll",
-    "category": "food",
-    "hints": "New England|bun|cold"
-  },
-  {
-    "id": 224,
-    "word": "Bao Bun",
-    "category": "food",
-    "hints": "soft|Chinese|steamed"
-  },
-  {
-    "id": 225,
-    "word": "Okonomiyaki",
-    "category": "food",
-    "hints": "Japanese|savory|pancake"
-  },
-  {
-    "id": 226,
-    "word": "Mole",
-    "category": "food",
-    "hints": "dark|Mexican|complex"
-  },
-  {
-    "id": 227,
-    "word": "Haggis",
-    "category": "food",
-    "hints": "Scottish|offal|bag"
-  },
-  {
-    "id": 228,
-    "word": "Sabich",
-    "category": "food",
-    "hints": "Israeli|eggplant|pita"
-  },
-  {
-    "id": 229,
-    "word": "Bratwurst",
-    "category": "food",
-    "hints": "German|sausage|grill"
-  },
-  {
-    "id": 230,
-    "word": "Bunny Chow",
-    "category": "food",
-    "hints": "South African|bread|curry"
-  },
-  {
-    "id": 231,
-    "word": "Jollof Rice",
-    "category": "food",
-    "hints": "West African|red|rice"
-  },
-  {
-    "id": 232,
-    "word": "Suya",
-    "category": "food",
-    "hints": "Nigerian|skewer|spice"
-  },
-  {
     "id": 233,
     "word": "Mapo Tofu",
     "category": "food",
@@ -1402,42 +772,6 @@
     "word": "Beef Bulgogi",
     "category": "food",
     "hints": "Korean|sweet|grill"
-  },
-  {
-    "id": 235,
-    "word": "Cevapi",
-    "category": "food",
-    "hints": "Balkan|grill|small"
-  },
-  {
-    "id": 236,
-    "word": "Stamppot",
-    "category": "food",
-    "hints": "Dutch|mash|winter"
-  },
-  {
-    "id": 237,
-    "word": "Rösti",
-    "category": "food",
-    "hints": "Swiss|potato|crispy"
-  },
-  {
-    "id": 238,
-    "word": "Pupusa",
-    "category": "food",
-    "hints": "stuffed|El Salvador|flat"
-  },
-  {
-    "id": 239,
-    "word": "Lutefisk",
-    "category": "food",
-    "hints": "Nordic|fish|preserved"
-  },
-  {
-    "id": 240,
-    "word": "Stamppot",
-    "category": "food",
-    "hints": "mash|Dutch|hearty"
   },
   {
     "id": 241,
@@ -1542,70 +876,16 @@
     "hints": "count|beads|ancient"
   },
   {
-    "id": 258,
-    "word": "Metronome",
-    "category": "objects",
-    "hints": "tick|music|swing"
-  },
-  {
-    "id": 259,
-    "word": "Quill",
-    "category": "objects",
-    "hints": "feather|write|ink"
-  },
-  {
     "id": 260,
     "word": "Lantern",
     "category": "objects",
     "hints": "glow|carry|old"
   },
   {
-    "id": 261,
-    "word": "Anvil",
-    "category": "objects",
-    "hints": "heavy|forge|metal"
-  },
-  {
-    "id": 262,
-    "word": "Gramophone",
-    "category": "objects",
-    "hints": "horn|spin|old music"
-  },
-  {
-    "id": 263,
-    "word": "Loom",
-    "category": "objects",
-    "hints": "weave|thread|fabric"
-  },
-  {
-    "id": 264,
-    "word": "Sundial",
-    "category": "objects",
-    "hints": "shadow|time|ancient"
-  },
-  {
     "id": 265,
     "word": "Periscope",
     "category": "objects",
     "hints": "see|submarine|above"
-  },
-  {
-    "id": 266,
-    "word": "Sextant",
-    "category": "objects",
-    "hints": "navigate|angle|sea"
-  },
-  {
-    "id": 267,
-    "word": "Astrolabe",
-    "category": "objects",
-    "hints": "star|ancient|navigate"
-  },
-  {
-    "id": 268,
-    "word": "Kaleidoscope",
-    "category": "objects",
-    "hints": "color|spin|pattern"
   },
   {
     "id": 269,
@@ -1626,12 +906,6 @@
     "hints": "needle|liquid|push"
   },
   {
-    "id": 272,
-    "word": "Scales",
-    "category": "objects",
-    "hints": "balance|justice|weigh"
-  },
-  {
     "id": 273,
     "word": "Stethoscope",
     "category": "objects",
@@ -1650,34 +924,10 @@
     "hints": "wheel|garden|carry"
   },
   {
-    "id": 276,
-    "word": "Pulley",
-    "category": "objects",
-    "hints": "rope|lift|wheel"
-  },
-  {
     "id": 277,
     "word": "Catapult",
     "category": "objects",
     "hints": "launch|ancient|arm"
-  },
-  {
-    "id": 278,
-    "word": "Lute",
-    "category": "objects",
-    "hints": "pluck|old|pear"
-  },
-  {
-    "id": 279,
-    "word": "Harp",
-    "category": "objects",
-    "hints": "string|vertical|angel"
-  },
-  {
-    "id": 280,
-    "word": "Accordion",
-    "category": "objects",
-    "hints": "squeeze|fold|loud"
   },
   {
     "id": 281,
@@ -1686,46 +936,16 @@
     "hints": "blow|Scottish|loud"
   },
   {
-    "id": 282,
-    "word": "Xylophone",
-    "category": "objects",
-    "hints": "hit|color|bar"
-  },
-  {
-    "id": 283,
-    "word": "Cauldron",
-    "category": "objects",
-    "hints": "boil|large|witch"
-  },
-  {
-    "id": 284,
-    "word": "Goblet",
-    "category": "objects",
-    "hints": "drink|stem|royal"
-  },
-  {
     "id": 285,
     "word": "Scroll",
     "category": "objects",
     "hints": "roll|ancient|write"
   },
   {
-    "id": 286,
-    "word": "Percolator",
-    "category": "objects",
-    "hints": "bubble|coffee|heat"
-  },
-  {
     "id": 287,
     "word": "Wok",
     "category": "objects",
     "hints": "round|Asian|high heat"
-  },
-  {
-    "id": 288,
-    "word": "Mortar and Pestle",
-    "category": "objects",
-    "hints": "grind|stone|ancient"
   },
   {
     "id": 289,
@@ -1752,28 +972,10 @@
     "hints": "three|stand|stable"
   },
   {
-    "id": 293,
-    "word": "Easel",
-    "category": "objects",
-    "hints": "hold|paint|stand"
-  },
-  {
-    "id": 294,
-    "word": "Barometer",
-    "category": "objects",
-    "hints": "pressure|weather|glass"
-  },
-  {
     "id": 295,
     "word": "Microscope",
     "category": "objects",
     "hints": "tiny|lens|lab"
-  },
-  {
-    "id": 296,
-    "word": "Protractor",
-    "category": "objects",
-    "hints": "angle|semicircle|measure"
   },
   {
     "id": 297,
@@ -1825,9 +1027,9 @@
   },
   {
     "id": 305,
-    "word": "Sarcophagus",
+    "word": "Gun",
     "category": "objects",
-    "hints": "coffin|Egyptian|stone"
+    "hints": "weapon|America|war"
   },
   {
     "id": 306,
@@ -1878,12 +1080,6 @@
     "hints": "apple|gravity|math"
   },
   {
-    "id": 314,
-    "word": "Marie Curie",
-    "category": "famous_people",
-    "hints": "science|radiation|first"
-  },
-  {
     "id": 315,
     "word": "Michael Jackson",
     "category": "famous_people",
@@ -1902,40 +1098,10 @@
     "hints": "tall|hat|president"
   },
   {
-    "id": 318,
-    "word": "Nikola Tesla",
-    "category": "famous_people",
-    "hints": "electric|genius|eccentric"
-  },
-  {
-    "id": 319,
-    "word": "Frida Kahlo",
-    "category": "famous_people",
-    "hints": "paint|brow|Mexico"
-  },
-  {
-    "id": 320,
-    "word": "Winston Churchill",
-    "category": "famous_people",
-    "hints": "war|cigar|Britain"
-  },
-  {
     "id": 321,
     "word": "Steve Jobs",
     "category": "famous_people",
     "hints": "apple|black|innovate"
-  },
-  {
-    "id": 322,
-    "word": "Charles Darwin",
-    "category": "famous_people",
-    "hints": "evolution|beard|nature"
-  },
-  {
-    "id": 323,
-    "word": "Beethoven",
-    "category": "famous_people",
-    "hints": "deaf|compose|classical"
   },
   {
     "id": 324,
@@ -1944,58 +1110,10 @@
     "hints": "float|punch|champion"
   },
   {
-    "id": 325,
-    "word": "Vincent van Gogh",
-    "category": "famous_people",
-    "hints": "ear|paint|swirl"
-  },
-  {
     "id": 326,
     "word": "Genghis Khan",
     "category": "famous_people",
     "hints": "conquer|vast|horseback"
-  },
-  {
-    "id": 327,
-    "word": "Socrates",
-    "category": "famous_people",
-    "hints": "question|ancient|Athens"
-  },
-  {
-    "id": 328,
-    "word": "Ada Lovelace",
-    "category": "famous_people",
-    "hints": "code|first|Victorian"
-  },
-  {
-    "id": 329,
-    "word": "Archimedes",
-    "category": "famous_people",
-    "hints": "bath|principle|ancient"
-  },
-  {
-    "id": 330,
-    "word": "Confucius",
-    "category": "famous_people",
-    "hints": "wisdom|ancient|China"
-  },
-  {
-    "id": 331,
-    "word": "Harriet Tubman",
-    "category": "famous_people",
-    "hints": "freedom|railroad|brave"
-  },
-  {
-    "id": 332,
-    "word": "Marco Polo",
-    "category": "famous_people",
-    "hints": "travel|China|explorer"
-  },
-  {
-    "id": 333,
-    "word": "Michelangelo",
-    "category": "famous_people",
-    "hints": "ceiling|sculpt|Italian"
   },
   {
     "id": 334,
@@ -2046,18 +1164,6 @@
     "hints": "dream|march|peaceful"
   },
   {
-    "id": 342,
-    "word": "Rosa Parks",
-    "category": "famous_people",
-    "hints": "seat|bus|brave"
-  },
-  {
-    "id": 343,
-    "word": "Alan Turing",
-    "category": "famous_people",
-    "hints": "code|machine|mind"
-  },
-  {
     "id": 344,
     "word": "Stephen Hawking",
     "category": "famous_people",
@@ -2071,7 +1177,7 @@
   },
   {
     "id": 346,
-    "word": "Amelia Earhart",
+    "word": "Jeffrey Epstein",
     "category": "famous_people",
     "hints": "fly|first|lost"
   },
@@ -2082,52 +1188,10 @@
     "hints": "mustache|stage|legendary"
   },
   {
-    "id": 348,
-    "word": "Elvis Presley",
-    "category": "famous_people",
-    "hints": "hip|Memphis|king"
-  },
-  {
-    "id": 349,
-    "word": "David Bowie",
-    "category": "famous_people",
-    "hints": "alter ego|ziggy|style"
-  },
-  {
-    "id": 350,
-    "word": "John Lennon",
-    "category": "famous_people",
-    "hints": "imagine|Beatles|peace"
-  },
-  {
-    "id": 351,
-    "word": "Pablo Picasso",
-    "category": "famous_people",
-    "hints": "cubism|blue|Spanish"
-  },
-  {
-    "id": 352,
-    "word": "Salvador Dali",
-    "category": "famous_people",
-    "hints": "mustache|surreal|melt"
-  },
-  {
-    "id": 353,
-    "word": "Walt Disney",
-    "category": "famous_people",
-    "hints": "mouse|dream|magic"
-  },
-  {
     "id": 354,
     "word": "Charlie Chaplin",
     "category": "famous_people",
     "hints": "silent|cane|mustache"
-  },
-  {
-    "id": 355,
-    "word": "Coco Chanel",
-    "category": "famous_people",
-    "hints": "fashion|French|timeless"
   },
   {
     "id": 356,
@@ -2148,18 +1212,6 @@
     "hints": "beard|class|manifesto"
   },
   {
-    "id": 359,
-    "word": "Sigmund Freud",
-    "category": "famous_people",
-    "hints": "dream|couch|mind"
-  },
-  {
-    "id": 360,
-    "word": "Friedrich Nietzsche",
-    "category": "famous_people",
-    "hints": "mustache|power|German"
-  },
-  {
     "id": 361,
     "word": "Louis Pasteur",
     "category": "famous_people",
@@ -2176,54 +1228,6 @@
     "word": "Alexander Graham Bell",
     "category": "famous_people",
     "hints": "telephone|sound|Scottish"
-  },
-  {
-    "id": 364,
-    "word": "Henry Ford",
-    "category": "famous_people",
-    "hints": "car|assembly|mass"
-  },
-  {
-    "id": 365,
-    "word": "Ramesses II",
-    "category": "famous_people",
-    "hints": "pharaoh|temple|long"
-  },
-  {
-    "id": 366,
-    "word": "Attila the Hun",
-    "category": "famous_people",
-    "hints": "fearsome|horseback|west"
-  },
-  {
-    "id": 367,
-    "word": "Hannibal Barca",
-    "category": "famous_people",
-    "hints": "elephant|Alps|Carthage"
-  },
-  {
-    "id": 368,
-    "word": "Spartacus",
-    "category": "famous_people",
-    "hints": "slave|revolt|gladiator"
-  },
-  {
-    "id": 369,
-    "word": "Catherine the Great",
-    "category": "famous_people",
-    "hints": "Russian|empress|expand"
-  },
-  {
-    "id": 370,
-    "word": "Copernicus",
-    "category": "famous_people",
-    "hints": "sun|center|Polish"
-  },
-  {
-    "id": 371,
-    "word": "Johannes Kepler",
-    "category": "famous_people",
-    "hints": "orbit|ellipse|German"
   },
   {
     "id": 372,
@@ -2244,52 +1248,10 @@
     "hints": "rocket|electric|tweet"
   },
   {
-    "id": 375,
-    "word": "Mark Twain",
-    "category": "famous_people",
-    "hints": "river|wit|American"
-  },
-  {
-    "id": 376,
-    "word": "Ernest Hemingway",
-    "category": "famous_people",
-    "hints": "simple|sea|hunt"
-  },
-  {
-    "id": 377,
-    "word": "Rembrandt",
-    "category": "famous_people",
-    "hints": "light|Dutch|portrait"
-  },
-  {
     "id": 378,
     "word": "Sun Tzu",
     "category": "famous_people",
     "hints": "war|art|ancient"
-  },
-  {
-    "id": 379,
-    "word": "Che Guevara",
-    "category": "famous_people",
-    "hints": "beret|revolution|poster"
-  },
-  {
-    "id": 380,
-    "word": "Alfred Hitchcock",
-    "category": "famous_people",
-    "hints": "suspense|cameo|birds"
-  },
-  {
-    "id": 381,
-    "word": "Charles Dickens",
-    "category": "famous_people",
-    "hints": "Victorian|poor|write"
-  },
-  {
-    "id": 382,
-    "word": "Gregor Mendel",
-    "category": "famous_people",
-    "hints": "pea|genetics|monk"
   },
   {
     "id": 383,
@@ -2352,12 +1314,6 @@
     "hints": "art|beach|tapas"
   },
   {
-    "id": 393,
-    "word": "Cairo",
-    "category": "cities",
-    "hints": "pyramid|desert|ancient"
-  },
-  {
     "id": 394,
     "word": "Rio de Janeiro",
     "category": "cities",
@@ -2376,40 +1332,10 @@
     "hints": "canal|boat|sinking"
   },
   {
-    "id": 397,
-    "word": "Prague",
-    "category": "cities",
-    "hints": "castle|cobble|old"
-  },
-  {
     "id": 398,
     "word": "Singapore",
     "category": "cities",
     "hints": "clean|island|strict"
-  },
-  {
-    "id": 399,
-    "word": "Marrakech",
-    "category": "cities",
-    "hints": "spice|color|desert"
-  },
-  {
-    "id": 400,
-    "word": "Buenos Aires",
-    "category": "cities",
-    "hints": "tango|steak|European"
-  },
-  {
-    "id": 401,
-    "word": "Kyoto",
-    "category": "cities",
-    "hints": "temple|quiet|old"
-  },
-  {
-    "id": 402,
-    "word": "Cape Town",
-    "category": "cities",
-    "hints": "mountain|coast|colorful"
   },
   {
     "id": 403,
@@ -2418,52 +1344,10 @@
     "hints": "busy|film|coast"
   },
   {
-    "id": 404,
-    "word": "Havana",
-    "category": "cities",
-    "hints": "vintage|salsa|warm"
-  },
-  {
-    "id": 405,
-    "word": "Nairobi",
-    "category": "cities",
-    "hints": "safari|highland|east"
-  },
-  {
-    "id": 406,
-    "word": "Reykjavik",
-    "category": "cities",
-    "hints": "cold|aurora|small"
-  },
-  {
     "id": 407,
     "word": "Kathmandu",
     "category": "cities",
     "hints": "mountain|temple|ancient"
-  },
-  {
-    "id": 408,
-    "word": "Lisbon",
-    "category": "cities",
-    "hints": "tram|hill|Atlantic"
-  },
-  {
-    "id": 409,
-    "word": "Dubrovnik",
-    "category": "cities",
-    "hints": "wall|coast|medieval"
-  },
-  {
-    "id": 410,
-    "word": "Vienna",
-    "category": "cities",
-    "hints": "music|coffee|imperial"
-  },
-  {
-    "id": 411,
-    "word": "Athens",
-    "category": "cities",
-    "hints": "ancient|hill|democracy"
   },
   {
     "id": 412,
@@ -2502,12 +1386,6 @@
     "hints": "skyline|modern|river"
   },
   {
-    "id": 418,
-    "word": "Taipei",
-    "category": "cities",
-    "hints": "tower|night market|island"
-  },
-  {
     "id": 419,
     "word": "Kuala Lumpur",
     "category": "cities",
@@ -2520,172 +1398,10 @@
     "hints": "old|spice|vast"
   },
   {
-    "id": 421,
-    "word": "Lagos",
-    "category": "cities",
-    "hints": "busy|coastal|African"
-  },
-  {
-    "id": 422,
-    "word": "Johannesburg",
-    "category": "cities",
-    "hints": "gold|urban|South Africa"
-  },
-  {
-    "id": 423,
-    "word": "Casablanca",
-    "category": "cities",
-    "hints": "film|port|Morocco"
-  },
-  {
-    "id": 424,
-    "word": "Addis Ababa",
-    "category": "cities",
-    "hints": "highland|coffee|African"
-  },
-  {
-    "id": 425,
-    "word": "Beirut",
-    "category": "cities",
-    "hints": "nightlife|coast|rebuild"
-  },
-  {
     "id": 426,
     "word": "Tel Aviv",
     "category": "cities",
     "hints": "beach|vibrant|Middle East"
-  },
-  {
-    "id": 427,
-    "word": "Tehran",
-    "category": "cities",
-    "hints": "mountain|vast|Persian"
-  },
-  {
-    "id": 428,
-    "word": "Riyadh",
-    "category": "cities",
-    "hints": "desert|royal|oil"
-  },
-  {
-    "id": 429,
-    "word": "Doha",
-    "category": "cities",
-    "hints": "peninsula|Gulf|modern"
-  },
-  {
-    "id": 430,
-    "word": "Colombo",
-    "category": "cities",
-    "hints": "island|coast|Sri Lanka"
-  },
-  {
-    "id": 431,
-    "word": "Dhaka",
-    "category": "cities",
-    "hints": "dense|river|Bangladesh"
-  },
-  {
-    "id": 432,
-    "word": "Hanoi",
-    "category": "cities",
-    "hints": "lake|north|ancient"
-  },
-  {
-    "id": 433,
-    "word": "Ho Chi Minh City",
-    "category": "cities",
-    "hints": "busy|motorbike|south"
-  },
-  {
-    "id": 434,
-    "word": "Ulaanbaatar",
-    "category": "cities",
-    "hints": "cold|steppe|Mongolia"
-  },
-  {
-    "id": 435,
-    "word": "Tbilisi",
-    "category": "cities",
-    "hints": "wine|church|Georgia"
-  },
-  {
-    "id": 436,
-    "word": "Warsaw",
-    "category": "cities",
-    "hints": "rebuilt|Polish|mermaid"
-  },
-  {
-    "id": 437,
-    "word": "Budapest",
-    "category": "cities",
-    "hints": "river|thermal|twin"
-  },
-  {
-    "id": 438,
-    "word": "Sofia",
-    "category": "cities",
-    "hints": "mountain|gold dome|Bulgaria"
-  },
-  {
-    "id": 439,
-    "word": "Bucharest",
-    "category": "cities",
-    "hints": "palace|Romania|contrast"
-  },
-  {
-    "id": 440,
-    "word": "Riga",
-    "category": "cities",
-    "hints": "art nouveau|Baltic|medieval"
-  },
-  {
-    "id": 441,
-    "word": "Tallinn",
-    "category": "cities",
-    "hints": "old town|Baltic|digital"
-  },
-  {
-    "id": 442,
-    "word": "Helsinki",
-    "category": "cities",
-    "hints": "design|Finnish|cold"
-  },
-  {
-    "id": 443,
-    "word": "Stockholm",
-    "category": "cities",
-    "hints": "island|Swedish|clean"
-  },
-  {
-    "id": 444,
-    "word": "Oslo",
-    "category": "cities",
-    "hints": "fjord|Norwegian|oil"
-  },
-  {
-    "id": 445,
-    "word": "Copenhagen",
-    "category": "cities",
-    "hints": "bicycle|Danish|mermaid"
-  },
-  {
-    "id": 446,
-    "word": "Brussels",
-    "category": "cities",
-    "hints": "waffle|EU|comic"
-  },
-  {
-    "id": 447,
-    "word": "Zurich",
-    "category": "cities",
-    "hints": "bank|Swiss|lake"
-  },
-  {
-    "id": 448,
-    "word": "Munich",
-    "category": "cities",
-    "hints": "beer|Bavaria|Oktoberfest"
   },
   {
     "id": 449,
@@ -2700,18 +1416,6 @@
     "hints": "royal|football|Spanish"
   },
   {
-    "id": 451,
-    "word": "Seville",
-    "category": "cities",
-    "hints": "flamenco|orange|hot"
-  },
-  {
-    "id": 452,
-    "word": "Porto",
-    "category": "cities",
-    "hints": "wine|tiles|Portuguese"
-  },
-  {
     "id": 453,
     "word": "Milan",
     "category": "cities",
@@ -2722,42 +1426,6 @@
     "word": "Naples",
     "category": "cities",
     "hints": "pizza|volcano|south Italy"
-  },
-  {
-    "id": 455,
-    "word": "Florence",
-    "category": "cities",
-    "hints": "art|dome|Renaissance"
-  },
-  {
-    "id": 456,
-    "word": "Edinburgh",
-    "category": "cities",
-    "hints": "castle|Scottish|festival"
-  },
-  {
-    "id": 457,
-    "word": "Dublin",
-    "category": "cities",
-    "hints": "pub|Irish|green"
-  },
-  {
-    "id": 458,
-    "word": "Los Angeles",
-    "category": "cities",
-    "hints": "sun|Hollywood|traffic"
-  },
-  {
-    "id": 459,
-    "word": "Chicago",
-    "category": "cities",
-    "hints": "wind|lake|jazz"
-  },
-  {
-    "id": 460,
-    "word": "San Francisco",
-    "category": "cities",
-    "hints": "bridge|fog|hill"
   },
   {
     "id": 461,
@@ -2788,36 +1456,6 @@
     "word": "Mexico City",
     "category": "cities",
     "hints": "vast|ancient|altitude"
-  },
-  {
-    "id": 466,
-    "word": "Lima",
-    "category": "cities",
-    "hints": "Pacific|Peru|fog"
-  },
-  {
-    "id": 467,
-    "word": "Bogota",
-    "category": "cities",
-    "hints": "highland|Colombia|cool"
-  },
-  {
-    "id": 468,
-    "word": "Santiago",
-    "category": "cities",
-    "hints": "mountain|Chilean|modern"
-  },
-  {
-    "id": 469,
-    "word": "La Paz",
-    "category": "cities",
-    "hints": "high|Bolivia|cable car"
-  },
-  {
-    "id": 470,
-    "word": "Quito",
-    "category": "cities",
-    "hints": "equator|highland|Ecuador"
   },
   {
     "id": 471,
@@ -2904,34 +1542,10 @@
     "hints": "green|island|sheep"
   },
   {
-    "id": 485,
-    "word": "Morocco",
-    "category": "countries",
-    "hints": "spice|desert|colorful"
-  },
-  {
     "id": 486,
     "word": "Thailand",
     "category": "countries",
     "hints": "temple|spicy|smile"
-  },
-  {
-    "id": 487,
-    "word": "Peru",
-    "category": "countries",
-    "hints": "ancient|mountain|llama"
-  },
-  {
-    "id": 488,
-    "word": "Iceland",
-    "category": "countries",
-    "hints": "volcanic|cold|aurora"
-  },
-  {
-    "id": 489,
-    "word": "South Africa",
-    "category": "countries",
-    "hints": "diverse|cape|safari"
   },
   {
     "id": 490,
@@ -2940,22 +1554,10 @@
     "hints": "vintage|cigar|warm"
   },
   {
-    "id": 491,
-    "word": "Mongolia",
-    "category": "countries",
-    "hints": "vast|nomad|horse"
-  },
-  {
     "id": 492,
     "word": "Switzerland",
     "category": "countries",
     "hints": "neutral|chocolate|mountain"
-  },
-  {
-    "id": 493,
-    "word": "Ethiopia",
-    "category": "countries",
-    "hints": "ancient|coffee|highland"
   },
   {
     "id": 494,
@@ -2980,12 +1582,6 @@
     "word": "Colombia",
     "category": "countries",
     "hints": "coffee|color|warm"
-  },
-  {
-    "id": 498,
-    "word": "Jordan",
-    "category": "countries",
-    "hints": "desert|ancient|rose"
   },
   {
     "id": 499,
@@ -3018,12 +1614,6 @@
     "hints": "Persian|carpet|ancient"
   },
   {
-    "id": 504,
-    "word": "Indonesia",
-    "category": "countries",
-    "hints": "island|jungle|vast"
-  },
-  {
     "id": 505,
     "word": "Philippines",
     "category": "countries",
@@ -3042,70 +1632,16 @@
     "hints": "gold|West Africa|stable"
   },
   {
-    "id": 508,
-    "word": "Tanzania",
-    "category": "countries",
-    "hints": "Kilimanjaro|safari|coast"
-  },
-  {
     "id": 509,
     "word": "Madagascar",
     "category": "countries",
     "hints": "island|unique|lemur"
   },
   {
-    "id": 510,
-    "word": "Cambodia",
-    "category": "countries",
-    "hints": "temple|rice|southeast"
-  },
-  {
-    "id": 511,
-    "word": "Myanmar",
-    "category": "countries",
-    "hints": "pagoda|ancient|southeast"
-  },
-  {
     "id": 512,
     "word": "Sri Lanka",
     "category": "countries",
     "hints": "tea|island|pearl"
-  },
-  {
-    "id": 513,
-    "word": "Maldives",
-    "category": "countries",
-    "hints": "coral|low|blue"
-  },
-  {
-    "id": 514,
-    "word": "Bhutan",
-    "category": "countries",
-    "hints": "happiness|mountain|small"
-  },
-  {
-    "id": 515,
-    "word": "Kazakhstan",
-    "category": "countries",
-    "hints": "vast|steppe|central"
-  },
-  {
-    "id": 516,
-    "word": "Azerbaijan",
-    "category": "countries",
-    "hints": "flame|Caspian|Caucasus"
-  },
-  {
-    "id": 517,
-    "word": "Armenia",
-    "category": "countries",
-    "hints": "mountain|ancient|church"
-  },
-  {
-    "id": 518,
-    "word": "Georgia",
-    "category": "countries",
-    "hints": "wine|church|Caucasus"
   },
   {
     "id": 519,
@@ -3120,52 +1656,10 @@
     "hints": "castle|Dracula|eastern"
   },
   {
-    "id": 521,
-    "word": "Bulgaria",
-    "category": "countries",
-    "hints": "rose|Black Sea|ancient"
-  },
-  {
     "id": 522,
     "word": "Croatia",
     "category": "countries",
     "hints": "coast|Adriatic|medieval"
-  },
-  {
-    "id": 523,
-    "word": "Slovenia",
-    "category": "countries",
-    "hints": "alpine|small|green"
-  },
-  {
-    "id": 524,
-    "word": "Latvia",
-    "category": "countries",
-    "hints": "Baltic|forest|art nouveau"
-  },
-  {
-    "id": 525,
-    "word": "Lithuania",
-    "category": "countries",
-    "hints": "Baltic|ancient|basketball"
-  },
-  {
-    "id": 526,
-    "word": "Estonia",
-    "category": "countries",
-    "hints": "Baltic|digital|medieval"
-  },
-  {
-    "id": 527,
-    "word": "Finland",
-    "category": "countries",
-    "hints": "sauna|aurora|forest"
-  },
-  {
-    "id": 528,
-    "word": "Denmark",
-    "category": "countries",
-    "hints": "Viking|fairy tale|flat"
   },
   {
     "id": 529,
@@ -3178,18 +1672,6 @@
     "word": "Austria",
     "category": "countries",
     "hints": "music|Alps|imperial"
-  },
-  {
-    "id": 531,
-    "word": "Belgium",
-    "category": "countries",
-    "hints": "waffle|chocolate|EU"
-  },
-  {
-    "id": 532,
-    "word": "Netherlands",
-    "category": "countries",
-    "hints": "tulip|flat|bike"
   },
   {
     "id": 533,
@@ -3225,79 +1707,13 @@
     "id": 538,
     "word": "South Korea",
     "category": "countries",
-    "hints": "K-pop|tech|peninsula"
-  },
-  {
-    "id": 539,
-    "word": "Malaysia",
-    "category": "countries",
-    "hints": "twin towers|jungle|diverse"
-  },
-  {
-    "id": 540,
-    "word": "Papua New Guinea",
-    "category": "countries",
-    "hints": "island|diverse|jungle"
-  },
-  {
-    "id": 541,
-    "word": "Fiji",
-    "category": "countries",
-    "hints": "island|warm|coral"
-  },
-  {
-    "id": 542,
-    "word": "Jamaica",
-    "category": "countries",
-    "hints": "reggae|sprint|island"
-  },
-  {
-    "id": 543,
-    "word": "Costa Rica",
-    "category": "countries",
-    "hints": "jungle|pura vida|peace"
-  },
-  {
-    "id": 544,
-    "word": "Ecuador",
-    "category": "countries",
-    "hints": "equator|Galapagos|small"
-  },
-  {
-    "id": 545,
-    "word": "Bolivia",
-    "category": "countries",
-    "hints": "high|salt flat|landlocked"
-  },
-  {
-    "id": 546,
-    "word": "Chile",
-    "category": "countries",
-    "hints": "long|narrow|south"
+    "hints": "music|tech|peninsula"
   },
   {
     "id": 547,
     "word": "Czech Republic",
     "category": "countries",
     "hints": "beer|castle|central"
-  },
-  {
-    "id": 548,
-    "word": "Poland",
-    "category": "countries",
-    "hints": "resilient|central|bison"
-  },
-  {
-    "id": 549,
-    "word": "Hungary",
-    "category": "countries",
-    "hints": "thermal|paprika|Danube"
-  },
-  {
-    "id": 550,
-    "word": "Uganda",
-    "category": "countries",
-    "hints": "gorilla|lake|East Africa"
   },
   {
     "id": 551,
@@ -3397,7 +1813,7 @@
   },
   {
     "id": 567,
-    "word": "Rehabilitation",
+    "word": "Rehab",
     "category": "health",
     "hints": "recover|slow|rebuild"
   },
@@ -3418,12 +1834,6 @@
     "word": "Chemotherapy",
     "category": "health",
     "hints": "cancer|strong|poison"
-  },
-  {
-    "id": 571,
-    "word": "Osteoporosis",
-    "category": "health",
-    "hints": "bone|brittle|age"
   },
   {
     "id": 572,
@@ -3454,12 +1864,6 @@
     "word": "Migraine",
     "category": "health",
     "hints": "light|throb|dark"
-  },
-  {
-    "id": 577,
-    "word": "Inflammation",
-    "category": "health",
-    "hints": "swollen|red|hot"
   },
   {
     "id": 578,
@@ -3546,28 +1950,10 @@
     "hints": "swing|high|low"
   },
   {
-    "id": 592,
-    "word": "Eczema",
-    "category": "health",
-    "hints": "itch|skin|red"
-  },
-  {
     "id": 593,
     "word": "Kidney Stone",
     "category": "health",
     "hints": "sharp|pass|mineral"
-  },
-  {
-    "id": 594,
-    "word": "Appendicitis",
-    "category": "health",
-    "hints": "right side|sudden|remove"
-  },
-  {
-    "id": 595,
-    "word": "Ulcer",
-    "category": "health",
-    "hints": "stomach|burn|sore"
   },
   {
     "id": 596,
@@ -3582,18 +1968,6 @@
     "hints": "pressure|eye|silent"
   },
   {
-    "id": 598,
-    "word": "Sepsis",
-    "category": "health",
-    "hints": "infection|spread|fast"
-  },
-  {
-    "id": 599,
-    "word": "Dialysis",
-    "category": "health",
-    "hints": "kidney|machine|clean"
-  },
-  {
     "id": 600,
     "word": "MRI",
     "category": "health",
@@ -3604,12 +1978,6 @@
     "word": "X-Ray",
     "category": "health",
     "hints": "bone|beam|image"
-  },
-  {
-    "id": 602,
-    "word": "Pacemaker",
-    "category": "health",
-    "hints": "heart|implant|regulate"
   },
   {
     "id": 603,
@@ -3624,34 +1992,10 @@
     "hints": "bacteria|course|pill"
   },
   {
-    "id": 605,
-    "word": "Morphine",
-    "category": "health",
-    "hints": "strong|pain|opium"
-  },
-  {
     "id": 606,
     "word": "Adrenaline",
     "category": "health",
     "hints": "rush|inject|fight"
-  },
-  {
-    "id": 607,
-    "word": "Melatonin",
-    "category": "health",
-    "hints": "sleep|dark|hormone"
-  },
-  {
-    "id": 608,
-    "word": "Serotonin",
-    "category": "health",
-    "hints": "happy|chemical|brain"
-  },
-  {
-    "id": 609,
-    "word": "Placebo",
-    "category": "health",
-    "hints": "fake|belief|sugar"
   },
   {
     "id": 610,
@@ -3666,18 +2010,6 @@
     "hints": "global|spread|crisis"
   },
   {
-    "id": 612,
-    "word": "Parkinson's",
-    "category": "health",
-    "hints": "shake|slow|brain"
-  },
-  {
-    "id": 613,
-    "word": "Schizophrenia",
-    "category": "health",
-    "hints": "voices|perception|complex"
-  },
-  {
     "id": 614,
     "word": "Cholesterol",
     "category": "health",
@@ -3688,12 +2020,6 @@
     "word": "Jaundice",
     "category": "health",
     "hints": "yellow|liver|newborn"
-  },
-  {
-    "id": 616,
-    "word": "Biopsy",
-    "category": "health",
-    "hints": "sample|test|tissue"
   },
   {
     "id": 617,
@@ -3834,12 +2160,6 @@
     "hints": "ride|app|tap"
   },
   {
-    "id": 640,
-    "word": "Dyson",
-    "category": "brands",
-    "hints": "suction|engineering|sleek"
-  },
-  {
     "id": 641,
     "word": "Chanel",
     "category": "brands",
@@ -3862,24 +2182,6 @@
     "word": "Rolls-Royce",
     "category": "brands",
     "hints": "silent|ghost|prestige"
-  },
-  {
-    "id": 645,
-    "word": "Prada",
-    "category": "brands",
-    "hints": "minimal|Italian|luxury"
-  },
-  {
-    "id": 646,
-    "word": "Versace",
-    "category": "brands",
-    "hints": "Medusa|bold|Italian"
-  },
-  {
-    "id": 647,
-    "word": "Hermès",
-    "category": "brands",
-    "hints": "orange|saddle|waiting list"
   },
   {
     "id": 648,
@@ -3978,48 +2280,6 @@
     "hints": "Japanese|entertainment|wide"
   },
   {
-    "id": 664,
-    "word": "Canon",
-    "category": "brands",
-    "hints": "camera|Japanese|lens"
-  },
-  {
-    "id": 665,
-    "word": "Nikon",
-    "category": "brands",
-    "hints": "camera|Japanese|sharp"
-  },
-  {
-    "id": 666,
-    "word": "Bose",
-    "category": "brands",
-    "hints": "noise|cancel|sound"
-  },
-  {
-    "id": 667,
-    "word": "Patagonia",
-    "category": "brands",
-    "hints": "mountain|eco|outdoor"
-  },
-  {
-    "id": 668,
-    "word": "Supreme",
-    "category": "brands",
-    "hints": "box logo|red|hype"
-  },
-  {
-    "id": 669,
-    "word": "GoPro",
-    "category": "brands",
-    "hints": "action|tiny|mount"
-  },
-  {
-    "id": 670,
-    "word": "DJI",
-    "category": "brands",
-    "hints": "drone|Chinese|sky"
-  },
-  {
     "id": 671,
     "word": "SpaceX",
     "category": "brands",
@@ -4030,24 +2290,6 @@
     "word": "NASA",
     "category": "brands",
     "hints": "space|American|blue"
-  },
-  {
-    "id": 673,
-    "word": "ZARA",
-    "category": "brands",
-    "hints": "fast fashion|Spanish|minimal"
-  },
-  {
-    "id": 674,
-    "word": "H&M",
-    "category": "brands",
-    "hints": "affordable|Swedish|fashion"
-  },
-  {
-    "id": 675,
-    "word": "Uniqlo",
-    "category": "brands",
-    "hints": "Japanese|simple|quality"
   },
   {
     "id": 676,
@@ -4074,70 +2316,10 @@
     "hints": "chunky|hype|Spanish"
   },
   {
-    "id": 680,
-    "word": "Off-White",
-    "category": "brands",
-    "hints": "quote mark|zip tie|Virgil"
-  },
-  {
-    "id": 681,
-    "word": "Ray-Ban",
-    "category": "brands",
-    "hints": "aviator|cool|Italian"
-  },
-  {
-    "id": 682,
-    "word": "Leica",
-    "category": "brands",
-    "hints": "red dot|German|precise"
-  },
-  {
-    "id": 683,
-    "word": "Bang & Olufsen",
-    "category": "brands",
-    "hints": "Danish|minimal|premium"
-  },
-  {
-    "id": 684,
-    "word": "McLaren",
-    "category": "brands",
-    "hints": "orange|F1|British"
-  },
-  {
-    "id": 685,
-    "word": "Bentley",
-    "category": "brands",
-    "hints": "wings|British|smooth"
-  },
-  {
-    "id": 686,
-    "word": "Aston Martin",
-    "category": "brands",
-    "hints": "British|James Bond|elegant"
-  },
-  {
     "id": 687,
     "word": "Hyundai",
     "category": "brands",
     "hints": "H|Korean|affordable"
-  },
-  {
-    "id": 688,
-    "word": "Volvo",
-    "category": "brands",
-    "hints": "safe|Swedish|iron mark"
-  },
-  {
-    "id": 689,
-    "word": "Peugeot",
-    "category": "brands",
-    "hints": "lion|French|compact"
-  },
-  {
-    "id": 690,
-    "word": "Dior",
-    "category": "brands",
-    "hints": "new look|French|elegant"
   },
   {
     "id": 691,
@@ -4207,7 +2389,7 @@
   },
   {
     "id": 702,
-    "word": "Uno",
+    "word": "UNO",
     "category": "games",
     "hints": "card|color|skip"
   },
@@ -4219,7 +2401,7 @@
   },
   {
     "id": 704,
-    "word": "Billiards",
+    "word": "Snooker",
     "category": "games",
     "hints": "ball|cue|pocket"
   },
@@ -4242,12 +2424,6 @@
     "hints": "dice|story|fantasy"
   },
   {
-    "id": 708,
-    "word": "Mahjong",
-    "category": "games",
-    "hints": "tile|match|Chinese"
-  },
-  {
     "id": 709,
     "word": "Battleship",
     "category": "games",
@@ -4264,24 +2440,6 @@
     "word": "Zelda",
     "category": "games",
     "hints": "quest|green|sword"
-  },
-  {
-    "id": 712,
-    "word": "Catan",
-    "category": "games",
-    "hints": "resource|island|trade"
-  },
-  {
-    "id": 713,
-    "word": "Clue",
-    "category": "games",
-    "hints": "murder|mansion|suspect"
-  },
-  {
-    "id": 714,
-    "word": "Risk",
-    "category": "games",
-    "hints": "world|conquer|army"
   },
   {
     "id": 715,
@@ -4330,12 +2488,6 @@
     "word": "Red Dead Redemption",
     "category": "games",
     "hints": "western|cowboy|open"
-  },
-  {
-    "id": 723,
-    "word": "The Witcher",
-    "category": "games",
-    "hints": "monster|choice|silver"
   },
   {
     "id": 724,
@@ -4392,12 +2544,6 @@
     "hints": "block|children|create"
   },
   {
-    "id": 733,
-    "word": "Stardew Valley",
-    "category": "games",
-    "hints": "farm|relax|community"
-  },
-  {
     "id": 734,
     "word": "Animal Crossing",
     "category": "games",
@@ -4410,46 +2556,10 @@
     "hints": "bug|dark|underground"
   },
   {
-    "id": 736,
-    "word": "Cuphead",
-    "category": "games",
-    "hints": "cartoon|hard|boss"
-  },
-  {
     "id": 737,
     "word": "Undertale",
     "category": "games",
     "hints": "spare|choice|heart"
-  },
-  {
-    "id": 738,
-    "word": "Hades",
-    "category": "games",
-    "hints": "escape|rogue|Greek"
-  },
-  {
-    "id": 739,
-    "word": "Civilization",
-    "category": "games",
-    "hints": "build|turn|empire"
-  },
-  {
-    "id": 740,
-    "word": "Age of Empires",
-    "category": "games",
-    "hints": "build|gather|historical"
-  },
-  {
-    "id": 741,
-    "word": "StarCraft",
-    "category": "games",
-    "hints": "zerg|Korean|fast"
-  },
-  {
-    "id": 742,
-    "word": "World of Warcraft",
-    "category": "games",
-    "hints": "MMO|raid|class"
   },
   {
     "id": 743,
@@ -4458,40 +2568,16 @@
     "hints": "JRPG|crystal|summon"
   },
   {
-    "id": 744,
-    "word": "Persona",
-    "category": "games",
-    "hints": "mask|social|Tokyo"
-  },
-  {
     "id": 745,
     "word": "Overwatch",
     "category": "games",
     "hints": "hero|team|ability"
   },
   {
-    "id": 746,
-    "word": "Diablo",
-    "category": "games",
-    "hints": "dark|dungeon|loot"
-  },
-  {
     "id": 747,
     "word": "Assassin's Creed",
     "category": "games",
     "hints": "hidden|historical|climb"
-  },
-  {
-    "id": 748,
-    "word": "BioShock",
-    "category": "games",
-    "hints": "underwater|city|choice"
-  },
-  {
-    "id": 749,
-    "word": "Half-Life",
-    "category": "games",
-    "hints": "crowbar|physics|G-man"
   },
   {
     "id": 750,
@@ -4512,30 +2598,6 @@
     "hints": "platform|crossover|fight"
   },
   {
-    "id": 753,
-    "word": "Slay the Spire",
-    "category": "games",
-    "hints": "card|rogue|deck"
-  },
-  {
-    "id": 754,
-    "word": "Celeste",
-    "category": "games",
-    "hints": "mountain|jump|mental"
-  },
-  {
-    "id": 755,
-    "word": "Disco Elysium",
-    "category": "games",
-    "hints": "detective|talk|weird"
-  },
-  {
-    "id": 756,
-    "word": "Donkey Kong",
-    "category": "games",
-    "hints": "barrel|banana|ape"
-  },
-  {
     "id": 757,
     "word": "Kirby",
     "category": "games",
@@ -4548,18 +2610,6 @@
     "hints": "fist|3D|iron"
   },
   {
-    "id": 759,
-    "word": "Warcraft",
-    "category": "games",
-    "hints": "orc|strategy|Blizzard"
-  },
-  {
-    "id": 760,
-    "word": "Fire Emblem",
-    "category": "games",
-    "hints": "strategy|death|sword"
-  },
-  {
     "id": 761,
     "word": "Titanic",
     "category": "movies",
@@ -4570,18 +2620,6 @@
     "word": "The Lion King",
     "category": "movies",
     "hints": "pride|circle|roar"
-  },
-  {
-    "id": 763,
-    "word": "Inception",
-    "category": "movies",
-    "hints": "dream|spin|deep"
-  },
-  {
-    "id": 764,
-    "word": "The Godfather",
-    "category": "movies",
-    "hints": "offer|family|power"
   },
   {
     "id": 765,
@@ -4602,22 +2640,10 @@
     "hints": "wand|school|magic"
   },
   {
-    "id": 768,
-    "word": "The Matrix",
-    "category": "movies",
-    "hints": "red|code|choice"
-  },
-  {
     "id": 769,
     "word": "Shrek",
     "category": "movies",
     "hints": "swamp|ogre|layers"
-  },
-  {
-    "id": 770,
-    "word": "Finding Nemo",
-    "category": "movies",
-    "hints": "orange|swim|lost"
   },
   {
     "id": 771,
@@ -4632,18 +2658,6 @@
     "hints": "bat|dark|chaos"
   },
   {
-    "id": 773,
-    "word": "Forrest Gump",
-    "category": "movies",
-    "hints": "run|bench|chocolate"
-  },
-  {
-    "id": 774,
-    "word": "Gladiator",
-    "category": "movies",
-    "hints": "arena|Rome|fight"
-  },
-  {
     "id": 775,
     "word": "Spirited Away",
     "category": "movies",
@@ -4654,18 +2668,6 @@
     "word": "Toy Story",
     "category": "movies",
     "hints": "plastic|friend|fly"
-  },
-  {
-    "id": 777,
-    "word": "Parasite",
-    "category": "movies",
-    "hints": "class|house|plan"
-  },
-  {
-    "id": 778,
-    "word": "La La Land",
-    "category": "movies",
-    "hints": "dream|music|city"
   },
   {
     "id": 779,
@@ -4680,46 +2682,10 @@
     "hints": "assemble|hero|team"
   },
   {
-    "id": 781,
-    "word": "Pulp Fiction",
-    "category": "movies",
-    "hints": "twist|dialogue|crime"
-  },
-  {
-    "id": 782,
-    "word": "The Shining",
-    "category": "movies",
-    "hints": "hotel|snow|mad"
-  },
-  {
-    "id": 783,
-    "word": "Schindler's List",
-    "category": "movies",
-    "hints": "war|list|save"
-  },
-  {
-    "id": 784,
-    "word": "Alien",
-    "category": "movies",
-    "hints": "space|chest|scream"
-  },
-  {
-    "id": 785,
-    "word": "Up",
-    "category": "movies",
-    "hints": "balloon|old|adventure"
-  },
-  {
     "id": 786,
     "word": "Joker",
     "category": "movies",
     "hints": "laugh|chaos|paint"
-  },
-  {
-    "id": 787,
-    "word": "Coco",
-    "category": "movies",
-    "hints": "music|dead|family"
   },
   {
     "id": 788,
@@ -4728,142 +2694,10 @@
     "hints": "Africa|vibranium|king"
   },
   {
-    "id": 789,
-    "word": "Goodfellas",
-    "category": "movies",
-    "hints": "mob|funny|rise"
-  },
-  {
-    "id": 790,
-    "word": "Fight Club",
-    "category": "movies",
-    "hints": "rule|soap|twist"
-  },
-  {
-    "id": 791,
-    "word": "Se7en",
-    "category": "movies",
-    "hints": "sin|box|dark"
-  },
-  {
-    "id": 792,
-    "word": "Memento",
-    "category": "movies",
-    "hints": "tattoo|backwards|memory"
-  },
-  {
-    "id": 793,
-    "word": "Gone Girl",
-    "category": "movies",
-    "hints": "missing|twist|marriage"
-  },
-  {
-    "id": 794,
-    "word": "Whiplash",
-    "category": "movies",
-    "hints": "drum|push|tempo"
-  },
-  {
-    "id": 795,
-    "word": "The Truman Show",
-    "category": "movies",
-    "hints": "watched|fake|escape"
-  },
-  {
-    "id": 796,
-    "word": "Cast Away",
-    "category": "movies",
-    "hints": "island|ball|alone"
-  },
-  {
-    "id": 797,
-    "word": "The Prestige",
-    "category": "movies",
-    "hints": "magic|twin|obsess"
-  },
-  {
-    "id": 798,
-    "word": "2001: A Space Odyssey",
-    "category": "movies",
-    "hints": "HAL|slow|monolith"
-  },
-  {
-    "id": 799,
-    "word": "Blade Runner",
-    "category": "movies",
-    "hints": "rain|neon|replicant"
-  },
-  {
-    "id": 800,
-    "word": "ET",
-    "category": "movies",
-    "hints": "bicycle|alien|home"
-  },
-  {
     "id": 801,
     "word": "Star Wars",
     "category": "movies",
     "hints": "force|lightsaber|galaxy"
-  },
-  {
-    "id": 802,
-    "word": "Indiana Jones",
-    "category": "movies",
-    "hints": "whip|hat|ancient"
-  },
-  {
-    "id": 803,
-    "word": "Back to the Future",
-    "category": "movies",
-    "hints": "car|time|88 mph"
-  },
-  {
-    "id": 804,
-    "word": "Jaws",
-    "category": "movies",
-    "hints": "beach|music|shark"
-  },
-  {
-    "id": 805,
-    "word": "Psycho",
-    "category": "movies",
-    "hints": "shower|motel|mother"
-  },
-  {
-    "id": 806,
-    "word": "Casablanca",
-    "category": "movies",
-    "hints": "fog|classic|piano"
-  },
-  {
-    "id": 807,
-    "word": "Citizen Kane",
-    "category": "movies",
-    "hints": "rosebud|power|classic"
-  },
-  {
-    "id": 808,
-    "word": "Braveheart",
-    "category": "movies",
-    "hints": "freedom|Scotland|paint"
-  },
-  {
-    "id": 809,
-    "word": "Saving Private Ryan",
-    "category": "movies",
-    "hints": "war|beach|find"
-  },
-  {
-    "id": 810,
-    "word": "Apocalypse Now",
-    "category": "movies",
-    "hints": "jungle|river|darkness"
-  },
-  {
-    "id": 811,
-    "word": "Dunkirk",
-    "category": "movies",
-    "hints": "beach|war|escape"
   },
   {
     "id": 812,
@@ -4872,58 +2706,10 @@
     "hints": "no weapon|war|faith"
   },
   {
-    "id": 813,
-    "word": "Inglourious Basterds",
-    "category": "movies",
-    "hints": "alt history|scalp|tavern"
-  },
-  {
-    "id": 814,
-    "word": "Django Unchained",
-    "category": "movies",
-    "hints": "slave|western|revenge"
-  },
-  {
     "id": 815,
     "word": "The Revenant",
     "category": "movies",
     "hints": "bear|survive|cold"
-  },
-  {
-    "id": 816,
-    "word": "Gravity",
-    "category": "movies",
-    "hints": "space|float|debris"
-  },
-  {
-    "id": 817,
-    "word": "Mad Max",
-    "category": "movies",
-    "hints": "desert|chase|fuel"
-  },
-  {
-    "id": 818,
-    "word": "Pan's Labyrinth",
-    "category": "movies",
-    "hints": "fairy|dark|Spain"
-  },
-  {
-    "id": 819,
-    "word": "City of God",
-    "category": "movies",
-    "hints": "favela|Brazil|gangs"
-  },
-  {
-    "id": 820,
-    "word": "Oldboy",
-    "category": "movies",
-    "hints": "revenge|twist|Korean"
-  },
-  {
-    "id": 821,
-    "word": "Seven Samurai",
-    "category": "movies",
-    "hints": "protect|village|Japanese"
   },
   {
     "id": 822,
@@ -4932,112 +2718,16 @@
     "hints": "anime|Tokyo|psychic"
   },
   {
-    "id": 823,
-    "word": "Princess Mononoke",
-    "category": "movies",
-    "hints": "nature|wolf|spirit"
-  },
-  {
-    "id": 824,
-    "word": "Spirited Away",
-    "category": "movies",
-    "hints": "spirit|bath|child"
-  },
-  {
     "id": 825,
     "word": "Your Name",
     "category": "movies",
     "hints": "swap|comet|Japanese"
   },
   {
-    "id": 826,
-    "word": "The Grand Budapest Hotel",
-    "category": "movies",
-    "hints": "pink|lobby|Wes Anderson"
-  },
-  {
-    "id": 827,
-    "word": "Knives Out",
-    "category": "movies",
-    "hints": "detective|mystery|family"
-  },
-  {
-    "id": 828,
-    "word": "Get Out",
-    "category": "movies",
-    "hints": "race|horror|twist"
-  },
-  {
-    "id": 829,
-    "word": "Midsommar",
-    "category": "movies",
-    "hints": "bright|Sweden|horror"
-  },
-  {
-    "id": 830,
-    "word": "Hereditary",
-    "category": "movies",
-    "hints": "family|grief|dark"
-  },
-  {
     "id": 831,
     "word": "A Quiet Place",
     "category": "movies",
     "hints": "silence|monster|family"
-  },
-  {
-    "id": 832,
-    "word": "The Silence of the Lambs",
-    "category": "movies",
-    "hints": "mask|cannibal|dark"
-  },
-  {
-    "id": 833,
-    "word": "Shutter Island",
-    "category": "movies",
-    "hints": "island|twist|mind"
-  },
-  {
-    "id": 834,
-    "word": "Lawrence of Arabia",
-    "category": "movies",
-    "hints": "desert|long|British"
-  },
-  {
-    "id": 835,
-    "word": "Full Metal Jacket",
-    "category": "movies",
-    "hints": "training|Vietnam|split"
-  },
-  {
-    "id": 836,
-    "word": "1917",
-    "category": "movies",
-    "hints": "trench|single shot|mission"
-  },
-  {
-    "id": 837,
-    "word": "Children of Men",
-    "category": "movies",
-    "hints": "no children|hope|escape"
-  },
-  {
-    "id": 838,
-    "word": "Rashomon",
-    "category": "movies",
-    "hints": "perspective|Japanese|gate"
-  },
-  {
-    "id": 839,
-    "word": "A Silent Voice",
-    "category": "movies",
-    "hints": "deaf|bully|redeem"
-  },
-  {
-    "id": 840,
-    "word": "The Sound of Music",
-    "category": "movies",
-    "hints": "mountain|musical|escape"
   },
   {
     "id": 841,
@@ -5166,12 +2856,6 @@
     "hints": "kick|belt|Korean"
   },
   {
-    "id": 862,
-    "word": "Curling",
-    "category": "sports",
-    "hints": "sweep|stone|ice"
-  },
-  {
     "id": 863,
     "word": "Sumo",
     "category": "sports",
@@ -5182,12 +2866,6 @@
     "word": "Skateboarding",
     "category": "sports",
     "hints": "trick|board|ramp"
-  },
-  {
-    "id": 865,
-    "word": "Triathlon",
-    "category": "sports",
-    "hints": "swim|bike|run"
   },
   {
     "id": 866,
@@ -5208,28 +2886,10 @@
     "hints": "blade|spin|cold"
   },
   {
-    "id": 869,
-    "word": "Snowboarding",
-    "category": "sports",
-    "hints": "slope|one board|jump"
-  },
-  {
     "id": 870,
     "word": "Rock Climbing",
     "category": "sports",
     "hints": "grip|vertical|chalk"
-  },
-  {
-    "id": 871,
-    "word": "Kayaking",
-    "category": "sports",
-    "hints": "paddle|enclosed|river"
-  },
-  {
-    "id": 872,
-    "word": "Sailing",
-    "category": "sports",
-    "hints": "wind|mast|sea"
   },
   {
     "id": 873,
@@ -5244,12 +2904,6 @@
     "hints": "pool|throw|goal"
   },
   {
-    "id": 875,
-    "word": "Equestrian",
-    "category": "sports",
-    "hints": "horse|jump|elegant"
-  },
-  {
     "id": 876,
     "word": "Judo",
     "category": "sports",
@@ -5262,64 +2916,16 @@
     "hints": "chop|kata|Japanese"
   },
   {
-    "id": 878,
-    "word": "Jiu-Jitsu",
-    "category": "sports",
-    "hints": "ground|choke|Brazilian"
-  },
-  {
     "id": 879,
     "word": "MMA",
     "category": "sports",
     "hints": "cage|mixed|octagon"
   },
   {
-    "id": 880,
-    "word": "Muay Thai",
-    "category": "sports",
-    "hints": "elbow|Thai|eight limbs"
-  },
-  {
     "id": 881,
     "word": "Table Tennis",
     "category": "sports",
     "hints": "small|fast|spin"
-  },
-  {
-    "id": 882,
-    "word": "Squash",
-    "category": "sports",
-    "hints": "wall|rubber|enclosed"
-  },
-  {
-    "id": 883,
-    "word": "Handball",
-    "category": "sports",
-    "hints": "throw|indoor|goal"
-  },
-  {
-    "id": 884,
-    "word": "Lacrosse",
-    "category": "sports",
-    "hints": "stick|net|field"
-  },
-  {
-    "id": 885,
-    "word": "Field Hockey",
-    "category": "sports",
-    "hints": "stick|grass|flat"
-  },
-  {
-    "id": 886,
-    "word": "Discus",
-    "category": "sports",
-    "hints": "spin|flat|throw"
-  },
-  {
-    "id": 887,
-    "word": "Shot Put",
-    "category": "sports",
-    "hints": "push|heavy|circle"
   },
   {
     "id": 888,
@@ -5352,36 +2958,6 @@
     "hints": "jump|obstacle|track"
   },
   {
-    "id": 893,
-    "word": "Biathlon",
-    "category": "sports",
-    "hints": "ski|shoot|cold"
-  },
-  {
-    "id": 894,
-    "word": "Luge",
-    "category": "sports",
-    "hints": "sled|feet first|ice"
-  },
-  {
-    "id": 895,
-    "word": "Skeleton",
-    "category": "sports",
-    "hints": "head first|sled|ice"
-  },
-  {
-    "id": 896,
-    "word": "Ski Jump",
-    "category": "sports",
-    "hints": "ramp|fly|distance"
-  },
-  {
-    "id": 897,
-    "word": "Bobsled",
-    "category": "sports",
-    "hints": "fast|ice|track"
-  },
-  {
     "id": 898,
     "word": "Parkour",
     "category": "sports",
@@ -5392,12 +2968,6 @@
     "word": "Cheerleading",
     "category": "sports",
     "hints": "cheer|pyramid|flip"
-  },
-  {
-    "id": 900,
-    "word": "Trampoline",
-    "category": "sports",
-    "hints": "bounce|flip|high"
   },
   {
     "id": 901,
@@ -5514,22 +3084,10 @@
     "hints": "number|tax|balance"
   },
   {
-    "id": 920,
-    "word": "Diplomat",
-    "category": "professions",
-    "hints": "negotiate|embassy|foreign"
-  },
-  {
     "id": 921,
     "word": "Archaeologist",
     "category": "professions",
     "hints": "dig|ancient|brush"
-  },
-  {
-    "id": 922,
-    "word": "Sommelier",
-    "category": "professions",
-    "hints": "wine|smell|taste"
   },
   {
     "id": 923,
@@ -5550,12 +3108,6 @@
     "hints": "move|direct|dance"
   },
   {
-    "id": 926,
-    "word": "Zoologist",
-    "category": "professions",
-    "hints": "animal|study|field"
-  },
-  {
     "id": 927,
     "word": "Vet",
     "category": "professions",
@@ -5574,28 +3126,10 @@
     "hints": "exercise|recover|muscle"
   },
   {
-    "id": 930,
-    "word": "Radiologist",
-    "category": "professions",
-    "hints": "scan|image|read"
-  },
-  {
     "id": 931,
     "word": "Cardiologist",
     "category": "professions",
     "hints": "heart|specialist|rhythm"
-  },
-  {
-    "id": 932,
-    "word": "Dermatologist",
-    "category": "professions",
-    "hints": "skin|rash|examine"
-  },
-  {
-    "id": 933,
-    "word": "Midwife",
-    "category": "professions",
-    "hints": "birth|guide|women"
   },
   {
     "id": 934,
@@ -5604,34 +3138,16 @@
     "hints": "fast|emergency|save"
   },
   {
-    "id": 935,
-    "word": "Social Worker",
-    "category": "professions",
-    "hints": "help|support|welfare"
-  },
-  {
     "id": 936,
     "word": "Librarian",
     "category": "professions",
     "hints": "book|quiet|organize"
   },
   {
-    "id": 937,
-    "word": "Historian",
-    "category": "professions",
-    "hints": "past|research|document"
-  },
-  {
     "id": 938,
     "word": "Geologist",
     "category": "professions",
     "hints": "rock|layer|earth"
-  },
-  {
-    "id": 939,
-    "word": "Meteorologist",
-    "category": "professions",
-    "hints": "weather|predict|map"
   },
   {
     "id": 940,
@@ -5694,22 +3210,10 @@
     "hints": "role|stage|pretend"
   },
   {
-    "id": 950,
-    "word": "Screenwriter",
-    "category": "professions",
-    "hints": "script|dialogue|scene"
-  },
-  {
     "id": 951,
     "word": "Photographer",
     "category": "professions",
     "hints": "shoot|light|frame"
-  },
-  {
-    "id": 952,
-    "word": "Sculptor",
-    "category": "professions",
-    "hints": "carve|clay|form"
   },
   {
     "id": 953,
@@ -5740,12 +3244,6 @@
     "word": "Detective",
     "category": "professions",
     "hints": "clue|observe|solve"
-  },
-  {
-    "id": 958,
-    "word": "Forensic Scientist",
-    "category": "professions",
-    "hints": "crime|evidence|lab"
   },
   {
     "id": 959,
@@ -5802,12 +3300,6 @@
     "hints": "forge|iron|hammer"
   },
   {
-    "id": 968,
-    "word": "Glassblower",
-    "category": "professions",
-    "hints": "blow|molten|shape"
-  },
-  {
     "id": 969,
     "word": "Potter",
     "category": "professions",
@@ -5832,12 +3324,6 @@
     "hints": "rise|oven|flour"
   },
   {
-    "id": 973,
-    "word": "Brewer",
-    "category": "professions",
-    "hints": "ferment|barrel|grain"
-  },
-  {
     "id": 974,
     "word": "Fisherman",
     "category": "professions",
@@ -5854,12 +3340,6 @@
     "word": "Miner",
     "category": "professions",
     "hints": "deep|dark|extract"
-  },
-  {
-    "id": 977,
-    "word": "Air Traffic Controller",
-    "category": "professions",
-    "hints": "radar|safe|instruct"
   },
   {
     "id": 978,
@@ -5890,18 +3370,6 @@
     "word": "Security Guard",
     "category": "professions",
     "hints": "watch|uniform|patrol"
-  },
-  {
-    "id": 983,
-    "word": "Coroner",
-    "category": "professions",
-    "hints": "death|cause|examine"
-  },
-  {
-    "id": 984,
-    "word": "Actuary",
-    "category": "professions",
-    "hints": "risk|number|predict"
   },
   {
     "id": 985,
@@ -6090,24 +3558,6 @@
     "hints": "feel|other|share"
   },
   {
-    "id": 1016,
-    "word": "Entropy",
-    "category": "abstract",
-    "hints": "disorder|fade|natural"
-  },
-  {
-    "id": 1017,
-    "word": "Paradox",
-    "category": "abstract",
-    "hints": "both|impossible|twist"
-  },
-  {
-    "id": 1018,
-    "word": "Void",
-    "category": "abstract",
-    "hints": "empty|dark|nothing"
-  },
-  {
     "id": 1019,
     "word": "Identity",
     "category": "abstract",
@@ -6204,46 +3654,10 @@
     "hints": "unknown|clue|dark"
   },
   {
-    "id": 1035,
-    "word": "Serenity",
-    "category": "abstract",
-    "hints": "still|water|breathe"
-  },
-  {
     "id": 1036,
     "word": "Tension",
     "category": "abstract",
     "hints": "tight|hold|snap"
-  },
-  {
-    "id": 1037,
-    "word": "Despair",
-    "category": "abstract",
-    "hints": "bottom|dark|collapse"
-  },
-  {
-    "id": 1038,
-    "word": "Euphoria",
-    "category": "abstract",
-    "hints": "high|overwhelming|light"
-  },
-  {
-    "id": 1039,
-    "word": "Melancholy",
-    "category": "abstract",
-    "hints": "gentle|sad|grey"
-  },
-  {
-    "id": 1040,
-    "word": "Apathy",
-    "category": "abstract",
-    "hints": "nothing|flat|empty"
-  },
-  {
-    "id": 1041,
-    "word": "Obsession",
-    "category": "abstract",
-    "hints": "circle|constant|consume"
   },
   {
     "id": 1042,
@@ -6262,12 +3676,6 @@
     "word": "Consciousness",
     "category": "abstract",
     "hints": "aware|mind|hard question"
-  },
-  {
-    "id": 1045,
-    "word": "Morality",
-    "category": "abstract",
-    "hints": "right|wrong|code"
   },
   {
     "id": 1046,
@@ -6294,12 +3702,6 @@
     "hints": "reason|search|deep"
   },
   {
-    "id": 1050,
-    "word": "Absurdity",
-    "category": "abstract",
-    "hints": "pointless|laugh|Camus"
-  },
-  {
     "id": 1051,
     "word": "Illusion",
     "category": "abstract",
@@ -6318,18 +3720,6 @@
     "hints": "lens|interpret|unique"
   },
   {
-    "id": 1054,
-    "word": "Intuition",
-    "category": "abstract",
-    "hints": "feel|know|instant"
-  },
-  {
-    "id": 1055,
-    "word": "Reason",
-    "category": "abstract",
-    "hints": "logic|think|argue"
-  },
-  {
     "id": 1056,
     "word": "Belief",
     "category": "abstract",
@@ -6342,136 +3732,10 @@
     "hints": "uncertain|pause|question"
   },
   {
-    "id": 1058,
-    "word": "Ambiguity",
-    "category": "abstract",
-    "hints": "unclear|both|grey area"
-  },
-  {
-    "id": 1059,
-    "word": "Complexity",
-    "category": "abstract",
-    "hints": "layers|tangled|deep"
-  },
-  {
-    "id": 1060,
-    "word": "Simplicity",
-    "category": "abstract",
-    "hints": "strip|pure|less"
-  },
-  {
-    "id": 1061,
-    "word": "Balance",
-    "category": "abstract",
-    "hints": "equal|steady|middle"
-  },
-  {
-    "id": 1062,
-    "word": "Harmony",
-    "category": "abstract",
-    "hints": "together|flow|chord"
-  },
-  {
-    "id": 1063,
-    "word": "Discord",
-    "category": "abstract",
-    "hints": "clash|off|noise"
-  },
-  {
-    "id": 1064,
-    "word": "Unity",
-    "category": "abstract",
-    "hints": "together|whole|one"
-  },
-  {
-    "id": 1065,
-    "word": "Revolution",
-    "category": "abstract",
-    "hints": "turn|break|new order"
-  },
-  {
-    "id": 1066,
-    "word": "Evolution",
-    "category": "abstract",
-    "hints": "slow|adapt|natural"
-  },
-  {
-    "id": 1067,
-    "word": "Progress",
-    "category": "abstract",
-    "hints": "forward|build|better"
-  },
-  {
-    "id": 1068,
-    "word": "Decline",
-    "category": "abstract",
-    "hints": "fall|slow|fade"
-  },
-  {
-    "id": 1069,
-    "word": "Rebirth",
-    "category": "abstract",
-    "hints": "phoenix|start|fresh"
-  },
-  {
     "id": 1070,
     "word": "Momentum",
     "category": "abstract",
     "hints": "build|hard to stop|mass"
-  },
-  {
-    "id": 1071,
-    "word": "Duality",
-    "category": "abstract",
-    "hints": "two|opposite|same"
-  },
-  {
-    "id": 1072,
-    "word": "Transcendence",
-    "category": "abstract",
-    "hints": "beyond|above|spiritual"
-  },
-  {
-    "id": 1073,
-    "word": "Vulnerability",
-    "category": "abstract",
-    "hints": "open|exposed|brave"
-  },
-  {
-    "id": 1074,
-    "word": "Resilience",
-    "category": "abstract",
-    "hints": "bounce|tough|recover"
-  },
-  {
-    "id": 1075,
-    "word": "Integrity",
-    "category": "abstract",
-    "hints": "consistent|private|honest"
-  },
-  {
-    "id": 1076,
-    "word": "Curiosity",
-    "category": "abstract",
-    "hints": "pull|question|wander"
-  },
-  {
-    "id": 1077,
-    "word": "Urgency",
-    "category": "abstract",
-    "hints": "now|fast|press"
-  },
-  {
-    "id": 1078,
-    "word": "Subconscious",
-    "category": "abstract",
-    "hints": "below|unseen|drive"
-  },
-  {
-    "id": 1079,
-    "word": "Division",
-    "category": "abstract",
-    "hints": "apart|split|line"
   },
   {
     "id": 1080,
