@@ -15,7 +15,7 @@ export function GameProvider({children}){
     music: true,
     sound: true,
     haptics: true,
-    shakeForNext: true,
+    shakeForNext: false,
 });
 
 return(

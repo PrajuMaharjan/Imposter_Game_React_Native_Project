@@ -15,9 +15,9 @@ return (
       </TouchableOpacity>
       
       {/*Testing Button*/}
-      <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Advanced Settings')}>
+      {/* <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Advanced Settings')}>
         <Text style={styles.buttonText}>Test</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       
       </View>
     </View>
