@@ -66,7 +66,7 @@ export default function RoleRevealScreen({navigation}){
         let lastX=0,lastY=0,lastZ=0;
         const subscription=Accelerometer.addListener(({x,y,z})=>{
             const diff=Math.abs(x-lastX)+Math.abs(y-lastY)+Math.abs(x-lastZ);
-            if (diff>2.5) flipCard();
+            if (diff>5) flipCard();
             lastX=x;lastY=y;lastZ=z;
         });
         Accelerometer.setUpdateInterval(100);
