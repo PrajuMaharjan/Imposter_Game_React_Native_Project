@@ -11,8 +11,10 @@
     "preview": {
       "distribution": "internal",
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "applicationArchivePath": "ImposterGame-v%APP_VERSION%.apk"
       }
+
     },
     "production": {
       "autoIncrement": true,
