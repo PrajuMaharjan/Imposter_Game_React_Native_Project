@@ -1,19 +1,20 @@
 {
   "expo": {
-    "name": "ImposterGame",
+    "name": "Imposter Game",
     "slug": "ImposterGame",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "assetBundlePatterns": [
       "assets/*",
-      "assets/Datasets/*"
+      "assets/Datasets/*",
+      "assets/Images/*"
     ],
     "orientation": "portrait",
     "icon": "./assets/Images/Logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/Images/Logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "ios": {
       "supportsTablet": true
@@ -21,14 +22,11 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./assets/Images/Logo.png",
+        "backgroundImage": "./assets/Images/Logo.png",
+        "monochromeImage": "./assets/Images/Logo.png"
       },
       "package": "com.praju_maharjan.ImposterGame"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-asset"

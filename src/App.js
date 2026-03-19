@@ -1,6 +1,9 @@
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { ImageBackground } from 'react-native';
+import { ImageBackground,View } from 'react-native';
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect,useCallback,useState } from 'react';
+import { Asset } from 'expo-asset';
 
 /* Import Game Context */
 import { GameProvider } from './GameContext';
@@ -27,10 +30,37 @@ import RoleReveal_2 from './QuestionGame/RoleRevealScreen';
 import Voting_2 from './QuestionGame/VotingScreen';
 import Results_2 from './QuestionGame/ResultsScreen';
 
+SplashScreen.preventAutoHideAsync();
+
 const Stack=createNativeStackNavigator();
 
 export default function App() {
+  const [appReady,setAppReady]=useState(false);
+
+  useEffect(()=>{
+    async function prepare(){
+    try{
+      //Loading background image
+      await Asset.loadAsync(require('../assets/Images/HomeImage.png'));
+    }catch(e){
+      console.warn(e);
+    }finally{
+      setAppReady(true);
+    }
+  }
+  prepare();
+},[]);
+
+const onLayoutRootView=useCallback(async()=>{
+  if(appReady){
+    await SplashScreen.hideAsync();
+  }
+},[appReady]);
+
+if(!appReady) return null;
+
 return(
+<View style={{flex:1}} onLayout={onLayoutRootView}>
 <ImageBackground source={require('../assets/Images/HomeImage.png')} style={{flex:1}} resizeMode='cover'>
   <GameProvider>
   <NavigationContainer>
@@ -60,5 +90,6 @@ return(
   </NavigationContainer>
   </GameProvider>
   </ImageBackground>
+  </View>
 );
 }
