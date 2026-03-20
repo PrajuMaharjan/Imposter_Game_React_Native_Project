@@ -2,7 +2,7 @@
   "expo": {
     "name": "Imposter Game",
     "slug": "ImposterGame",
-    "version": "1.0.2",
+    "version": "1.1",
     "assetBundlePatterns": [
       "assets/*",
       "assets/Datasets/*",
