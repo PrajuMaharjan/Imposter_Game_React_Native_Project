@@ -21,7 +21,7 @@ const genres=[
 
 export default function GenreSelect({navigation}){
     const {gameState,setGameState}=useGame();
-    const [selected,setSelected]=useState(genres.map(g=>g.id));
+    const [selected,setSelected]=useState(gameState.genre.length>0 ? gameState.genre:genres.map(g=>g.id));
 
     const toggleGenre=(id)=>{
         setSelected(prev=>prev.includes(id)?prev.filter(g=>g!==id):[...prev,id]);

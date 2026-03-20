@@ -3,10 +3,10 @@ import {useState} from 'react';
 import {useGame} from './GameContext';
 
 export default function GameSettings({navigation}){
-    const [players,setPlayers]=useState(4);
-    const [imposters,setImposters]=useState(1);
-    const [gameMode,setGameMode]=useState('Word');
-    const {setGameState}=useGame();
+    const {gameState,setGameState}=useGame();
+    const [players,setPlayers]=useState(gameState.players);
+    const [imposters,setImposters]=useState(gameState.imposters);
+    const [gameMode,setGameMode]=useState(gameState.gameMode);
 
     const handleStart=()=>{
       setGameState(prev=>({
@@ -29,7 +29,7 @@ export default function GameSettings({navigation}){
         gameMode:gameMode,
       }));
 
-      navigation.navigate("Advanced Settings")
+      navigation.navigate("Advanced Settings");
     }
     return(
 <ImageBackground source={require('../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">

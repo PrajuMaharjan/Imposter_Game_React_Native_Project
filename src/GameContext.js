@@ -26,7 +26,10 @@ useEffect(()=>{
         const saved=await AsyncStorage.getItem("settings");
         if(saved){
             const parsed=JSON.parse(saved);
-            setGameState(prev=>({...prev,...parsed}));
+            setGameState(prev=>({...prev,
+                                 ...parsed,
+                                 genre:Array.isArray(parsed.genre)? parsed.genre:[],
+                                 playerNames:Array.isArray(parsed.playerNames)? parsed.playerNames:[],}));
         }
     }catch(e){
         console.log("Failed to load settings : ",e);
