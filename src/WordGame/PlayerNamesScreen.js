@@ -4,19 +4,16 @@ import {useGame} from '../GameContext';
 
 export default function EnterNames({navigation}){
     const {gameState,setGameState}=useGame();
-    const initialPlayers=Array.from({length:gameState.players},(_,i)=>({
-        id:i+1,
-        name:`Player ${i+1}`,
-    }));
 
-    const [players,setPlayers]=useState(initialPlayers);
+    // Load names from GameContext
+const [players,setPlayers]=useState(gameState.playerNames.length>0 ? gameState.playerNames.map((name,i)=>({id:i+1,name})) : Array.from({length:gameState.players},(_,i)=>({id:i+1,name:`Player ${i+1}`})));
     const [imposters,setImposters]=useState(gameState.imposters);
     const [editingId,setEditingId]=useState(null);
 
     const addPlayer=()=>{
         const newId=players.length>0?Math.max(...players.map(p=>p.id))+1:1;
         setPlayers(prev=>[...prev,{id:newId,name:`Player ${newId}`}]);
-    };
+};
 
     const removePlayer=(id)=>{
         if(players.length<=3){
@@ -85,7 +82,7 @@ export default function EnterNames({navigation}){
         
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
             {players.map((player,index)=>(
-                <TouchableOpacity key={player.id} style={styles.playerBar} onPress={()=>setEditingId(player.id)} activeOpacity={0.5}>
+                <TouchableOpacity key={player.id.toString()} style={styles.playerBar} onPress={()=>setEditingId(player.id)} activeOpacity={0.5}>
                 <View style={styles.playerNumber}>
                     <Text style={styles.playerNumberText}>{index+1}</Text>
                 </View>
