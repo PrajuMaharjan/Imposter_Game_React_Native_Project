@@ -42,7 +42,8 @@ export default function RoleRevealScreen({navigation}){
                 noImposterTriggered,
             };
         });
-        setRoles(assigned);
+        const shuffled=[...assigned].sort(()=>Math.random()-0.5);
+        setRoles(shuffled);
         setLoading(false);
     }
     assignRoles();
