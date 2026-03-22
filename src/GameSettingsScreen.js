@@ -1,5 +1,5 @@
 import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,Switch,ScrollView} from 'react-native';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useGame} from './GameContext';
 
 export default function GameSettings({navigation}){
@@ -8,6 +8,12 @@ export default function GameSettings({navigation}){
     const [imposters,setImposters]=useState(gameState.imposters);
     const [gameMode,setGameMode]=useState(gameState.gameMode);
 
+    useEffect(()=>{
+      if(imposters>players-2){
+        setImposters(players-2);
+      }      
+    },[players]);
+    
     const handleStart=()=>{
       setGameState(prev=>({
         ...prev,

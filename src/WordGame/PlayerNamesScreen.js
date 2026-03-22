@@ -1,15 +1,21 @@
 import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,ScrollView,TextInput,Alert} from 'react-native';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useGame} from '../GameContext';
 
 export default function EnterNames({navigation}){
     const {gameState,setGameState}=useGame();
 
     // Load names from GameContext
-const [players,setPlayers]=useState(gameState.playerNames.length>0 ? gameState.playerNames.map((name,i)=>({id:i+1,name})) : Array.from({length:gameState.players},(_,i)=>({id:i+1,name:`Player ${i+1}`})));
+    const [players,setPlayers]=useState(gameState.playerNames.length>0 ? gameState.playerNames.map((name,i)=>({id:i+1,name})) : Array.from({length:gameState.players},(_,i)=>({id:i+1,name:`Player ${i+1}`})));
     const [imposters,setImposters]=useState(gameState.imposters);
     const [editingId,setEditingId]=useState(null);
 
+    useEffect(()=>{
+        if(imposters>players.length-2){
+            setImposters(players.length-2);
+        }
+    },[players]);
+    
     const addPlayer=()=>{
         const newId=players.length>0?Math.max(...players.map(p=>p.id))+1:1;
         setPlayers(prev=>[...prev,{id:newId,name:`Player ${newId}`}]);
