@@ -19,6 +19,8 @@ export default function RoleRevealScreen({navigation}){
         async function assignRoles() {
             const wordEntry=await getRandomWord(genre);
 
+            const names=playerNames.map(p=>typeof p==="object" ? p.name:p);
+
             // No imposter mode
             const noImposterTriggered=noImposterMode && Math.random()<0.1;
             
@@ -102,7 +104,7 @@ export default function RoleRevealScreen({navigation}){
     
     //Next player/Start Discussion
     const handleNext=()=>{
-        if (currentIndex<playerNames.length-1){
+        if (currentIndex<roles.length-1){
             setCurrentIndex(i=>i+1);
         }else{
             navigation.navigate('Discussion');
@@ -119,9 +121,12 @@ export default function RoleRevealScreen({navigation}){
         </ImageBackground>
     );
     }
+    if(!roles[currentIndex]){
+        return null;
+    }
 
     const currentRole=roles[currentIndex];
-    const isLastPlayer=currentIndex===playerNames.length-1;
+    const isLastPlayer=currentIndex===roles.length-1;
 
     // Back of card
     const renderCardBack=()=>{
