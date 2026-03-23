@@ -1,12 +1,22 @@
 import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,Switch,ScrollView} from 'react-native';
-import {useEffect, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import {useGame} from './GameContext';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function GameSettings({navigation}){
     const {gameState,setGameState}=useGame();
     const [players,setPlayers]=useState(gameState.players);
     const [imposters,setImposters]=useState(gameState.imposters);
     const [gameMode,setGameMode]=useState(gameState.gameMode);
+
+    // Call from GameContext every time the screen is loaded
+    useFocusEffect(
+      useCallback(()=>{
+      setPlayers(gameState.players);
+      setImposters(gameState.imposters);
+      setGameMode(gameState.gameMode);
+      },[gameState.players,gameState.imposters,gameState.gameMode])
+    );
 
     useEffect(()=>{
       if(imposters>players-2){
@@ -22,9 +32,9 @@ export default function GameSettings({navigation}){
         gameMode:gameMode,
       }));
         if(gameMode==='Word'){
-            navigation.navigate('Select Genre');
+            navigation.navigate('Select Genre',{players,imposters});
         }else{   
-            navigation.navigate('Select Genre-2');
+            navigation.navigate('Select Genre-2',{players,imposters});
         }
     }
     const handleSettingsChange=()=>{

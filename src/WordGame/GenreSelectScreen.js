@@ -19,7 +19,7 @@ const genres=[
     {id:'abstract',label:'Abstract',emoji:'☁️'},
 ];
 
-export default function GenreSelect({navigation}){
+export default function GenreSelect({navigation,route}){
     const {gameState,setGameState}=useGame();
     const [selected,setSelected]=useState(gameState.genre.length>0 ? gameState.genre:genres.map(g=>g.id));
 
@@ -33,7 +33,9 @@ export default function GenreSelect({navigation}){
             return;
         }
     setGameState(prev=>({...prev,genre:selected}));
-    navigation.navigate('Names');
+    navigation.navigate('Names',{players:route.params?.players,
+                                 imposters:route.params?.imposters      
+    });
     };
 
     const rows=[];

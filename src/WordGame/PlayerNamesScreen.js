@@ -1,8 +1,9 @@
 import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,ScrollView,TextInput,Alert} from 'react-native';
-import {useEffect, useState} from 'react';
+import {useEffect, useState,useCallback} from 'react';
 import {useGame} from '../GameContext';
+import { useFocusEffect } from '@react-navigation/native';
 
-export default function EnterNames({navigation}){
+export default function EnterNames({navigation,route}){
     const {gameState,setGameState}=useGame();
 
     // Load names from GameContext
@@ -10,9 +11,30 @@ export default function EnterNames({navigation}){
     const [imposters,setImposters]=useState(gameState.imposters);
     const [editingId,setEditingId]=useState(null);
 
+    
+    // Call from GameContext every time the screen is loaded
+    useFocusEffect(
+        useCallback(()=>{
+
+        const playerCount=route.params?.players??gameState.players;
+        const imposterCount=route.params?.imposters??gameState.imposters;
+
+        const savedNames=gameState.playerNames.map(name=>
+            typeof name==='object'? name.name:name
+        );
+        const names=Array.from({length:playerCount},(_,i)=>({
+            id:i+1,
+            name:savedNames[i] ?? `Player ${i+1}`,
+        }));
+        
+        setPlayers(names);
+        setImposters(imposterCount);
+    },[gameState,route.params])
+);
+    
     useEffect(()=>{
-        if(imposters>players.length-2){
-            setImposters(players.length-2);
+        if(players.length>0 && imposters>players.length-2){
+            setImposters(Math.max(1,players.length-2));
         }
     },[players]);
     
