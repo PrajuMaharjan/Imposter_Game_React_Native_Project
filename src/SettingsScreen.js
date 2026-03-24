@@ -1,5 +1,5 @@
-import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,Switch,ScrollView} from 'react-native';
-import {useState} from 'react';
+import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,Switch,ScrollView,Alert,BackHandler} from 'react-native';
+import {useState,useEffect} from 'react';
 import {useGame} from './GameContext';
 
 export default function Settings({navigation}){
@@ -9,8 +9,22 @@ export default function Settings({navigation}){
     const [haptics,setHaptics]=useState(gameState.haptics);
     const [shakeForNext,setShakeForNext]=useState(gameState.shakeForNext);
 
+    /* Original values */
+    const [original]=useState({
+        music:gameState.music,
+        sound:gameState.sound,
+        haptics:gameState.haptics,
+        shakeForNext:gameState.shakeForNext,
+    })
+    // Check for changed settings
+    const hasChanges=
+    music!==original.music ||
+    sound!==original.sound ||
+    haptics!==original.haptics ||
+    shakeForNext!==original.shakeForNext;
 
-    const handleSettingsChange=()=>{
+    // Save settings to GameContext
+    const saveSettings=()=>{
         setGameState(prev=>({
         ...prev,
         music:music,
@@ -18,12 +32,51 @@ export default function Settings({navigation}){
         haptics:haptics,
         shakeForNext:shakeForNext,
         }));
+    }
+
+    // Navigate to Home after saving settings
+    const handleSettingsChange=()=>{
+        saveSettings();    
         navigation.navigate("Home");
     }
+
+    // Alert and decision maker for backPress
+    useEffect(()=>{
+        const backAction=()=>{
+            if(hasChanges){
+                Alert.alert('Unsaved Changes',"You have unsaved changes. What would you like to do?",
+                    [
+                        {text:'Cancel',style:'cancel'},
+                        {text:'Discard',onPress:()=>navigation.goBack(),style:'destructive'},
+                        {text:'Save',onPress:()=>{saveSettings();navigation.goBack();}},
+                    ]
+                );
+                return true;
+            }
+            return false;
+        };
+        const backHandler=BackHandler.addEventListener('hardwareBackPress',backAction)
+        return ()=>backHandler.remove();
+    },[hasChanges,music,sound,haptics,shakeForNext]);
+
+    const handleBackPress=()=>{
+        if(hasChanges){
+            Alert.alert('Unsaved Changes',"You have unsaved changes. What would you like to do?",
+            [
+                {text:'Cancel',style:'cancel'},
+                {text:'Discard',onPress:()=>navigation.goBack(),style:'destructive'},
+                {text:'Save',onPress:()=>{saveSettings();navigation.goBack();}},
+                    ]
+                );}
+                else{
+                    navigation.goBack();
+                }
+    };
+
     return(
         <ImageBackground source={require("../assets/Images/HomeImage.png")} style={styles.background} resizeMode="cover">
             {/*Back button*/}
-                <TouchableOpacity style={styles.backButton} onPress={()=>navigation.goBack()}>
+                <TouchableOpacity style={styles.backButton} onPress={handleBackPress}>
                     <Text style={styles.backArrow}>←</Text>
                 </TouchableOpacity>
 
