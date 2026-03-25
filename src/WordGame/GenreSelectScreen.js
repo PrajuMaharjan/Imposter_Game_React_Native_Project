@@ -1,6 +1,7 @@
 import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,ScrollView,Alert} from 'react-native';
-import {useState} from 'react';
+import {useState,useEffect,useRef,useCallback} from 'react';
 import {useGame} from '../GameContext';
+import { useFocusEffect } from '@react-navigation/native';
 
 const genres=[
     {id:'animals',label:'Animals',emoji:'🐾'},
@@ -22,6 +23,20 @@ const genres=[
 export default function GenreSelect({navigation,route}){
     const {gameState,setGameState}=useGame();
     const [selected,setSelected]=useState(gameState.genre.length>0 ? gameState.genre:genres.map(g=>g.id));
+
+    const selectedRef=useRef(selected);
+    useEffect(()=>{selectedRef.current=selected;},[selected]);
+
+    useFocusEffect(
+      useCallback(()=>{
+        setSelected(
+          Array.isArray(gameState.genre) && gameState.genre.length>0 ? gameState.genre : genres.map(g=>g.id)
+        );
+        return ()=>{
+          setGameState(prev=>({...prev,genre:selectedRef.current}));
+        };
+      },[])
+    );
 
     const toggleGenre=(id)=>{
         setSelected(prev=>prev.includes(id)?prev.filter(g=>g!==id):[...prev,id]);
