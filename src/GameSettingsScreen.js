@@ -1,5 +1,5 @@
 import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,Switch,ScrollView} from 'react-native';
-import {useCallback, useEffect, useState} from 'react';
+import {useCallback, useEffect, useState,useRef} from 'react';
 import {useGame} from './GameContext';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -9,13 +9,30 @@ export default function GameSettings({navigation}){
     const [imposters,setImposters]=useState(gameState.imposters);
     const [gameMode,setGameMode]=useState(gameState.gameMode);
 
+    const playersRef=useRef(players);
+    const impostersRef=useRef(imposters);
+    const gameModeRef=useRef(gameMode);
+
+    useEffect(()=>{playersRef.current=players;},[players]);
+    useEffect(()=>{impostersRef.current=imposters;},[imposters]);
+    useEffect(()=>{gameModeRef.current=gameMode;},[gameMode]);
+
     // Call from GameContext every time the screen is loaded
     useFocusEffect(
       useCallback(()=>{
       setPlayers(gameState.players);
       setImposters(gameState.imposters);
       setGameMode(gameState.gameMode);
-      },[gameState.players,gameState.imposters,gameState.gameMode])
+      
+      return()=>{
+        setGameState(prev=>({
+        ...prev,
+        players:playersRef.current,
+        imposters:impostersRef.current,
+        gameMode:gameModeRef.current,
+      }));
+      }
+      },[])
     );
 
     useEffect(()=>{
