@@ -9,10 +9,12 @@ export default function GameSettings({navigation}){
     const [imposters,setImposters]=useState(gameState.imposters);
     const [gameMode,setGameMode]=useState(gameState.gameMode);
 
+    const gameStateRef=useRef(gameState);
     const playersRef=useRef(players);
     const impostersRef=useRef(imposters);
     const gameModeRef=useRef(gameMode);
 
+    useEffect(()=>{gameStateRef.current=gameState;},[gameState]);
     useEffect(()=>{playersRef.current=players;},[players]);
     useEffect(()=>{impostersRef.current=imposters;},[imposters]);
     useEffect(()=>{gameModeRef.current=gameMode;},[gameMode]);
@@ -20,10 +22,11 @@ export default function GameSettings({navigation}){
     // Call from GameContext every time the screen is loaded
     useFocusEffect(
       useCallback(()=>{
-      setPlayers(gameState.players);
-      setImposters(gameState.imposters);
-      setGameMode(gameState.gameMode);
       
+      setPlayers(gameStateRef.current.players);
+      setImposters(gameStateRef.current.imposters);
+      setGameMode(gameStateRef.current.gameMode);
+
       return()=>{
         setGameState(prev=>({
         ...prev,
