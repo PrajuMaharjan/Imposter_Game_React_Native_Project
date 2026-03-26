@@ -1,5 +1,5 @@
-import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,Switch,ScrollView} from 'react-native';
-import {useState} from 'react';
+import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,Switch,ScrollView,Alert,BackHandler} from 'react-native';
+import {useState,useEffect} from 'react';
 import {useGame} from './GameContext';
 
 export default function AdvancedSettingsScreen({navigation}){
@@ -9,22 +9,72 @@ export default function AdvancedSettingsScreen({navigation}){
     const [noImposterMode,setnoImposterMode]=useState(gameState.noImposterMode);
     const [showGenreToImposter,setshowGenreToImposter]=useState(gameState.showGenreToImposter);
 
+    // Original values
+    const [original]=useState({
+      hintsForImposter:gameState.hintsForImposter,
+      showGenreToImposter:gameState.showGenreToImposter,
+      noImposterMode:gameState.noImposterMode,
+    })
+    
+    //Check for changed settings
+    const hasChanges=
+    hintsForImposter!==original.hintsForImposter ||
+    showGenreToImposter!==original.showGenreToImposter ||
+    noImposterMode!==original.noImposterMode;
 
-    const handleSettingsChange=()=>{
+    // Save Settings to GameContext
+    const saveSettings=()=>{
         setGameState(prev=>({
         ...prev,
-        gameMode:gameMode,
         hintsForImposter:hintsForImposter,
         showGenreToImposter:showGenreToImposter,
         noImposterMode:noImposterMode,
         }));
-        navigation.navigate("GameSettings");
     }
+    // Navigate back to GameSettingsScreen after saving
+    const handleApply=()=>{
+      saveSettings();
+      navigation.navigate("GameSettings");
+    }
+    
+    //Alert and Decision Maker for backPress
+    useEffect(()=>{
+      const backAction=()=>{
+        if(hasChanges){
+          Alert.alert('Unsaved Changes',"You have unsaved changes. What would you like to do?",
+                    [
+                        {text:'Cancel',style:'cancel'},
+                        {text:'Discard',onPress:()=>navigation.goBack(),style:'destructive'},
+                        {text:'Save',onPress:()=>{saveSettings();navigation.goBack();}},
+                    ]
+                  );
+          return true;
+        }
+        return false;
+      };
+      const backHandler=BackHandler.addEventListener('hardwareBackPress',backAction)
+      return ()=>backHandler.remove();
+    },[hasChanges,hintsForImposter,showGenreToImposter,noImposterMode]);
+    
+    const handleBackPress=()=>{
+        if(hasChanges){
+          Alert.alert('Unsaved Changes',"You have unsaved changes. What would you like to do?",
+                    [
+                        {text:'Cancel',style:'cancel'},
+                        {text:'Discard',onPress:()=>navigation.goBack(),style:'destructive'},
+                        {text:'Save',onPress:()=>{saveSettings();navigation.goBack();}},
+                    ]
+                  );}
+                  else{
+                    navigation.goBack();
+                  }
+                };
+
     return(
         <ImageBackground source={require("../assets/Images/HomeImage.png")} style={styles.background} resizeMode="cover">
         
         {/*Back button*/}
-        <TouchableOpacity style={styles.backButton} onPress={()=>navigation.goBack()}>
+        <TouchableOpacity style={styles.backButton} onPress={handleBackPress}>
             <Text style={styles.backArrow}>←</Text> 
         </TouchableOpacity>
         <ScrollView contentContainerStyle={styles.container}>
@@ -62,7 +112,7 @@ export default function AdvancedSettingsScreen({navigation}){
                     )}
                     </View>
                 {/* Apply Changes button*/}
-                    <TouchableOpacity style={styles.applyButton} onPress={handleSettingsChange}>
+                    <TouchableOpacity style={styles.applyButton} onPress={handleApply}>
                       <Text style={styles.applyButtonText}>Apply Changes</Text>
                     </TouchableOpacity>
         </ScrollView>
