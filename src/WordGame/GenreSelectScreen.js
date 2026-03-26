@@ -22,16 +22,13 @@ const genres=[
 
 export default function GenreSelect({navigation,route}){
     const {gameState,setGameState}=useGame();
-    const [selected,setSelected]=useState(gameState.genre.length>0 ? gameState.genre:genres.map(g=>g.id));
+    const [selected,setSelected]=useState(Array.isArray(gameState.genre) && gameState.genre.length>0 ? gameState.genre:genres.map(g=>g.id));
 
     const selectedRef=useRef(selected);
     useEffect(()=>{selectedRef.current=selected;},[selected]);
 
     useFocusEffect(
       useCallback(()=>{
-        setSelected(
-          Array.isArray(gameState.genre) && gameState.genre.length>0 ? gameState.genre : genres.map(g=>g.id)
-        );
         return ()=>{
           setGameState(prev=>({...prev,genre:selectedRef.current}));
         };
@@ -47,6 +44,7 @@ export default function GenreSelect({navigation,route}){
             Alert.alert('No genre selected.','Please select at least one genre to continue');
             return;
         }
+    selectedRef.current=selected;
     setGameState(prev=>({...prev,genre:selected}));
     navigation.navigate('Names',{players:route.params?.players,
                                  imposters:route.params?.imposters      
