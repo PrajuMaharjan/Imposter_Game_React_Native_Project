@@ -1,5 +1,5 @@
 import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,ScrollView,TextInput,Alert} from 'react-native';
-import {useEffect, useState,useCallback} from 'react';
+import {useEffect, useState,useCallback,useRef} from 'react';
 import {useGame} from '../GameContext';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -11,26 +11,40 @@ export default function EnterNames({navigation,route}){
     const [imposters,setImposters]=useState(gameState.imposters);
     const [editingId,setEditingId]=useState(null);
 
+    const gameStateRef=useRef(gameState);
+    const playersRef=useRef(players);
+    const impostersRef=useRef(imposters);
     
-    // Call from GameContext every time the screen is loaded
+    useEffect(()=>{gameStateRef.current=gameState;},[gameState]);
+    useEffect(()=>{playersRef.current=players;},[players]);
+    useEffect(()=>{impostersRef.current=imposters;},[imposters]);
+
     useFocusEffect(
         useCallback(()=>{
-
-        const playerCount=route.params?.players??gameState.players;
-        const imposterCount=route.params?.imposters??gameState.imposters;
-
-        const savedNames=gameState.playerNames.map(name=>
-            typeof name==='object'? name.name:name
-        );
-        const names=Array.from({length:playerCount},(_,i)=>({
-            id:i+1,
-            name:savedNames[i] ?? `Player ${i+1}`,
-        }));
+            const currentGameState=gameStateRef.current;
+            const playerCount=route.params?.players??gameState.players;
+            const imposterCount=route.params?.imposters??gameState.imposters;
         
-        setPlayers(names);
-        setImposters(imposterCount);
-    },[gameState,route.params])
-);
+            const savedNames=currentGameState.playerNames.map(name=>
+                typeof name=='object'?name.name:name
+            );
+            const names=Array.from({length:playerCount},(_,i)=>({
+                id:i+1,
+                name:savedNames[i]??`Player ${i+1}`,
+            }));
+            setPlayers(names);
+            setImposters(imposterCount);
+            
+        return()=>{
+            setGameState(prev=>({
+                ...prev,
+                players:playersRef.current.length,
+                imposters:impostersRef.current,
+                playerNames:playersRef.current.map(p=>p.name),
+            }));
+        };
+        },[route.params])
+    );
     
     useEffect(()=>{
         if(players.length>0 && imposters>players.length-2){
