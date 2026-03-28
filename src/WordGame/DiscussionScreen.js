@@ -69,13 +69,13 @@ const styles=StyleSheet.create({
     },
     closeButton:{
         position:'absolute',
-        top:50,
+        top:40,
         right:20,
         zIndex:10,
         padding:8,
     },
     closeText:{
-        fontSize:22,
+        fontSize:40,
         color:'white',
         fontWeight:'bold',
     },

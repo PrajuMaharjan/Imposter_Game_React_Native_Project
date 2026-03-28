@@ -76,7 +76,7 @@ return(
   <Stack.Screen name='Select Genre' component={GenreSelect_1} options={{headerShown:false}} />
   <Stack.Screen name='Names' component={PlayerEntry_1} options={{headerShown:false}}/>
   <Stack.Screen name='Roles' component={RoleReveal_1} options={{headerShown:false}}/>
-  <Stack.Screen name='Vote' component={Voting_1} />
+  <Stack.Screen name='Vote' component={Voting_1} options={{headerShown:false}}/>
   <Stack.Screen name='Results' component={Results_1} />
   
   <Stack.Screen name='Discussion-2' component={Discussion_2} />
