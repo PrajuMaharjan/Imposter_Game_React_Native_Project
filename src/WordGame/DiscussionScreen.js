@@ -20,6 +20,12 @@ export default function DiscussionScreen({navigation}){
 
     return(
         <ImageBackground source={require('../../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
+        
+        {/* X button*/}
+        <TouchableOpacity style={styles.closeButton} onPress={()=>navigation.navigate('Home')}>
+            <Text style={styles.closeText}>✕</Text>
+        </TouchableOpacity>
+        
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
         <View style={styles.overlay}>
             <Text style={styles.title}>Discussion Time</Text>
@@ -40,20 +46,16 @@ export default function DiscussionScreen({navigation}){
          {/* Box 3 Vote*/}
          <View style={styles.box}>
             <Text style={styles.boxTitle}>Vote</Text>
-            <Text style={styles.boxSubText}>Everyone vote for who they think is the imposter.</Text>
-         </View>
-        {/* Box 4 Reveal */}
-         <View style={styles.box}>
-            <Text style={styles.boxTitle}>Reveal the Imposter</Text>
-            <Text style={styles.boxSubText}>The imposter reveals themselves.</Text>
+            <Text style={styles.boxSubText}>Go a few rounds. Move to Vote when ready</Text>
          </View>
 
         {/*Buttons*/}
+        <TouchableOpacity style={styles.voteBtn} onPress={()=>navigation.navigate('Vote')}>
+            <Text style={styles.voterBtnText}>Ready To Vote</Text>
+        </TouchableOpacity>
+        
         <TouchableOpacity style={styles.againBtn} onPress={handleAgain}>
             <Text style={styles.againText}>Play Again</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.quitBtn} onPress={()=>navigation.navigate("Home")}>
-            <Text style={styles.quitText}>Return To Home</Text>
         </TouchableOpacity>
         </View>
         </ScrollView>
@@ -64,6 +66,18 @@ export default function DiscussionScreen({navigation}){
 const styles=StyleSheet.create({
     background:{
         flex:1,
+    },
+    closeButton:{
+        position:'absolute',
+        top:50,
+        right:20,
+        zIndex:10,
+        padding:8,
+    },
+    closeText:{
+        fontSize:22,
+        color:'white',
+        fontWeight:'bold',
     },
     scrollContent:{
         paddingBottom:20,
@@ -107,7 +121,7 @@ const styles=StyleSheet.create({
         color:'rgba(255,255,255,0.75)',
         lineHeight:18,
     },
-    againBtn:{
+    voteBtn:{
         backgroundColor:'rgba(255,255,255,0.3)',
         paddingVertical:16,
         borderRadius:12,
@@ -117,13 +131,13 @@ const styles=StyleSheet.create({
         borderWidth:2,
         borderColor:'white',
     },
-    againText:{
+    voterBtnText:{
         color:'white',
         fontSize:18,
         fontWeight:'bold',
         letterSpacing:1,
     },
-    quitBtn:{
+    againBtn:{
         backgroundColor:'rgba(255,255,255,0.3)',
         paddingVertical:16,
         borderRadius:12,
@@ -132,7 +146,7 @@ const styles=StyleSheet.create({
         borderWidth:2,
         borderColor:'white',
     },
-    quitText:{
+    againText:{
         color:'white',
         fontSize:18,
         fontWeight:'bold',
