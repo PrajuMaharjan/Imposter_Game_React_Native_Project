@@ -45,6 +45,15 @@ export default function VotingScreen({navigation}){
                     <Text style={styles.voterName}>{currentVoter}</Text>
                     <Text style={styles.voterCounter}>{currentVoterIndex+1} of {playerNames.length}</Text>
                 </View>
+                
+                {/* Voting Options */}
+                <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
+                    {playerNames.filter(name=>name!==currentVoter).map(name=>(
+                        <TouchableOpacity key={name} style={styles.voteOption} onPress={()=>handleVote(name)}>
+                            <Text style={styles.voteOptionText}>{name}</Text>
+                        </TouchableOpacity>
+                    ))}
+                </ScrollView>
 
             </View>
         </ImageBackground>
@@ -113,5 +122,21 @@ const styles=StyleSheet.create({
         fontSize:12,
         color:'rgba(255,255,0.5)',
     },
-
+    scrollContent:{
+        paddingBottom:20,
+    },
+    voteOption:{
+        backgroundColor:'rgba(255,255,255,0.15)',
+        borderRadius:12,
+        padding:18,
+        marginBottom:10,
+        alignItems:'center',
+        borderWidth:1,
+        borderColor:'rgba(255,255,255,0.2)',
+    },
+    voteOptionText:{
+        color:'white',
+        fontSize:18,
+        fontWeight:'bold',  
+    }
 });
