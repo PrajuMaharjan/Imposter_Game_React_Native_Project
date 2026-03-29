@@ -1,11 +1,19 @@
-import {View,Text,StyleSheet,TouchableOpacity,ImageBackground,ScrollView} from 'react-native';
-import { useMemo } from 'react';
+import {View,Text,StyleSheet,TouchableOpacity,ImageBackground,BackHandler,ScrollView} from 'react-native';
+import { useMemo,useCallback } from 'react';
+import {useFocusEffect} from '@react-navigation/native';
 import { useGame } from '../GameContext';
 
 export default function DiscussionScreen({navigation}){
     const {gameState}=useGame();
     const {playerNames}=gameState;
-
+    
+    // Disable go back from harwarebackbuttonpress
+    useFocusEffect(
+        useCallback(()=>{
+        const backhandler=BackHandler.addEventListener('hardwareBackPress',()=>true);
+        return ()=>backhandler.remove();
+    },[]));
+    
     const startingPlayer=useMemo(()=>{
         const names=playerNames.map(n=>typeof n==='object'?n.name:n);
         return names[Math.floor(Math.random()*names.length)];

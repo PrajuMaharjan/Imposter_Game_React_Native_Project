@@ -1,12 +1,20 @@
-import {View,Text,StyleSheet,TouchableOpacity,ImageBackground,ScrollView} from 'react-native';
-import { useState } from 'react';
+import {View,Text,StyleSheet,TouchableOpacity,ImageBackground,BackHandler,ScrollView} from 'react-native';
+import { useState,useCallback} from 'react';
 import {useGame} from '../GameContext';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function VotingScreen({navigation}){
     const {gameState}=useGame();
     const playerNames=gameState.playerNames.map(n=>typeof n==='object'?n.name:n);
 
     const [currentVoterIndex,setCurrentVoterIndex]=useState(0);
+
+    // Disable go back from harwarebackbuttonpress
+    useFocusEffect(
+        useCallback(()=>{
+        const backhandler=BackHandler.addEventListener('hardwareBackPress',()=>true);
+        return ()=>backhandler.remove();
+    },[]));
 
     // Storing votes as { playerName : voteCount }
     const [votes,setVotes]=useState(Object.fromEntries(playerNames.map(name=>[name,0])));

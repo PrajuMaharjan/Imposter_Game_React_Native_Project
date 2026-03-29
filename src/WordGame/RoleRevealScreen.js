@@ -1,5 +1,6 @@
-import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,Animated,Image,ActivityIndicator} from 'react-native';
+import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,BackHandler,Animated,Image,ActivityIndicator} from 'react-native';
 import {useState,useEffect,useRef,useCallback} from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { useGame } from '../GameContext';
 import {getRandomWord,getRandomHint,getCategoryLabel} from './GamePlayFunctions';
 import {Accelerometer} from 'expo-sensors';
@@ -75,7 +76,14 @@ export default function RoleRevealScreen({navigation}){
         Accelerometer.setUpdateInterval(100);
         return ()=>subscription.remove();
     }, [isFlipped,shakeForNext,flipCard]);
-
+    
+    // Disable go back from harwarebackbuttonpress
+    useFocusEffect(
+        useCallback(()=>{
+        const backhandler=BackHandler.addEventListener('hardwareBackPress',()=>true);
+        return ()=>backhandler.remove();
+    },[]));
+    
     // Next Player
     useEffect(()=>{
         flipAnimation.setValue(0);
