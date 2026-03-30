@@ -1,9 +1,9 @@
-import {View,Text,Button,StyleSheet} from 'react-native';
+import {View,Text,StyleSheet} from 'react-native';
 
-export default function Results({navigation}){
+export default function ImposterRevealScreen({navigation}){
     return(
         <View style={styles.container}>
-            <Text style={styles.title}>RoleReveal</Text>
+            <Text style={styles.title}>ImposterReveal</Text>
         </View>
     );
 }

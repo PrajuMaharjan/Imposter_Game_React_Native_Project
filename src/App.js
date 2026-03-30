@@ -15,20 +15,22 @@ import GameSettings from './GameSettingsScreen';
 import Advanced_Settings from './AdvancedSettingsScreen';
 
 /* Word Game Screens*/
-import Discussion_1 from './WordGame/DiscussionScreen';
 import GenreSelect_1 from './WordGame/GenreSelectScreen';
 import PlayerEntry_1 from './WordGame/PlayerNamesScreen';
 import RoleReveal_1 from './WordGame/RoleRevealScreen';
+import Discussion_1 from './WordGame/DiscussionScreen';
 import Voting_1 from './WordGame/VotingScreen';
 import Results_1 from './WordGame/ResultsScreen';
+import Imposter_1 from './WordGame/ImposterRevealScreen';
 
 /* Question Game Screens*/
-import Discussion_2 from './QuestionGame/DiscussionScreen';
 import GenreSelect_2 from './QuestionGame/GenreSelectScreen';
 import PlayerEntry_2 from './QuestionGame/PlayerNamesScreen';
 import RoleReveal_2 from './QuestionGame/RoleRevealScreen';
+import Discussion_2 from './QuestionGame/DiscussionScreen';
 import Voting_2 from './QuestionGame/VotingScreen';
 import Results_2 from './QuestionGame/ResultsScreen';
+import Imposter_2 from './QuestionGame/ImposterRevealScreen';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -71,21 +73,22 @@ return(
   <Stack.Screen name='Settings' component={Settings} options={{headerShown:false}}/>
   <Stack.Screen name='Advanced Settings' component={Advanced_Settings} options={{headerShown:false}} />
 
-
-  <Stack.Screen name='Discussion' component={Discussion_1} options={{headerShown:false}}/>
+  
   <Stack.Screen name='Select Genre' component={GenreSelect_1} options={{headerShown:false}} />
-  <Stack.Screen name='Names' component={PlayerEntry_1} options={{headerShown:false}}/>
+  <Stack.Screen name='Names' component={PlayerEntry_1} options={{headerShown:false}}/>  
   <Stack.Screen name='Roles' component={RoleReveal_1} options={{headerShown:false}}/>
+  <Stack.Screen name='Discussion' component={Discussion_1} options={{headerShown:false}}/>
   <Stack.Screen name='Vote' component={Voting_1} options={{headerShown:false}}/>
   <Stack.Screen name='Results' component={Results_1} />
+  <Stack.Screen name="Imposter" component={Imposter_1} />
   
-  <Stack.Screen name='Discussion-2' component={Discussion_2} />
   <Stack.Screen name='Select Genre-2' component={GenreSelect_2} />
   <Stack.Screen name='Names-2' component={PlayerEntry_2} />
   <Stack.Screen name='Roles-2' component={RoleReveal_2} />
+  <Stack.Screen name='Discussion-2' component={Discussion_2} />
   <Stack.Screen name='Vote-2' component={Voting_2} />
   <Stack.Screen name='Results-2' component={Results_2} />
-
+  <Stack.Screen name="Imposter-2" component={Imposter_1} />
   </Stack.Navigator>
   </NavigationContainer>
   </GameProvider>
