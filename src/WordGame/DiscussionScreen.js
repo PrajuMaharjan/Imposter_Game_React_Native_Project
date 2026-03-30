@@ -62,6 +62,10 @@ export default function DiscussionScreen({navigation}){
             <Text style={styles.voterBtnText}>Ready To Vote</Text>
         </TouchableOpacity>
         
+        <TouchableOpacity style={styles.skipToFinaleBtn} onPress={()=>navigation.navigate('Imposter')}>
+            <Text style={styles.skipToFinaleText}>Reveal Imposter</Text>
+        </TouchableOpacity>
+        
         <TouchableOpacity style={styles.againBtn} onPress={handleAgain}>
             <Text style={styles.againText}>Play Again</Text>
         </TouchableOpacity>
@@ -135,11 +139,26 @@ const styles=StyleSheet.create({
         borderRadius:12,
         alignItems:'center',
         marginTop:10,
-        marginBottom:10,
         borderWidth:2,
         borderColor:'white',
     },
     voterBtnText:{
+        color:'white',
+        fontSize:18,
+        fontWeight:'bold',
+        letterSpacing:1,
+    },
+    skipToFinaleBtn:{
+        backgroundColor:'rgba(255,255,255,0.3)',
+        paddingVertical:16,
+        borderRadius:12,
+        alignItems:'center',
+        marginTop:10,
+        marginBottom:10,
+        borderWidth:2,
+        borderColor:'white',
+    },
+    skipToFinaleText:{
         color:'white',
         fontSize:18,
         fontWeight:'bold',
