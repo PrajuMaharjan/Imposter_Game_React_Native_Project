@@ -1,4 +1,4 @@
-import {View,Text,StyleSheet,TouchableOpacity,ImageBackground,BackHandler,ScrollView} from 'react-native';
+import {View,Alert,Text,StyleSheet,TouchableOpacity,ImageBackground,BackHandler,ScrollView} from 'react-native';
 import { useMemo,useCallback } from 'react';
 import {useFocusEffect} from '@react-navigation/native';
 import { useGame } from '../GameContext';
@@ -25,12 +25,21 @@ export default function DiscussionScreen({navigation}){
         routes:[{name:'Roles'}],
     });
 };
+    // Alert for X Press
+    const handleXPress=()=>{
+        Alert.alert("Are you sure you want to quit","",
+            [
+                {text:"Yes",onPress:()=>navigation.navigate("Home")},
+                {text:"No",style:'cancel'}
+            ]
+        );
+    };
 
     return(
         <ImageBackground source={require('../../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
         
         {/* X button*/}
-        <TouchableOpacity style={styles.closeButton} onPress={()=>navigation.navigate('Home')}>
+        <TouchableOpacity style={styles.closeButton} onPress={handleXPress}>
             <Text style={styles.closeText}>✕</Text>
         </TouchableOpacity>
         

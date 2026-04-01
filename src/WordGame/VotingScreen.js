@@ -1,4 +1,4 @@
-import {View,Text,StyleSheet,TouchableOpacity,ImageBackground,BackHandler,ScrollView} from 'react-native';
+import {View,Text,Alert,StyleSheet,TouchableOpacity,ImageBackground,BackHandler,ScrollView} from 'react-native';
 import { useState,useCallback} from 'react';
 import {useGame} from '../GameContext';
 import { useFocusEffect } from '@react-navigation/native';
@@ -36,11 +36,21 @@ export default function VotingScreen({navigation}){
         }
     };
 
+    // Alert for X Press
+    const handleXPress=()=>{
+            Alert.alert('Are you sure you want to quit',"",
+                [
+                    {text:'Yes',onPress:()=>navigation.navigate('Home')},
+                    {text:'No',style:'cancel'}
+                ]
+            );
+        };
+
     return(
         <ImageBackground source={require('../../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
             <View style={styles.overlay}>
                 {/* X buton */}
-                <TouchableOpacity style={styles.closeButton} onPress={()=>navigation.navigate('Home')}>
+                <TouchableOpacity style={styles.closeButton} onPress={handleXPress}>
                     <Text style={styles.closeText}>✕</Text>
                 </TouchableOpacity>
 

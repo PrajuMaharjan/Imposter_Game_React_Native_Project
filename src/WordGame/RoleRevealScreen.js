@@ -1,4 +1,4 @@
-import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,BackHandler,Animated,Image,ActivityIndicator} from 'react-native';
+import {View,Alert,Text,StyleSheet,ImageBackground,TouchableOpacity,BackHandler,Animated,Image,ActivityIndicator} from 'react-native';
 import {useState,useEffect,useRef,useCallback} from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 import { useGame } from '../GameContext';
@@ -135,6 +135,16 @@ export default function RoleRevealScreen({navigation}){
 
     const currentRole=roles[currentIndex];
     const isLastPlayer=currentIndex===roles.length-1;
+    
+    // Alert for X Press
+    const handleXPress=()=>{
+            Alert.alert('Are you sure you want to quit',"",
+                [
+                    {text:'Yes',onPress:()=>navigation.navigate('Home')},
+                    {text:'No',style:'cancel'}
+                ]
+            );
+        };
 
     // Back of card
     const renderCardBack=()=>{
@@ -152,6 +162,7 @@ export default function RoleRevealScreen({navigation}){
                 </View>
             );
         }
+
         return(
             <View style={styles.cardBackContent}>
                 {currentRole.category && (
@@ -169,7 +180,7 @@ export default function RoleRevealScreen({navigation}){
         <ImageBackground source={require('../../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
             <View style={styles.overlay}>
             {/* X button*/}
-            <TouchableOpacity style={styles.closeButton} onPress={()=>navigation.navigate('Home')}>
+            <TouchableOpacity style={styles.closeButton} onPress={handleXPress}>
                 <Text style={styles.closeText}>✕</Text>
             </TouchableOpacity>
             {/*Player's name */}
