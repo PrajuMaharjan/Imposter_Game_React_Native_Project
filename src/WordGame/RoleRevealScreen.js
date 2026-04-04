@@ -6,7 +6,7 @@ import {getRandomWord,getRandomHint,getCategoryLabel} from './GamePlayFunctions'
 import {Accelerometer} from 'expo-sensors';
 
 export default function RoleRevealScreen({navigation}){
-    const {gameState}=useGame();
+    const {gameState,setGameState}=useGame();
     const {playerNames,imposters,genre,hintsForImposter,showGenreToImposter,noImposterMode,shakeForNext}=gameState;
     const [currentIndex,setCurrentIndex]=useState(0);
     const [isFlipped,setIsFlipped]=useState(false);
@@ -34,7 +34,7 @@ export default function RoleRevealScreen({navigation}){
                     playerpool.splice(randomPos,1);                 
             }
         }
-        const assigned=playerNames.map((name,i)=>{
+        const assigned=names.map((name,i)=>{
             const isImposter=imposterIndices.includes(i);
             return{
                 name,
@@ -47,9 +47,14 @@ export default function RoleRevealScreen({navigation}){
         });
         const shuffled=[...assigned].sort(()=>Math.random()-0.5);
         setRoles(shuffled);
+        setGameState(prev=>({
+            ...prev,
+            imposterNames:assigned.filter(p=>p.isImposter).map(p=>p.name),
+    }));
         setLoading(false);
     }
     assignRoles();
+
 }, []);
 
     //Flip Animation

@@ -10,6 +10,7 @@ export function GameProvider({children}){
     gameMode:'Word',
     genre:[],
     playerNames:[],
+    imposterNames:[],
     hintsForImposter:true,
     showGenreToImposter:true,
     noImposterMode:false,
