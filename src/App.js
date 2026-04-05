@@ -79,8 +79,8 @@ return(
   <Stack.Screen name='Roles' component={RoleReveal_1} options={{headerShown:false}}/>
   <Stack.Screen name='Discussion' component={Discussion_1} options={{headerShown:false}}/>
   <Stack.Screen name='Vote' component={Voting_1} options={{headerShown:false}}/>
-  <Stack.Screen name='Results' component={Results_1} />
-  <Stack.Screen name="Imposter" component={Imposter_1} />
+  <Stack.Screen name='Results' component={Results_1} options={{headerShown:false}}/>
+  <Stack.Screen name="Imposter" component={Imposter_1} options={{headerShown:false}}/>
   
   <Stack.Screen name='Select Genre-2' component={GenreSelect_2} />
   <Stack.Screen name='Names-2' component={PlayerEntry_2} />
