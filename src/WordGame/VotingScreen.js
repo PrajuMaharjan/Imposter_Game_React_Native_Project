@@ -4,10 +4,19 @@ import {useGame} from '../GameContext';
 import { useFocusEffect } from '@react-navigation/native';
 
 export default function VotingScreen({navigation}){
-    const {gameState}=useGame();
+    const {gameState}=useGame(); 
     const playerNames=gameState.playerNames.map(n=>typeof n==='object'?n.name:n);
+    const impostersCount=gameState.imposters;
+    const multipleImposters=impostersCount>1;
 
     const [currentVoterIndex,setCurrentVoterIndex]=useState(0);
+    const [votesThisTurn,setVotesThisTurn]=useState(0);
+    
+    // Storing votes as { playerName : voteCount }
+    const [votes,setVotes]=useState(Object.fromEntries(playerNames.map(name=>[name,0])));
+    const currentVoter=playerNames[currentVoterIndex];
+    const isLastVoter=currentVoterIndex===playerNames.length-1;
+    const remainingVotes=impostersCount-votesThisTurn;
 
     // Disable go back from harwarebackbuttonpress
     useFocusEffect(
@@ -16,12 +25,6 @@ export default function VotingScreen({navigation}){
         return ()=>backhandler.remove();
     },[]));
 
-    // Storing votes as { playerName : voteCount }
-    const [votes,setVotes]=useState(Object.fromEntries(playerNames.map(name=>[name,0])));
-
-    const currentVoter=playerNames[currentVoterIndex];
-    const isLastVoter=currentVoterIndex===playerNames.length-1;
-
     // Record the vote,move to next voter and navigate to the ResultsScreen if last voter
     const handleVote=(votedFor)=>{
         const updatedVotes={
@@ -29,10 +32,16 @@ export default function VotingScreen({navigation}){
             [votedFor]:votes[votedFor]+1,
         };
         setVotes(updatedVotes);
-        if(isLastVoter){
-            navigation.navigate('Results',{votes:updatedVotes});
+        const newVotesThisTurn=votesThisTurn+1;
+        if(newVotesThisTurn<impostersCount){
+            setVotesThisTurn(newVotesThisTurn);
         }else{
-            setCurrentVoterIndex(i=>i+1);
+            if(isLastVoter){
+                navigation.navigate('Results',{votes:updatedVotes});
+            }else{
+                setCurrentVoterIndex(i=>i+1);
+                setVotesThisTurn(0);
+            }
         }
     };
 
@@ -55,13 +64,21 @@ export default function VotingScreen({navigation}){
                 </TouchableOpacity>
 
                 <Text style={styles.title}>Vote</Text>
-                <Text style={styles.subtitle}>Who do you think is the imposter?</Text>
+                <Text style={styles.subtitle}>
+                {multipleImposters?`Who are the ${impostersCount} imposters?`
+                :`Who do you think is the imposter?`}</Text>
 
                 {/*Current Voter*/}
                 <View style={styles.voterBox}>
                     <Text style={styles.voterLabel}>Current Voter</Text>
                     <Text style={styles.voterName}>{currentVoter}</Text>
                     <Text style={styles.voterCounter}>{currentVoterIndex+1} of {playerNames.length}</Text>
+                {
+                    multipleImposters && (
+                        <Text style={styles.remainingLabel}>
+                            {remainingVotes} vote{remainingVotes!==1?'s':''} remaining
+                        </Text>
+                    )}
                 </View>
                 
                 {/* Voting Options */}
@@ -138,7 +155,13 @@ const styles=StyleSheet.create({
     },
     voterCounter:{
         fontSize:12,
-        color:'rgba(255,255,0.5)',
+        color:'rgba(255,255,255,0.5)',
+    },
+    remainingLabel:{
+        fontSize:13,
+        color:"rgba(255,220,100,1)",
+        fontWeight:"bold",
+        marginTop:6,
     },
     scrollContent:{
         paddingBottom:20,
