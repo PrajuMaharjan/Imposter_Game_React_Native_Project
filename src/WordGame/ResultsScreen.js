@@ -7,6 +7,7 @@ export default function Results({navigation,route}){
     const {gameState}=useGame();
     const playerNames=gameState.playerNames.map(n=>typeof n==="object"?n.name:n);
     const imposterNames=gameState.imposterNames;
+    const imposterCount=gameState.imposters;
 
     // Pass votes from VotingScreen
     const votes=route.params?.votes ?? Object.fromEntries(playerNames.map(name=>[name,0]));
@@ -20,7 +21,8 @@ export default function Results({navigation,route}){
         return [...players].sort((a,b)=>b.votes-a.votes);
     },[revealed,playerNames,votes]);
 
-    const maxVotes=Math.max(...Object.values(votes));
+    const sortedVoteCounts=[...new Set(Object.values(votes))].sort((a,b)=>b-a);
+    const threshold=sortedVoteCounts[imposterCount-1]??0;
 
     // Disable go back from hardwarebackbuttonpress
     useFocusEffect(
@@ -63,7 +65,7 @@ export default function Results({navigation,route}){
                 <Text style={styles.subtitle}>{revealed?"Sorted by Vote Count":'Tap to reveal the vote count'}</Text>
                 <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
                     {sortedPlayers.map((player)=>{
-                        const isHighest=revealed && player.votes===maxVotes && maxVotes>0;
+                        const isHighest=revealed && player.votes>=threshold && player.votes>0;
                         return(
                             <View key={player.name} style={[styles.playerRow, isHighest && styles.playerRowHighlighted]}>
                                 <Text style={[styles.playerName,isHighest && styles.playerNameHighlighted]}>
