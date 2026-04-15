@@ -9,6 +9,7 @@ export default function Results({navigation,route}){
     const imposterNames=gameState.imposterNames;
     const imposterCount=gameState.imposters;
 
+
     // Pass votes from VotingScreen
     const votes=route.params?.votes ?? Object.fromEntries(playerNames.map(name=>[name,0]));
 
@@ -43,6 +44,12 @@ export default function Results({navigation,route}){
         }
     };
 
+    const topNames=[...playerNames]
+                        .map(name=>({name,votes:votes[name]??0}))
+                        .sort((a,b)=>b.votes-a.votes)
+                        .slice(0,imposterCount)
+                        .map(p=>p.name);
+
     // Alert for X Press
     const handleXPress=()=>{
         Alert.alert("Are you sure you want to quit?","",
@@ -65,7 +72,7 @@ export default function Results({navigation,route}){
                 <Text style={styles.subtitle}>{revealed?"Sorted by Vote Count":'Tap to reveal the vote count'}</Text>
                 <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
                     {sortedPlayers.map((player)=>{
-                        const isHighest=revealed && player.votes>=threshold && player.votes>0;
+                        const isHighest=revealed && topNames.includes(player.name) && player.votes>0;
                         return(
                             <View key={player.name} style={[styles.playerRow, isHighest && styles.playerRowHighlighted]}>
                                 <Text style={[styles.playerName,isHighest && styles.playerNameHighlighted]}>
