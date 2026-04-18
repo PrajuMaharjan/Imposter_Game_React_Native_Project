@@ -1,4 +1,4 @@
-import {View,Text,StyleSheet,TouchableOpacity,ImageBackground,ScrollView,Animated,BackHandler} from 'react-native';
+import {View,Text,StyleSheet,TouchableOpacity,ImageBackground,ScrollView,Animated,BackHandler,Alert} from 'react-native';
 import {useState,useRef, useCallback} from "react";
 import {useGame} from "../GameContext";
 import { useFocusEffect } from '@react-navigation/native';
@@ -91,17 +91,15 @@ export default function ImposterRevealScreen({navigation,route}){
                         <View style={styles.box}>
                             {multipleImposters?(
                                 <>
-                                    <Text style={styles.boxTitle}> Voted as Imposters</Text>
                                     {topVoted.map(name=>(
                                         <Text key={name} style={styles.boxHighlight}>{name}</Text>
                                     ))}
-                                    <Text style={styles.boxSubText}> were voted as the Imposters.</Text>
+                                    <Text style={styles.boxSubText}> WERE VOTED AS THE IMPOSTERS.</Text>
                                 </>
                             ):(
                                 <>
-                                    <Text style={styles.boxTitle}>Voted as Imposter</Text>
                                     <Text style={styles.boxHighlight}>{topVoted[0]}</Text>
-                                    <Text style={styles.boxSubText}> was voted as the Imposter.</Text>
+                                    <Text style={styles.boxSubText}> WAS VOTED AS THE IMPOSTER.</Text>
                                 </>
                             )}
                         </View>
@@ -109,7 +107,7 @@ export default function ImposterRevealScreen({navigation,route}){
                     {/*Card Flip Animation */}
                     <Text style={styles.cardLabel}>
                         {revealed ?
-                         (multipleImposters ? "The Imposters Were ":"The Imposter Was") : "Tap the card to reveal"}
+                         (multipleImposters ? "The Imposters Were ":"The Imposter Was") : "Tap the card to reveal the Imposter(s)"}
                     </Text>
                     
                 <TouchableOpacity activeOpacity={1} onPress={flipCard} style={styles.cardContainer}>
@@ -192,13 +190,6 @@ const styles=StyleSheet.create({
         width:'100%',
         alignItems:'center',
     },
-    boxTitle:{
-        fontSize:13,
-        color:'rgba(255,255,255,0.6)',
-        letterSpacing:2,
-        textTransform:'uppercase',
-        marginBottom:8,
-    },
     boxHighlight:{
         fontSize:24,
         fontWeight:'bold',
@@ -207,8 +198,10 @@ const styles=StyleSheet.create({
     },
     boxSubText:{
         fontSize:13,
-        color:"rgba(255,255,255,0.6)",
-        marginTop:4,
+        color:'white',
+        letterSpacing:2,
+        fontWeight:'bold',
+        marginTop:8,
     },
     cardLabel:{
         fontSize:14,
