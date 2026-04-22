@@ -1,4 +1,4 @@
-import {View,Text,StyleSheet,TouchableOpacity,ImageBackground,ScrollView,Animated,BackHandler,Alert} from 'react-native';
+import {View,Text,Image,StyleSheet,TouchableOpacity,ImageBackground,ScrollView,Animated,BackHandler,Alert} from 'react-native';
 import {useState,useRef, useCallback} from "react";
 import {useGame} from "../GameContext";
 import { useFocusEffect } from '@react-navigation/native';
@@ -117,7 +117,7 @@ export default function ImposterRevealScreen({navigation,route}){
                         styles.cardFront,
                         {transform:[{rotateY:frontRotate}],opacity:frontOpacity}
                     ]}>
-                        <Text style={styles.cardFrontText}>Tap to Reveal</Text>
+                        <Image source={require('../../assets/Images/Reveal_Image.png')} style={styles.logo} resizeMode="cover" />    
                     </Animated.View>
                     
                     {/* Card Back */}
@@ -211,7 +211,7 @@ const styles=StyleSheet.create({
     },
     cardContainer:{
         width:260,
-        height:360,
+        height:380,
         marginBottom:32,
     },
     card:{
@@ -228,17 +228,15 @@ const styles=StyleSheet.create({
         backgroundColor:'#1a1a2e',
         borderWidth:2,
         borderColor:'rgba(255,255,255,0.2',
-    },
-    cardFrontText:{
-        fontSize:18,
-        color:'rgba(255,255,255,0.7)',
-        fontWeight:'bold',
+        padding:0,
+        overflow:'hidden',
     },
     cardBack:{
         backgroundColor:'#3b0a0a',
         borderWidth:2,
         borderColor:'rgba(255,80,80,0.5)',
         alignItems:'center',
+        justifyContent:"center",
         gap:12,
     },
     cardBackLabel:{
@@ -247,6 +245,10 @@ const styles=StyleSheet.create({
         letterSpacing:2,
         textTransform:'uppercase',
         textAlign:'center',
+    },
+    logo:{
+        width:'100%',
+        height:'100%',
     },
     playAgainBtn:{
         backgroundColor:'rgba(255,255,255,0.3)',
