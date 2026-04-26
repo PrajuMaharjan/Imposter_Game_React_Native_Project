@@ -11,7 +11,7 @@ export default function ImposterRevealScreen({navigation,route}){
 
     // Decide which screen you are coming from
     const fromVotingScreen=route.params?.votes!==undefined;
-    const votes=route.params?.votes>>{};
+    const votes=route.params?.votes??{};
     const playerNames=gameState.playerNames.map(n=>typeof n==="object"?n.name:n);
 
     const topVoted=fromVotingScreen ? 
@@ -107,7 +107,7 @@ export default function ImposterRevealScreen({navigation,route}){
                     {/*Card Flip Animation */}
                     <Text style={styles.cardLabel}>
                         {revealed ?
-                         (multipleImposters ? "The Imposters Were ":"The Imposter Was") : "Tap the card to reveal the Imposter(s)"}
+                         "" : (multipleImposters ? "TAP THE CARD TO REVEAL THE IMPOSTERS":"TAP THE CARD TO REVEAL THE IMPOSTER")}
                     </Text>
                     
                 <TouchableOpacity activeOpacity={1} onPress={flipCard} style={styles.cardContainer}>
@@ -128,15 +128,15 @@ export default function ImposterRevealScreen({navigation,route}){
                     ]}>
                         {multipleImposters?(
                             <>
-                                <Text styles={styles.cardBackLabel}>The Imposters Were</Text>
                                 {imposterNames.map(name=>(
                                     <Text key={name} style={styles.cardBackName}>{name}</Text>
-                                ))}
+                                 ))}
+                        <Text style={styles.cardBackLabel}>were the imposters</Text>
                             </>
                         ):(
                             <>
-                                <Text style={styles.cardBackLabel}>The Imposter Was</Text>
                                 <Text style={styles.cardBackName}>{imposterNames[0]}</Text>
+                                <Text style={styles.cardBackLabel}>was the imposter</Text>
                             </>
                         )}
                     </Animated.View>
@@ -204,10 +204,11 @@ const styles=StyleSheet.create({
         marginTop:8,
     },
     cardLabel:{
-        fontSize:14,
-        color:'rgba(255,255,255,0.7)',
+        fontSize:24,
+        color:'white',
         marginBottom:16,
         textAlign:'center',
+        fontWeight:'bold',
     },
     cardContainer:{
         width:260,
@@ -216,7 +217,7 @@ const styles=StyleSheet.create({
     },
     card:{
         width:'100%',
-        heuight:'100%',
+        height:'100%',
         borderRadius:20,
         position:'absolute',
         backfaceVisibility:'hidden',
@@ -227,7 +228,7 @@ const styles=StyleSheet.create({
     cardFront:{
         backgroundColor:'#1a1a2e',
         borderWidth:2,
-        borderColor:'rgba(255,255,255,0.2',
+        borderColor:'rgba(255,255,255,0.2)',
         padding:0,
         overflow:'hidden',
     },
@@ -241,10 +242,16 @@ const styles=StyleSheet.create({
     },
     cardBackLabel:{
         fontSize:14,
-        color:'rgba(255,280,180,0.8)',
+        color:'white',
         letterSpacing:2,
         textTransform:'uppercase',
         textAlign:'center',
+    },
+    cardBackName:{
+        fontSize:30,
+        fontWeight:'bold'   ,
+        color:'white',
+        textAlign:'center', 
     },
     logo:{
         width:'100%',
@@ -267,17 +274,17 @@ const styles=StyleSheet.create({
         letterSpacing:1,
     },
     homeBtn:{
-        backgroundColor:'rgba(255,255,255,0.1)',
+        backgroundColor:'rgba(255,255,255,0.3)',
         paddingVertical:16,
         borderRadius:12,
         alignItems:'center',
         width:'100%',
-        borderWidth:1,
-        borderColor:'rgba(255,255,255,0.4)',
-        marginBottom:80,
+        marginBottom:10,
+        borderWidth:2,
+        borderColor:'white',
     },
     homeText:{
-        color:'rgba(255,255,255,0.7)',
+        color:'white',
         fontSize:18,
         fontWeight:'bold',
         letterSpacing:1,
