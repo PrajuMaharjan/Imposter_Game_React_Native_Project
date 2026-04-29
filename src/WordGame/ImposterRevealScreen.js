@@ -9,6 +9,8 @@ export default function ImposterRevealScreen({navigation,route}){
     const impostersCount=imposterNames.length;
     const multipleImposters=impostersCount>1;
 
+    const noImposterMode=imposterNames.length==0;
+
     // Decide which screen you are coming from
     const fromVotingScreen=route.params?.votes!==undefined;
     const votes=route.params?.votes??{};
@@ -126,7 +128,19 @@ export default function ImposterRevealScreen({navigation,route}){
                         styles.cardBack,
                         {transform:[{rotateY:backRotate}],opacity:backOpacity}
                     ]}>
-                        {multipleImposters?(
+                        {noImposterMode?(
+                            gameState.imposters>1?(
+                            <>
+                                <Text style={styles.cardBackName}>No Imposters</Text>
+                                <Text style={styles.cardBackLabel}>There were no Imposters this round!</Text>
+                            </>
+                            ):(
+                               <>
+                                <Text style={styles.cardBackName}>No Imposter</Text>
+                                <Text style={styles.cardBackLabel}>There was no Imposter this round!</Text>
+                            </> 
+                            )
+                            ):multipleImposters?(
                             <>
                                 {imposterNames.map(name=>(
                                     <Text key={name} style={styles.cardBackName}>{name}</Text>
