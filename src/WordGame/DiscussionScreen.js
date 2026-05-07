@@ -7,7 +7,7 @@ export default function DiscussionScreen({navigation}){
     const {gameState}=useGame();
     const {playerNames}=gameState;
     
-    // Disable go back from harwarebackbuttonpress
+    // Disable go back from hardwarebackbuttonpress
     useFocusEffect(
         useCallback(()=>{
         const backhandler=BackHandler.addEventListener('hardwareBackPress',()=>true);
@@ -29,7 +29,10 @@ export default function DiscussionScreen({navigation}){
     const handleXPress=()=>{
         Alert.alert("Are you sure you want to quit","",
             [
-                {text:"Yes",onPress:()=>navigation.navigate("Home")},
+                {text:'Yes',onPress:()=>navigation.reset({
+                        index:0,
+                        routes:[{name:'Home'}],
+                    })},
                 {text:"No",style:'cancel'}
             ]
         );

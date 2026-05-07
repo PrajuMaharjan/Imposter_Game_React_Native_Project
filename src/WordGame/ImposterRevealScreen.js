@@ -76,7 +76,10 @@ export default function ImposterRevealScreen({navigation,route}){
     const handleQuit=()=>{
         Alert.alert("Are you sure you want to quit","",
             [
-                {text:"Yes",onPress:()=>navigation.navigate("Home")},
+                {text:'Yes',onPress:()=>navigation.reset({
+                        index:0,
+                        routes:[{name:'Home'}],
+                    })},
                 {text:"No",style:'cancel'}
             ]
         );
