@@ -2,7 +2,7 @@ import {View,Alert,Text,StyleSheet,ImageBackground,TouchableOpacity,BackHandler,
 import {useState,useEffect,useRef,useCallback} from 'react';
 import { useFocusEffect } from '@react-navigation/native';
 import { useGame } from '../GameContext';
-import {getRandomWord,getRandomHint,getCategoryLabel} from './GamePlayFunctions';
+import {getRandomWord,getRandomHint,getCategoryLabel} from '../../../constants/GamePlayFunctions_WordGame';
 import {Accelerometer} from 'expo-sensors';
 
 export default function RoleRevealScreen({navigation}){

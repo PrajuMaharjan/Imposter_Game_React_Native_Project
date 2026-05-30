@@ -1,6 +1,6 @@
 import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,Switch,ScrollView} from 'react-native';
 import {useCallback, useEffect, useState,useRef} from 'react';
-import {useGame} from './GameContext';
+import {useGame} from '../../store/GameContext';
 import { useFocusEffect } from '@react-navigation/native';
 
 export default function GameSettings({navigation}){

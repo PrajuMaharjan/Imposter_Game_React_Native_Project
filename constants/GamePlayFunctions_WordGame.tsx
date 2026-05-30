@@ -1,4 +1,4 @@
-import wordData from '../../assets/Datasets/WordData.json';
+import wordData from '../src/assets/Datasets/WordData.json';
 
 let _wordData = null;
 

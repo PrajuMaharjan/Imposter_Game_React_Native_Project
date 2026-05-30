@@ -1,6 +1,6 @@
 import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,Switch,ScrollView,Alert,BackHandler} from 'react-native';
 import {useState,useEffect} from 'react';
-import {useGame} from './GameContext';
+import {useGame} from '../../store/GameContext';
 
 export default function AdvancedSettingsScreen({navigation}){
     const {gameState,setGameState}=useGame();
