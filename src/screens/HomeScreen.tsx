@@ -44,13 +44,6 @@ const styles = StyleSheet.create({
     alignItems:'center',
     padding:20,
   },
-  title:{
-    fontSize:32,
-    fontWeight: 'bold',
-    color: 'white',
-    marginTop:200,
-    letterSpacing: 1,
-},
   buttonContainer:{
     gap:12,
     width:'100%',
@@ -58,18 +51,4 @@ const styles = StyleSheet.create({
     position:'absolute',
     bottom:180,
   },
-  button:{
-    backgroundColor:'blue',
-    paddingVertical:14,
-    paddingHorizontal:20,
-    width:'80%',
-    borderRadius:20,
-    alignItems:'center',
-  },
-  buttonText:{
-  color:'white',
-  fontSize:20,
-  fontWeight:'bold',
-  },
-
 });
