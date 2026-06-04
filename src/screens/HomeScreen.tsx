@@ -1,19 +1,32 @@
-import {View,Text,TouchableOpacity,StyleSheet,ImageBackground} from 'react-native';
+import {View,StyleSheet,ImageBackground} from 'react-native';
+import {NativeStackNavigationProp} from "@react-navigation/native-stack";
+import AppTitle from "../components/AppTitle";
+import MenuButton from "../components/MenuButton";
 
-export default function HomeScreen({navigation}){
+type RootStackParamList={
+  Home:undefined;
+  GameSettings:undefined;
+  Settings:undefined;
+};
+
+type HomeScreenProps={
+  navigation:NativeStackNavigationProp<RootStackParamList,"Home">;
+};
+
+export default function HomeScreen({navigation}:HomeScreenProps){
 return (
   <ImageBackground source={require('../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
     <View style={styles.container}>
-      <Text style={styles.title}>Who's the Imposter?</Text>
+      <AppTitle />
       <View style={styles.buttonContainer}>
-      <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('GameSettings')}>
-        <Text style={styles.buttonText}>PLAY GAME</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Settings')}>
-        <Text style={styles.buttonText}>SETTINGS</Text>
-      </TouchableOpacity>
       
+        <MenuButton label="PLAY GAME"
+                    onPress={()=>navigation.navigate("GameSettings")}
+        />
+        <MenuButton label="SETTINGS"
+                    onPress={()=>navigation.navigate("Settings")}
+        />
+
       </View>
     </View>
     </ImageBackground>
