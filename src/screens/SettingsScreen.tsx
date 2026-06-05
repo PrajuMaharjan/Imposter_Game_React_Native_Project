@@ -1,6 +1,24 @@
-import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,Switch,ScrollView,Alert,BackHandler} from 'react-native';
+import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,ScrollView,Alert,BackHandler} from 'react-native';
 import {useState,useEffect} from 'react';
+import {NativeStackNavigationProp} from "@react-navigation/native-stack";
 import {useGame} from '../../store/GameContext';
+import ToggleRow from "../components/ToggleRow";
+
+type RootStackParamList={
+    Home:undefined;
+    Settings:undefined;
+};
+
+type SettingsScreenProps={
+    navigation:NativeStackNavigationProp<RootStackParamList,"Settings">;
+};
+
+type OriginalSettings={
+    music:boolean;
+    sound:boolean;
+    haptics:boolean;
+    shakeForNext:boolean;
+};
 
 export default function Settings({navigation}){
     const {gameState,setGameState}=useGame();
@@ -10,12 +28,13 @@ export default function Settings({navigation}){
     const [shakeForNext,setShakeForNext]=useState(gameState.shakeForNext);
 
     /* Original values */
-    const [original]=useState({
+    const [original]=useState<OriginalSettings>({
         music:gameState.music,
         sound:gameState.sound,
         haptics:gameState.haptics,
         shakeForNext:gameState.shakeForNext,
     })
+
     // Check for changed settings
     const hasChanges=
     music!==original.music ||
@@ -27,10 +46,10 @@ export default function Settings({navigation}){
     const saveSettings=()=>{
         setGameState(prev=>({
         ...prev,
-        music:music,
-        sound:sound,
-        haptics:haptics,
-        shakeForNext:shakeForNext,
+        music,
+        sound,
+        haptics,
+        shakeForNext,
         }));
     }
 
@@ -85,40 +104,20 @@ export default function Settings({navigation}){
             <View style={styles.box}>
 
                 {/* Music toggle*/}
-                <View style={styles.toggleRow}>
-                    <View style={styles.toggleInfo}>
-                        <Text style={styles.toggleLabel}>Music</Text>
-                    </View>
-                    <Switch value={music} onValueChange={setMusic} trackColor={{false:'rgba(255,255,255,0.2)',true:'#2196F3'}} thumbColor={'white'}/>
-                     </View>
-                    <View style={styles.divider}/>
+                <ToggleRow label="Music" value={music} onValueChange={setMusic} />
+                <View style={styles.divider} />
 
                 {/* Sound toggle*/}
-                <View style={styles.toggleRow}>
-                    <View style={styles.toggleInfo}>
-                        <Text style={styles.toggleLabel}>Sound</Text>
-                    </View>
-                    <Switch value={sound} onValueChange={setSound} trackColor={{false:'rgba(255,255,255,0.2)',true:'#2196F3'}} thumbColor={'white'}/>
-                     </View>
-                    <View style={styles.divider}/>
+                <ToggleRow label="Sound" value={sound} onValueChange={setSound} />
+                <View style={styles.divider} />
 
                 {/* Haptics toggle*/}
-                <View style={styles.toggleRow}>
-                    <View style={styles.toggleInfo}>
-                        <Text style={styles.toggleLabel}>Haptics</Text>
-                    </View>
-                    <Switch value={haptics} onValueChange={setHaptics} trackColor={{false:'rgba(255,255,255,0.2)',true:'#2196F3'}} thumbColor={'white'}/>
-                     </View>
-                    <View style={styles.divider}/>
+                <ToggleRow label="haptics" value={haptics} onValueChange={setHaptics} />
+                <View style={styles.divider} />
 
                 {/* Shake toggle*/}
-                <View style={styles.toggleRow}>
-                    <View style={styles.toggleInfo}>
-                        <Text style={styles.toggleLabel}>Shake to Move to Next Person</Text>
-                    </View>
-                    <Switch value={shakeForNext} onValueChange={setShakeForNext} trackColor={{false:'rgba(255,255,255,0.2)',true:'#2196F3'}} thumbColor={'white'}/>
-                     </View>
-                    <View style={styles.divider}/>
+                <ToggleRow label="Shake to Move to Next Person" value={shakeForNext} onValueChange={setShakeForNext} />
+                <View style={styles.divider} />
 
             </View>
             
@@ -127,7 +126,7 @@ export default function Settings({navigation}){
                     <Text style={styles.applyButtonText}>Apply Changes</Text>
                 </TouchableOpacity>
         </ScrollView>
-        </ImageBackground>
+    </ImageBackground>
     );
 }
 
@@ -164,27 +163,11 @@ const styles=StyleSheet.create({
     padding:14,
     marginBottom:16,
   },
-  toggleInfo:{
-    flex:1,
-    paddingRight:12,
-  },
-  toggleRow:{
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
-    paddingVertical:8,
-  },
-  toggleLabel:{
-    color:'white',
-    fontSize:13,
-    fontWeight:'bold',
-    marginBottom:2,
-  },
   divider:{
     height:1,
     backgroundColor:'rgba(255,255,255,0.15)',
   },
-    applyButton:{
+  applyButton:{
     backgroundColor:'rgba(255,255,255,0.3)',
     paddingVertical:16,
     borderRadius:12,
