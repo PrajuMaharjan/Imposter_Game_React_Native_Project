@@ -1,8 +1,25 @@
-import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,Switch,ScrollView,Alert,BackHandler} from 'react-native';
+import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,ScrollView,Alert,BackHandler} from 'react-native';
 import {useState,useEffect} from 'react';
+import {NativeStackNavigationProp}  from "@react-navigation/native-stack";
 import {useGame} from '../../store/GameContext';
+import ToggleRow from "../components/ToggleRow";
 
-export default function AdvancedSettingsScreen({navigation}){
+type RootStackParamList={
+  GameSettings:undefined;
+  "Advanced Settings":undefined;
+};
+
+type AdvancedSettingsScreenProps={
+  navigation:NativeStackNavigationProp<RootStackParamList,"Advanced Settings">;
+};
+
+type OriginalSettings={
+  hintsForImposter:boolean;
+  showGenreToImposter:boolean;
+  noImposterMode:boolean;
+};
+
+export default function AdvancedSettingsScreen({navigation}:AdvancedSettingsScreenProps){
     const {gameState,setGameState}=useGame();
     const  gameMode=gameState.gameMode;
     const [hintsForImposter,setHintsForImposter]=useState(gameState.hintsForImposter);
@@ -10,11 +27,11 @@ export default function AdvancedSettingsScreen({navigation}){
     const [showGenreToImposter,setshowGenreToImposter]=useState(gameState.showGenreToImposter);
 
     // Original values
-    const [original]=useState({
+    const [original]=useState<OriginalSettings>({
       hintsForImposter:gameState.hintsForImposter,
       showGenreToImposter:gameState.showGenreToImposter,
       noImposterMode:gameState.noImposterMode,
-    })
+    });
     
     //Check for changed settings
     const hasChanges=
@@ -26,11 +43,12 @@ export default function AdvancedSettingsScreen({navigation}){
     const saveSettings=()=>{
         setGameState(prev=>({
         ...prev,
-        hintsForImposter:hintsForImposter,
-        showGenreToImposter:showGenreToImposter,
-        noImposterMode:noImposterMode,
+        hintsForImposter,
+        showGenreToImposter,
+        noImposterMode,
         }));
-    }
+    };
+
     // Navigate back to GameSettingsScreen after saving
     const handleApply=()=>{
       saveSettings();
@@ -52,7 +70,8 @@ export default function AdvancedSettingsScreen({navigation}){
         }
         return false;
       };
-      const backHandler=BackHandler.addEventListener('hardwareBackPress',backAction)
+
+  const backHandler=BackHandler.addEventListener('hardwareBackPress',backAction)
       return ()=>backHandler.remove();
     },[hasChanges,hintsForImposter,showGenreToImposter,noImposterMode]);
     
@@ -64,7 +83,8 @@ export default function AdvancedSettingsScreen({navigation}){
                         {text:'Discard',onPress:()=>navigation.goBack(),style:'destructive'},
                         {text:'Save',onPress:()=>{saveSettings();navigation.goBack();}},
                     ]
-                  );}
+                  );
+                }
                   else{
                     navigation.goBack();
                   }
@@ -81,44 +101,30 @@ export default function AdvancedSettingsScreen({navigation}){
             <Text style={styles.heading}>Advanced Game Settings</Text>
                   <View style={styles.advancedBox}>
                     {gameMode==='Word' ? (
-                      <>
+                    <>
                       {/* Toggle hints for imposter*/}
-                      <View style={styles.toggleRow}>
-                        <View style={styles.toggleInfo}>
-                          <Text style={styles.toggleLabel}>Show Hints For Imposter?</Text>
-                        </View>
-                        <Switch value={hintsForImposter} onValueChange={setHintsForImposter} trackColor={{false:'rgba(255,255,255,0.2)',true:'#2196F3'}} thumbColor={'white'}/>
-                        </View>
-                        <View style={styles.divider}/>
+                      <ToggleRow label="Show Hints For Imposter?" value={hintsForImposter} onValueChange={setHintsForImposter} />  
+                      <View style={styles.divider} />
         
                       {/*Toggle to show or hide genre from imposter*/}
-                      <View style={styles.toggleRow}>
-                        <View style={styles.toggleInfo}>
-                          <Text style={styles.toggleLabel}>Show Genre To Imposter?</Text>
-                        </View>
-                        <Switch value={showGenreToImposter} onValueChange={setshowGenreToImposter} trackColor={{false:'rgba(255,255,255,0.2)',true:'#2196F3'}} thumbColor={'white'}/>
-                        </View>
-                        <View style={styles.divider}/>
-                        {/*Toggle for No Imposter Mode*/}
-                        <View style={styles.toggleRow}>
-                        <View style={styles.toggleInfo}>
-                          <Text style={styles.toggleLabel}>No Imposter Mode</Text>
-                        </View>
-                        <Switch value={noImposterMode} onValueChange={setnoImposterMode} trackColor={{false:'rgba(255,255,255,0.2)',true:'#2196F3'}} thumbColor={'white'}/>
-                        </View>
-                        </>
+                      <ToggleRow label="Show Genre To Imposter" value={showGenreToImposter} onValueChange={setshowGenreToImposter} />  
+                      <View style={styles.divider} />
+
+                      {/*Toggle for No Imposter Mode*/}
+                      <ToggleRow label="No Imposter Mode" value={noImposterMode} onValueChange={setnoImposterMode} />  
+                    </>
                     ):(
                       <Text style={styles.emptyAdvanced}>No advanced Settings yet for Questions Game</Text>
                     )}
                     </View>
+
                 {/* Apply Changes button*/}
                     <TouchableOpacity style={styles.applyButton} onPress={handleApply}>
                       <Text style={styles.applyButtonText}>Apply Changes</Text>
                     </TouchableOpacity>
-        </ScrollView>
+           </ScrollView>
         </ImageBackground>
     );
-
 }
 
 const styles=StyleSheet.create({
@@ -175,7 +181,6 @@ const styles=StyleSheet.create({
     backgroundColor:'rgba(255,255,255,0.15)',
   },
   emptyAdvanced:{
-    color:'rgba(255,255,255,0.5)',
     fontSize:13,
     textAlign:'center',
     paddingVertical:8,
