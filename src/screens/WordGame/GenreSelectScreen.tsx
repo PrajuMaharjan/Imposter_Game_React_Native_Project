@@ -1,9 +1,17 @@
 import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,ScrollView,Alert} from 'react-native';
 import {useState,useEffect,useRef,useCallback} from 'react';
-import {useGame} from '../GameContext';
-import { useFocusEffect } from '@react-navigation/native';
+import {NativeStackNavigationProp} from "@react-navigation/native-stack";
+import {useGame} from "../../../store/GameContext"
+import { RouteProp, useFocusEffect } from '@react-navigation/native';
+import GenreBox from '../../components/GenreBox';
 
-const genres=[
+type Genre={
+  id:string;
+  label:string;
+  emoji:string;
+};
+
+const GENRES:Genre[]=[
     {id:'animals',label:'Animals',emoji:'🐾'},
     {id:'fruit',label:'Fruit',emoji:'🍓'},
     {id:'food',label:'Food',emoji:'🍕'},
@@ -20,9 +28,19 @@ const genres=[
     {id:'abstract',label:'Abstract',emoji:'☁️'},
 ];
 
-export default function GenreSelect({navigation,route}){
+type RootStackParamList={
+  'Select Genre' : {players:number;imposters:number};
+  Names:{players:number;imposters:number};
+};
+
+type GenreSelectScreenProps={
+  navigation:NativeStackNavigationProp<RootStackParamList,"Select Genre">;
+  route:RouteProp<RootStackParamList,"Select Genre">;
+};
+
+export default function GenreSelect({navigation,route}:GenreSelectScreenProps){
     const {gameState,setGameState}=useGame();
-    const [selected,setSelected]=useState(Array.isArray(gameState.genre) && gameState.genre.length>0 ? gameState.genre:genres.map(g=>g.id));
+    const [selected,setSelected]=useState<string[]>(Array.isArray(gameState.genre) && gameState.genre.length>0 ? gameState.genre:GENRES.map(g=>g.id));
 
     const selectedRef=useRef(selected);
     useEffect(()=>{selectedRef.current=selected;},[selected]);
@@ -35,7 +53,7 @@ export default function GenreSelect({navigation,route}){
       },[])
     );
 
-    const toggleGenre=(id)=>{
+    const toggleGenre=(id:string)=>{
         setSelected(prev=>prev.includes(id)?prev.filter(g=>g!==id):[...prev,id]);
     };
 
@@ -48,12 +66,12 @@ export default function GenreSelect({navigation,route}){
     setGameState(prev=>({...prev,genre:selected}));
     navigation.navigate('Names',{players:route.params?.players,
                                  imposters:route.params?.imposters      
-    });
+      });
     };
 
-    const rows=[];
-    for(let i=0;i<genres.length;i+=2){
-        rows.push(genres.slice(i,i+2));
+    const rows:Genre[][]=[];
+    for(let i=0;i<GENRES.length;i+=2){
+        rows.push(GENRES.slice(i,i+2));
     }
 
     return(
@@ -70,15 +88,15 @@ export default function GenreSelect({navigation,route}){
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
             {rows.map((row,rowIndex)=>(
                 <View key={rowIndex} style={styles.row}>
-                    {row.map(genre=>{
-                        const isSelected=selected.includes(genre.id);
-                        return(
-                            <TouchableOpacity key={genre.id} style={[styles.box ,isSelected && styles.boxSelected]} onPress={()=>toggleGenre(genre.id)}>
-                                <Text style={styles.emoji}>{genre.emoji}</Text>
-                                <Text style={[styles.boxLabel,isSelected && styles.boxLabelSelected]}>{genre.label}</Text>
-                            </TouchableOpacity>
-                                );
-                        })}
+                    {row.map(genre=>(
+                      <GenreBox key={genre.id}
+                                id={genre.id}
+                                label={genre.label}
+                                emoji={genre.emoji}
+                                isSelected={selected.includes(genre.id)}
+                                onPress={()=>toggleGenre(genre.id)}
+                      />
+                    ))}
                 </View>
             ))}
         </ScrollView>
@@ -129,33 +147,6 @@ const styles = StyleSheet.create({
   },
   scrollContent:{
     paddingBottom:20,
-  },
-  box:{
-    flex:1,
-    backgroundColor:'rgba(255,255,255,0.2)',
-    borderRadius:12,
-    padding:16,
-    alignItems:'center',
-    borderWidth:2,
-    borderColor:'transparent',
-  },
-  boxLabel:{
-    fontSize:11,
-    fontWeight:'bold',
-    color:'white',
-    marginBottom:12,
-    textAlign:'center',
-  },
-  boxLabelSelected:{
-    color:'white',
-  },
-  boxSelected:{
-    backgroundColor:'rgba(255,255,255,0.35)',
-    borderColor:'green',
-  },
-  emoji:{
-    fontSize:30,
-    marginBottom:6,
   },
   startButton:{
     backgroundColor:'rgba(255,255,255,0.3)',
