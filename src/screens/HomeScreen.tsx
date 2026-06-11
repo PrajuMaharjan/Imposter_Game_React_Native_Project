@@ -15,7 +15,7 @@ type HomeScreenProps={
 
 export default function HomeScreen({navigation}:HomeScreenProps){
 return (
-  <ImageBackground source={require('../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
+  <ImageBackground source={require('../../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
     <View style={styles.container}>
       <AppTitle />
       <View style={styles.buttonContainer}>
