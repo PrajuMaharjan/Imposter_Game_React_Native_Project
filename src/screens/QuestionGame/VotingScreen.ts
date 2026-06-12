@@ -1,25 +1,29 @@
-import {View,Text,Button,StyleSheet} from 'react-native';
+import React from "react";
+// We import the components but we cannot use them as XML tags
+import { View, Text } from "react-native";
 
-export default function EnterNames({navigation}){
-    return(
-        <View style={styles.container}>
-            <Text style={styles.title}>Names</Text>
-        </View>
-    );
+export default function DiscussionScreen(): React.JSX.Element {
+  // This replaces: <View style={{ flex: 1 }}><Text>Placeholder</Text></View>
+  return React.createElement(
+    View,
+    {
+      style: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "transparent",
+      },
+    },
+    React.createElement(
+      Text,
+      {
+        style: {
+          fontSize: 14,
+          color: "rgba(0, 0, 0, 0.4)",
+          fontWeight: "500",
+        },
+      },
+      "Discussion Screen Placeholder"
+    )
+  );
 }
-
-const styles=StyleSheet.create({
-    container:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'white',
-    },
-    title:{
-        fontSize:24,
-        fontWeight:'bold',
-        color:'black',
-        justifyContent:'center',
-        alignItems:'center',
-    },
-});
