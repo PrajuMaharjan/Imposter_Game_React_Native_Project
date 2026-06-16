@@ -1,4 +1,4 @@
-import {View,Text,TouchableOpacity,StyleSheet} from "react-native";
+import {View,Text,TouchableOpacity,StyleSheet,ViewStyle} from "react-native";
 
 type CounterBoxProps={
     emoji:string;
@@ -6,11 +6,12 @@ type CounterBoxProps={
     value:number;
     onDecrement:()=>void;
     onIncrement:()=>void;
+    style?:ViewStyle;
 };
 
-export default function CounterBox({emoji, label, value, onDecrement, onIncrement}:CounterBoxProps){
+export default function CounterBox({emoji, label, value, onDecrement, onIncrement,style}:CounterBoxProps){
     return(
-        <View style={styles.box}>
+        <View style={[styles.box,style]}>
             <Text style={styles.emoji}>{emoji}</Text>
             <Text style={styles.boxLabel}>{label}</Text>
             <View style={styles.counter}>
