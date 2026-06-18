@@ -1,9 +1,13 @@
-import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,ScrollView,Alert} from 'react-native';
+import {View,StyleSheet,ImageBackground,Alert,ScrollView} from 'react-native';
 import {useState,useEffect,useRef,useCallback} from 'react';
 import {NativeStackNavigationProp} from "@react-navigation/native-stack";
 import {useGame} from "../../../store/GameContext"
 import { RouteProp, useFocusEffect } from '@react-navigation/native';
 import GenreBox from '../../components/GenreBox';
+import BackButton from "../../components/BackButton";
+import ScreenTitle from "../../components/ScreenTitle";
+import NextButton from "../../components/NextButton";
+
 
 type Genre={
   id:string;
@@ -57,7 +61,7 @@ export default function GenreSelect({navigation,route}:GenreSelectScreenProps){
         setSelected(prev=>prev.includes(id)?prev.filter(g=>g!==id):[...prev,id]);
     };
 
-    const handleNext=()=>{
+    const handleNext=():void=>{
         if(selected.length===0){
             Alert.alert('No genre selected.','Please select at least one genre to continue');
             return;
@@ -78,13 +82,11 @@ export default function GenreSelect({navigation,route}:GenreSelectScreenProps){
 <ImageBackground source={require('../../../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
     
     {/* Back button*/}
-    <TouchableOpacity style={styles.backButton} onPress={()=>navigation.goBack()}>
-        <Text style={styles.backArrow}>←</Text>
-    </TouchableOpacity>
+    <BackButton onPress={()=>navigation.goBack()} />
 
     <View style={styles.container}>
-        <Text style={styles.heading}>Select Genres</Text>
-        
+        <ScreenTitle style={styles.heading} label="Select Genres" />
+
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
             {rows.map((row,rowIndex)=>(
                 <View key={rowIndex} style={styles.row}>
@@ -102,29 +104,20 @@ export default function GenreSelect({navigation,route}:GenreSelectScreenProps){
         </ScrollView>
 
             {/* Start game button*/}
-        <TouchableOpacity style={[styles.startButton,selected.length===0 && styles.startButtonDisabled]} onPress={handleNext}>
-            <Text style={styles.startButtonText}>NEXT</Text>
-        </TouchableOpacity>
+        <NextButton style={styles.startButton}
+                    label="NEXT"
+                    onPress={handleNext}
+                    disabled={selected.length===0}
+        />
+
     </View>
-    </ImageBackground>
+  </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
   background:{
     flex:1,
-  },
-  backButton:{
-    position:'absolute',
-    top:50,
-    left:20,
-    zIndex:10,
-    padding:8,
-  },  
-  backArrow:{
-    fontSize:28,
-    color:'white',
-    fontWeight:'bold',
   },
   container: {
     flex: 1,
@@ -133,11 +126,8 @@ const styles = StyleSheet.create({
   },
   heading:{
     fontSize:28,
-    fontWeight:'bold',
-    color:'white',
     marginBottom:30,
     marginTop:100,
-    textAlign:'center',
   },
 
   row:{
@@ -149,23 +139,7 @@ const styles = StyleSheet.create({
     paddingBottom:20,
   },
   startButton:{
-    backgroundColor:'rgba(255,255,255,0.3)',
-    paddingVertical:16,
     borderRadius:8,
-    alignItems:'center',
-    marginTop:10,
     marginBottom:50,
-    borderWidth:2,
-    borderColor:'white',
-  },
-  startButtonText:{
-    color:'white',
-    fontSize:18,
-    fontWeight:'bold',
-    letterSpacing:1,
-  },
-  startButtonDisabled:{
-    borderColor:'rgba(255,255,255,0.3)',
-    backgroundColor:'rgba(255,255,255,0.1)',
   },
 });

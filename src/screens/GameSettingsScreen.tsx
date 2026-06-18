@@ -5,6 +5,9 @@ import {useGame,GameMode} from '../../store/GameContext';
 import { useFocusEffect } from '@react-navigation/native';
 import CounterBox from "../components/CounterBox";
 import GameModeBox from "../components/GameModeBox";
+import BackButton from "../components/BackButton";
+import ScreenTitle from "../components/ScreenTitle";
+import NextButton from "../components/NextButton";
 
 type RootStackParamList={
   Home:undefined;
@@ -59,7 +62,7 @@ export default function GameSettings({navigation}:GameSettingsScreenProps){
       }      
     },[players]);
     
-    const handleStart=()=>{
+    const handleStart=():void=>{
       setGameState(prev=>({
         ...prev,
         players,
@@ -73,7 +76,7 @@ export default function GameSettings({navigation}:GameSettingsScreenProps){
         }
     }
 
-    const handleSettingsChange=()=>{
+    const handleSettingsChange=():void=>{
     setGameState(prev=>({
         ...prev,
         players,
@@ -84,15 +87,13 @@ export default function GameSettings({navigation}:GameSettingsScreenProps){
       navigation.navigate("Advanced Settings");
     }
     return(
-<ImageBackground source={require('..././assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
+<ImageBackground source={require('../../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
     
     {/* Back button*/}
-    <TouchableOpacity style={styles.backButton} onPress={()=>navigation.navigate('Home')}>
-        <Text style={styles.backArrow}>←</Text>
-    </TouchableOpacity>
+    <BackButton onPress={()=>navigation.navigate("Home")} />
 
     <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.heading}>Game Settings</Text>
+        <ScreenTitle label="Game Settings" style={styles.heading} />
         
       {/* Number of Players and Imposters Section*/}
       <View style={styles.row}>
@@ -139,9 +140,7 @@ export default function GameSettings({navigation}:GameSettingsScreenProps){
         </TouchableOpacity>
 
         {/* Start game button*/}
-        <TouchableOpacity style={styles.startButton} onPress={handleStart}>
-            <Text style={styles.startButtonText}>NEXT</Text>
-        </TouchableOpacity>
+        <NextButton label="NEXT" style={styles.startButton} onPress={handleStart} />
       </ScrollView>
     </ImageBackground>
     );
@@ -151,28 +150,13 @@ const styles = StyleSheet.create({
   background:{
     flex:1,
   },
-  backButton:{
-    position:'absolute',
-    top:50,
-    left:20,
-    zIndex:10,
-    padding:8,
-  },  
-  backArrow:{
-    fontSize:28,
-    color:'white',
-    fontWeight:'bold',
-  },
   container: {
     padding:20,
   },
   heading:{
     fontSize:28,
-    fontWeight:'bold',
-    color:'white',
     marginBottom:30,
     marginTop:50,
-    textAlign:'center',
   },
   row:{
     flexDirection:'row',
@@ -194,19 +178,6 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
   },
   startButton:{
-    backgroundColor:'rgba(255,255,255,0.3)',
-    paddingVertical:16,
-    borderRadius:12,
-    alignItems:'center',
-    marginTop:10,
-    marginBottom:50,
-    borderWidth:2,
-    borderColor:'white',
-  },
-  startButtonText:{
-    color:'white',
-    fontSize:18,
-    fontWeight:'bold',
-    letterSpacing:1,
+    marginBottom:50
   },
 });
