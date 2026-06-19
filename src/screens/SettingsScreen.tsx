@@ -1,8 +1,12 @@
-import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,ScrollView,Alert,BackHandler} from 'react-native';
+import {View,Text,StyleSheet,ImageBackground,ScrollView,BackHandler} from 'react-native';
 import {useState,useEffect} from 'react';
 import {NativeStackNavigationProp} from "@react-navigation/native-stack";
 import {useGame} from '../../store/GameContext';
 import ToggleRow from "../components/ToggleRow";
+import BackButton from "../components/BackButton";
+import ScreenTitle from "../components/ScreenTitle";
+import NextButton from "../components/NextButton";
+import ConfirmModal from "../components/ConfirmModal";
 
 type RootStackParamList={
     Home:undefined;
@@ -20,12 +24,14 @@ type OriginalSettings={
     shakeForNext:boolean;
 };
 
-export default function Settings({navigation}){
+export default function Settings({navigation}:SettingsScreenProps){
     const {gameState,setGameState}=useGame();
     const [music,setMusic]=useState(gameState.music);
     const [sound,setSound]=useState(gameState.sound);
     const [haptics,setHaptics]=useState(gameState.haptics);
     const [shakeForNext,setShakeForNext]=useState(gameState.shakeForNext);
+    const [modalVisible,setModalVisible]=useState(false);
+    const [pendingAction,setPendingAction]=useState<"back" | "goBack" | null>(null);
 
     /* Original values */
     const [original]=useState<OriginalSettings>({
@@ -43,7 +49,7 @@ export default function Settings({navigation}){
     shakeForNext!==original.shakeForNext;
 
     // Save settings to GameContext
-    const saveSettings=()=>{
+    const saveSettings=():void=>{
         setGameState(prev=>({
         ...prev,
         music,
@@ -54,53 +60,50 @@ export default function Settings({navigation}){
     }
 
     // Navigate to Home after saving settings
-    const handleSettingsChange=()=>{
+    const handleSettingsChange=():void=>{
         saveSettings();    
         navigation.navigate("Home");
     }
 
-    // Alert and decision maker for backPress
+    const handleBackPress=():void=>{
+        if(hasChanges){
+            setPendingAction("goBack");
+            setModalVisible(true);
+        }else{
+            navigation.goBack();
+        }
+    };
+
+    const handleModalDiscard=():void=>{
+        setModalVisible(false);
+        navigation.goBack();
+    }
+
+    const handleModalSave=():void=>{
+        setModalVisible(false);
+        saveSettings();
+        navigation.goBack();
+    };
+
     useEffect(()=>{
-        const backAction=()=>{
+        const backHandler=BackHandler.addEventListener("hardwareBackPress",()=>{
             if(hasChanges){
-                Alert.alert('Unsaved Changes',"You have unsaved changes. What would you like to do?",
-                    [
-                        {text:'Cancel',style:'cancel'},
-                        {text:'Discard',onPress:()=>navigation.goBack(),style:'destructive'},
-                        {text:'Save',onPress:()=>{saveSettings();navigation.goBack();}},
-                    ]
-                );
+                setPendingAction("goBack");
+                setModalVisible(true);
                 return true;
             }
             return false;
-        };
-        const backHandler=BackHandler.addEventListener('hardwareBackPress',backAction)
+        });
         return ()=>backHandler.remove();
     },[hasChanges,music,sound,haptics,shakeForNext]);
-
-    const handleBackPress=()=>{
-        if(hasChanges){
-            Alert.alert('Unsaved Changes',"You have unsaved changes. What would you like to do?",
-            [
-                {text:'Cancel',style:'cancel'},
-                {text:'Discard',onPress:()=>navigation.goBack(),style:'destructive'},
-                {text:'Save',onPress:()=>{saveSettings();navigation.goBack();}},
-                    ]
-                );}
-                else{
-                    navigation.goBack();
-                }
-    };
 
     return(
         <ImageBackground source={require("../../assets/Images/HomeImage.png")} style={styles.background} resizeMode="cover">
             {/*Back button*/}
-                <TouchableOpacity style={styles.backButton} onPress={handleBackPress}>
-                    <Text style={styles.backArrow}>←</Text>
-                </TouchableOpacity>
+                <BackButton onPress={handleBackPress} />
 
         <ScrollView contentContainerStyle={styles.container}>
-            <Text style={styles.title}> Settings </Text>
+            <ScreenTitle label="Settings" style={styles.title} />
             <View style={styles.box}>
 
                 {/* Music toggle*/}
@@ -122,10 +125,19 @@ export default function Settings({navigation}){
             </View>
             
             {/* Apply changes button*/}
-                <TouchableOpacity style={styles.applyButton} onPress={handleSettingsChange}>
-                    <Text style={styles.applyButtonText}>Apply Changes</Text>
-                </TouchableOpacity>
+                <NextButton label="Apply Changes" style={styles.applyButton} onPress={handleSettingsChange} />
         </ScrollView>
+
+        <ConfirmModal visible={modalVisible}
+                      title="Unsaved Changes"
+                      body="You have unsaved changes. What would you like to do?"
+                      onDismiss={()=>setModalVisible(false)}
+                      buttons={[
+                        {label:"Save",onPress:handleModalSave,style:"default"},
+                        {label:"Discard",onPress:handleModalDiscard,style:"destructive"},
+                        {label:"Save",onPress:setModalVisible(false),style:"cancel"},                       
+                      ]}
+        />
     </ImageBackground>
     );
 }
@@ -134,25 +146,10 @@ const styles=StyleSheet.create({
     container:{
         padding:20,
     },
-    backButton:{
-        position:'absolute',
-        top:50,
-        left:20,
-        zIndex:10,
-        padding:8,
-    },
-    backArrow:{
-        fontSize:28,
-        color:'white',
-        fontWeight:'bold',
-    },
     title:{
         fontSize:25,
-        fontWeight:'bold',
-        color:'white',
         marginBottom:30,
         marginTop:70,
-        textAlign:'center',
     },
     background:{
         flex:1,
@@ -168,19 +165,6 @@ const styles=StyleSheet.create({
     backgroundColor:'rgba(255,255,255,0.15)',
   },
   applyButton:{
-    backgroundColor:'rgba(255,255,255,0.3)',
-    paddingVertical:16,
-    borderRadius:12,
-    alignItems:'center',
-    marginTop:10,
     marginBottom:50,
-    borderWidth:2,
-    borderColor:'white',
-  },
-  applyButtonText:{
-    color:'white',
-    fontSize:18,
-    fontWeight:'bold',
-    letterSpacing:1,
   },
 });

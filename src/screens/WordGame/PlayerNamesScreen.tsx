@@ -1,4 +1,4 @@
-import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,ScrollView,Alert} from 'react-native';
+import {View,Text,StyleSheet,ImageBackground,ScrollView,Alert} from 'react-native';
 import {useEffect, useState,useCallback,useRef} from 'react';
 import {useGame} from '../../../store/GameContext';
 import { useFocusEffect } from '@react-navigation/native';
@@ -165,9 +165,6 @@ const styles=StyleSheet.create({
     },
     heading:{
         fontSize:24,
-        fontWeight:'bold',
-        color:'white',
-        textAlign:'center',
         marginTop:80,
         marginBottom:50,
     },
@@ -185,14 +182,6 @@ const styles=StyleSheet.create({
     },
     
     startButton:{
-        backgroundColor:'rgba(255,255,255,0.3)',
-        paddingVertical:16,
-        borderRadius:12,
-        alignItems:'center',
-        marginTop:10,
         marginBottom:80,
-        borderWidth:2,
-        borderColor:'white',
     },
-
 });
