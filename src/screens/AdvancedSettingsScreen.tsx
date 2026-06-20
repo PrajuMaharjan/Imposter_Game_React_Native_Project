@@ -27,8 +27,8 @@ export default function AdvancedSettingsScreen({navigation}:AdvancedSettingsScre
     const {gameState,setGameState}=useGame();
     const  gameMode=gameState.gameMode;
     const [hintsForImposter,setHintsForImposter]=useState(gameState.hintsForImposter);
-    const [noImposterMode,setnoImposterMode]=useState(gameState.noImposterMode);
-    const [showGenreToImposter,setshowGenreToImposter]=useState(gameState.showGenreToImposter);
+    const [noImposterMode,setNoImposterMode]=useState(gameState.noImposterMode);
+    const [showGenreToImposter,setShowGenreToImposter]=useState(gameState.showGenreToImposter);
     const [modalVisible,setModalVisible]=useState(false);
 
     // Original values
@@ -106,11 +106,11 @@ export default function AdvancedSettingsScreen({navigation}:AdvancedSettingsScre
                       <View style={styles.divider} />
         
                       {/*Toggle to show or hide genre from imposter*/}
-                      <ToggleRow label="Show Genre To Imposter" value={showGenreToImposter} onValueChange={setshowGenreToImposter} />  
+                      <ToggleRow label="Show Genre To Imposter" value={showGenreToImposter} onValueChange={setShowGenreToImposter} />  
                       <View style={styles.divider} />
 
                       {/*Toggle for No Imposter Mode*/}
-                      <ToggleRow label="No Imposter Mode" value={noImposterMode} onValueChange={setnoImposterMode} />  
+                      <ToggleRow label="No Imposter Mode" value={noImposterMode} onValueChange={setNoImposterMode} />  
                     </>
                     ):(
                       <Text style={styles.emptyAdvanced}>No advanced Settings yet for Questions Game</Text>

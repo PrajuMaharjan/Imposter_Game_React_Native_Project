@@ -31,7 +31,6 @@ export default function Settings({navigation}:SettingsScreenProps){
     const [haptics,setHaptics]=useState(gameState.haptics);
     const [shakeForNext,setShakeForNext]=useState(gameState.shakeForNext);
     const [modalVisible,setModalVisible]=useState(false);
-    const [pendingAction,setPendingAction]=useState<"back" | "goBack" | null>(null);
 
     /* Original values */
     const [original]=useState<OriginalSettings>({
@@ -67,7 +66,6 @@ export default function Settings({navigation}:SettingsScreenProps){
 
     const handleBackPress=():void=>{
         if(hasChanges){
-            setPendingAction("goBack");
             setModalVisible(true);
         }else{
             navigation.goBack();
@@ -88,7 +86,6 @@ export default function Settings({navigation}:SettingsScreenProps){
     useEffect(()=>{
         const backHandler=BackHandler.addEventListener("hardwareBackPress",()=>{
             if(hasChanges){
-                setPendingAction("goBack");
                 setModalVisible(true);
                 return true;
             }
@@ -135,8 +132,8 @@ export default function Settings({navigation}:SettingsScreenProps){
                       buttons={[
                         {label:"Save",onPress:handleModalSave,style:"default"},
                         {label:"Discard",onPress:handleModalDiscard,style:"destructive"},
-                        {label:"Save",onPress:setModalVisible(false),style:"cancel"},                       
-                      ]}
+                        {label:"Cancel",onPress:()=>setModalVisible(false),style:"cancel"},
+                    ]}
         />
     </ImageBackground>
     );
