@@ -1,31 +1,50 @@
-import {View,Alert,Text,StyleSheet,ImageBackground,TouchableOpacity,BackHandler,Animated,Image,ActivityIndicator} from 'react-native';
-import {useState,useEffect,useRef,useCallback} from 'react';
+import {View,Text,StyleSheet,ImageBackground,TouchableOpacity,BackHandler,ActivityIndicator,ViewStyle} from 'react-native';
+import {useState,useEffect,useCallback} from 'react';
 import { useFocusEffect } from '@react-navigation/native';
-import { useGame } from '../GameContext';
+import {NativeStackNavigationProp} from "@react-navigation/native-stack";
+import { useGame } from '../../../store/GameContext';
 import {getRandomWord,getRandomHint,getCategoryLabel} from '../../../constants/GamePlayFunctions_WordGame';
-import {Accelerometer} from 'expo-sensors';
+import RoleCard from "../../components/RoleCard";
+import QuitButton from "../../components/QuitButton";
 
-export default function RoleRevealScreen({navigation}){
+type RootParamList={
+    Roles:undefined;
+    Discussion:undefined;
+    Home:undefined;
+};
+
+type RoleRevealScreenProps={
+    navigation:NativeStackNavigationProp<RootParamList,"Roles">;
+};
+
+type AssignedRole={
+    name:string;
+    isImposter:boolean;
+    word:string;
+    hint:string | null;
+    category:string | null;
+    noImposterTriggered:boolean;
+};
+
+export default function RoleRevealScreen({navigation}:RoleRevealScreenProps){
     const {gameState,setGameState}=useGame();
     const {playerNames,imposters,genre,hintsForImposter,showGenreToImposter,noImposterMode,shakeForNext}=gameState;
-    const [currentIndex,setCurrentIndex]=useState(0);
-    const [isFlipped,setIsFlipped]=useState(false);
-    const [roles,setRoles]=useState(null);
-    const [loading,setLoading]=useState(true);
-
-    const flipAnimation=useRef(new Animated.Value(0)).current;
+    const [currentIndex,setCurrentIndex]=useState<number>(0);
+    const [isFlipped,setIsFlipped]=useState<boolean>(false);
+    const [roles,setRoles]=useState<AssignedRole[] | null>(null);
+    const [loading,setLoading]=useState<boolean>(true);
 
     // Assign roles to all players
     useEffect(()=>{
-        async function assignRoles() {
+        async function assignRoles():Promise<void> {
             const wordEntry=await getRandomWord(genre);
 
-            const names=playerNames.map(p=>typeof p==="object" ? p.name:p);
+            const names=playerNames.map(p=>typeof p==="object" ? (p as {name:string}).name:p);
 
             // No imposter mode
             const noImposterTriggered=noImposterMode && Math.random()<0.1;
             
-            const imposterIndices=[];
+            const imposterIndices:number[]=[];
             if (!noImposterTriggered){
                 const playerpool=[...Array(playerNames.length).keys()];
                 for (let i=0;i<imposters;i++){
@@ -34,7 +53,7 @@ export default function RoleRevealScreen({navigation}){
                     playerpool.splice(randomPos,1);                 
             }
         }
-        const assigned=names.map((name,i)=>{
+        const assigned:AssignedRole[]=names.map((name,i)=>{
             const isImposter=imposterIndices.includes(i);
             return{
                 name,
@@ -56,106 +75,36 @@ export default function RoleRevealScreen({navigation}){
     assignRoles();
 
 }, []);
-
-    //Flip Animation
-    const flipCard=useCallback(()=>{
-        if(isFlipped) return;
-        setIsFlipped(true);
-        Animated.spring(flipAnimation,{
-            toValue:1,
-            friction:8,
-            tension:10,
-            useNativeDriver:true,
-        }).start();
-    },[isFlipped,flipAnimation]);
-
-    // Shake functionality
-    useEffect(()=>{
-        if(!shakeForNext) return;
-        let lastX=0,lastY=0,lastZ=0;
-        const subscription=Accelerometer.addListener(({x,y,z})=>{
-            const diff=Math.abs(x-lastX)+Math.abs(y-lastY)+Math.abs(x-lastZ);
-            if (diff>5) flipCard();
-            lastX=x;lastY=y;lastZ=z;
-        });
-        Accelerometer.setUpdateInterval(100);
-        return ()=>subscription.remove();
-    }, [isFlipped,shakeForNext,flipCard]);
     
     // Disable go back from harwarebackbuttonpress
     useFocusEffect(
         useCallback(()=>{
-        const backhandler=BackHandler.addEventListener('hardwareBackPress',()=>true);
-        return ()=>backhandler.remove();
+            const backhandler=BackHandler.addEventListener('hardwareBackPress',()=>true);
+            return ()=>backhandler.remove();
     },[]));
-    
-    // Next Player
-    useEffect(()=>{
-        flipAnimation.setValue(0);
-        setIsFlipped(false);
-    },[currentIndex]);
-    
-    const frontRotate=flipAnimation.interpolate({
-        inputRange:[0,1],
-        outputRange:['0deg',"180deg"],
-    });
 
-    const backRotate=flipAnimation.interpolate({
-        inputRange:[0,1],
-        outputRange:['180deg',"360deg"],
-    });
-    
-    const frontOpacity=flipAnimation.interpolate({
-        inputRange:[0.5,0.51],
-        outputRange:[1,0],
-    });
-    
-    const backOpacity=flipAnimation.interpolate({
-        inputRange:[0.49,0.5],
-        outputRange:[0,1],
-    });
-    
-    //Next player/Start Discussion
-    const handleNext=()=>{
+
+    const handleFlip=useCallback(():void=>{
+        if(isFlipped) return;
+        setIsFlipped(true);
+    },[isFlipped]);
+
+    // Next player/Start Discussion
+    const handleNext=():void=>{
+        if(!roles) return;
         if (currentIndex<roles.length-1){
             setCurrentIndex(i=>i+1);
+            setIsFlipped(false);
         }else{
             navigation.navigate('Discussion');
         }
     };
 
-    // Loading State
-    if(loading || !roles){
-        return(
-        <ImageBackground source={require('../../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
-            <View style={styles.loadingContainer}>
-                <ActivityIndicator size='large' color='white'/>
-            </View>
-        </ImageBackground>
-    );
-    }
-    if(!roles[currentIndex]){
-        return null;
-    }
-
-    const currentRole=roles[currentIndex];
-    const isLastPlayer=currentIndex===roles.length-1;
-    
-    // Alert for X Press
-    const handleXPress=()=>{
-            Alert.alert('Are you sure you want to quit',"",
-                [
-                    {text:'Yes',onPress:()=>navigation.reset({
-                        index:0,
-                        routes:[{name:'Home'}],
-                    })},
-                    {text:'No',style:'cancel'}
-                ]
-            );
-        };
-
     // Back of card
-    const renderCardBack=()=>{
+    const renderCardBack=():React.ReactNode=>{
+        if(!roles) return null;
+        const currentRole=roles[currentIndex];
+
         if (currentRole.isImposter){
             return(
                 <View style={styles.cardBackContent}>
@@ -170,7 +119,7 @@ export default function RoleRevealScreen({navigation}){
                 </View>
             );
         }
-
+        
         return(
             <View style={styles.cardBackContent}>
                 {currentRole.category && (
@@ -183,14 +132,36 @@ export default function RoleRevealScreen({navigation}){
         );
     };
 
+    const getCardBackStyle=():ViewStyle=>{
+        if(!roles) return {};
+        const currentRole=roles[currentIndex];
+        return currentRole.isImposter && !currentRole.noImposterTriggered ? styles.cardBackImposter : styles.cardBackCrew;
+    };
+
+    // Loading State
+    if(loading || !roles){
+        return(
+        <ImageBackground source={require('../../../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
+            <View style={styles.loadingContainer}>
+                <ActivityIndicator size='large' color='white'/>
+            </View>
+        </ImageBackground>
+    );
+    }
+    if(!roles[currentIndex]){
+        return null;
+    }
+
+    const currentRole=roles[currentIndex];
+    const isLastPlayer=currentIndex===roles.length-1;
+    
     // Main render
     return(
-        <ImageBackground source={require('../../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
+        <ImageBackground source={require('../../../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
             <View style={styles.overlay}>
             {/* X button*/}
-            <TouchableOpacity style={styles.closeButton} onPress={handleXPress}>
-                <Text style={styles.closeText}>✕</Text>
-            </TouchableOpacity>
+            <QuitButton onConfirm={()=>navigation.reset({index:0,routes:[{name:'Home'}]})} />
+                
             {/*Player's name */}
             <Text style={styles.playerName}>{currentRole.name}</Text>
             
@@ -201,17 +172,15 @@ export default function RoleRevealScreen({navigation}){
                 </Text>
             )}
 
-            {/* Card Front*/}
-            <TouchableOpacity activeOpacity={1} onPress={flipCard} style={styles.cardContainer}>
-                {/*Logo of the caard */}
-                <Animated.View style={[styles.card,styles.cardFront,{transform:[{rotateY:frontRotate}],opacity:frontOpacity},]}>
-                    <Image source={require('../../assets/Images/Card_Image.png')} style={styles.logo} resizeMode='cover' />
-                </Animated.View>
-            {/*Card Back */}
-            <Animated.View style={[styles.card,styles.cardBack,currentRole.isImposter && !currentRole.noImposterTriggered ? styles.cardBackImposter : styles.cardBackCrew,{transform:[{rotateY:backRotate}],opacity:backOpacity},]}>
-                {renderCardBack()}
-            </Animated.View>
-            </TouchableOpacity>
+            {/*  Le Card */}
+            <RoleCard key={currentIndex}
+                      isFlipped={isFlipped}
+                      onFlip={handleFlip}
+                      renderBack={renderCardBack}
+                      cardBackStyle={getCardBackStyle()}
+                      shakeForNext={shakeForNext}
+            />
+
             {/* Pass to Next Person / Start Discussion button*/}
             {isFlipped && (
                 <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
@@ -240,18 +209,6 @@ const styles=StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
     },
-    closeButton:{
-        position:'absolute',
-        top:40,
-        right:20,
-        zIndex:10,
-        padding:8,
-    },
-    closeText:{
-        fontSize:40,
-        color:'white',
-        fontWeight:'bold',
-    },
     playerName:{
         fontSize:28,
         fontWeight:'bold',
@@ -266,41 +223,11 @@ const styles=StyleSheet.create({
         marginBottom:30,
         lineHeight:20,
     },
-    cardContainer:{
-        width:260,
-        height:380,
-        marginTop:10,
-    },
-    card:{
-        width:'100%',
-        height:'100%',
-        borderRadius:20,
-        position:"absolute",
-        backfaceVisibility:'hidden',
-        alignItems:'center',
-        justifyContent:'center',
-        padding:24,
-    },
-    cardFront:{
-        backgroundColor:'#1a1a2e',
-        borderWidth:2,
-        borderColor:'rgba(255,255,255,0.2)',
-        padding:0,
-        overflow:'hidden',
-    },
-    cardBack:{
-        borderWidth:2,
-        borderColor:"rgba(255,255,255,0.2)",
-    },
     cardBackCrew:{
         backgroundColor:'#0d3b6e',
     },
     cardBackImposter:{
         backgroundColor:"#1a0a0a",
-    },
-    logo:{
-        width:'100%',
-        height:'100%',
     },
     cardBackContent:{
         alignItems:"center",
