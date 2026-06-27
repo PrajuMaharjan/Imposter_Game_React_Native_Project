@@ -1,19 +1,36 @@
-import {View,Text,Alert,StyleSheet,TouchableOpacity,ImageBackground,BackHandler,ScrollView} from 'react-native';
-import { useState,useCallback} from 'react';
-import {useGame} from '../GameContext';
+import {View,Text,StyleSheet,ImageBackground,BackHandler,ScrollView} from 'react-native';
+import { useState,useCallback,useMemo} from 'react';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import {useGame} from '../../../store/GameContext';
 import { useFocusEffect } from '@react-navigation/native';
+import QuitButton from "../../components/QuitButton";
+import ScreenTitle from "../../components/ScreenTitle";
+import ChoiceBox from "../../components/ChoiceBox";
 
-export default function VotingScreen({navigation}){
+type RootParamList={
+    Roles:undefined;
+    Discussion:undefined;
+    Vote:undefined;
+    Results:{votes:Record<string,number>};
+    Home:undefined;
+};
+
+type VotingScreenProps={
+    navigation:NativeStackNavigationProp<RootParamList,'Vote'>;
+};
+
+export default function VotingScreen({navigation}:VotingScreenProps){
     const {gameState}=useGame(); 
-    const playerNames=gameState.playerNames.map(n=>typeof n==='object'?n.name:n);
     const impostersCount=gameState.imposters;
     const multipleImposters=impostersCount>1;
 
-    const [currentVoterIndex,setCurrentVoterIndex]=useState(0);
-    const [votesThisTurn,setVotesThisTurn]=useState(0);
+    const playerNames=useMemo(()=>gameState.playerNames.map(n=>typeof n==='object'?(n as {name:string}).name:n),[gameState.playerNames]);
+    
+    const [currentVoterIndex,setCurrentVoterIndex]=useState<number>(0);
+    const [votesThisTurn,setVotesThisTurn]=useState<number>(0);
     
     // Storing votes as { playerName : voteCount }
-    const [votes,setVotes]=useState(Object.fromEntries(playerNames.map(name=>[name,0])));
+    const [votes,setVotes]=useState<Record<string,number>>(Object.fromEntries(playerNames.map(name=>[name,0])));
     const currentVoter=playerNames[currentVoterIndex];
     const isLastVoter=currentVoterIndex===playerNames.length-1;
     const remainingVotes=impostersCount-votesThisTurn;
@@ -26,7 +43,7 @@ export default function VotingScreen({navigation}){
     },[]));
 
     // Record the vote,move to next voter and navigate to the ResultsScreen if last voter
-    const handleVote=(votedFor)=>{
+    const handleVote=(votedFor:string):void=>{
         const updatedVotes={
             ...votes,
             [votedFor]:votes[votedFor]+1,
@@ -45,31 +62,19 @@ export default function VotingScreen({navigation}){
         }
     };
 
-    // Alert for X Press
-    const handleXPress=()=>{
-            Alert.alert('Are you sure you want to quit',"",
-                [
-                    {text:'Yes',onPress:()=>navigation.reset({
-                        index:0,
-                        routes:[{name:'Home'}],
-                    })},
-                    {text:'No',style:'cancel'}
-                ]
-            );
-        };
-
     return(
-        <ImageBackground source={require('../../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
+        <ImageBackground source={require('../../../assets/Images/HomeImage.png')} style={styles.background} resizeMode="cover">
             <View style={styles.overlay}>
-                {/* X buton */}
-                <TouchableOpacity style={styles.closeButton} onPress={handleXPress}>
-                    <Text style={styles.closeText}>✕</Text>
-                </TouchableOpacity>
 
-                <Text style={styles.title}>Vote</Text>
+                {/* X button */}
+                <QuitButton onConfirm={()=>navigation.reset({index:0,routes:[{name:"Home"}]})} />
+
+                <ScreenTitle label="Vote" style={styles.title} />
                 <Text style={styles.subtitle}>
-                {multipleImposters?`Who are the ${impostersCount} imposters?`
-                :`Who do you think is the imposter?`}</Text>
+                {multipleImposters
+                                    ?   `Who are the ${impostersCount} imposters?`
+                                    :   `Who do you think is the imposter?`}
+                </Text>
 
                 {/*Current Voter*/}
                 <View style={styles.voterBox}>
@@ -87,9 +92,10 @@ export default function VotingScreen({navigation}){
                 {/* Voting Options */}
                 <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
                     {playerNames.filter(name=>name!==currentVoter).map(name=>(
-                        <TouchableOpacity key={name} style={styles.voteOption} onPress={()=>handleVote(name)}>
-                            <Text style={styles.voteOptionText}>{name}</Text>
-                        </TouchableOpacity>
+                        <ChoiceBox key={name}
+                                   label={name}
+                                   onPress={()=>handleVote(name)}
+                        />
                     ))}
                 </ScrollView>
 
@@ -108,23 +114,8 @@ const styles=StyleSheet.create({
         padding:24,
         paddingTop:60,
     },
-    closeButton:{
-        position:'absolute',
-        top:40,
-        right:20,
-        zIndex:10,
-        padding:8,
-    },
-    closeText:{
-        fontSize:40,
-        color:'white',
-        fontWeight:'bold',
-    },
     title:{
         fontSize:28,
-        fontWeight:'bold',
-        color:'white',
-        textAlign:'center',
         marginTop:60,
         marginBottom:6,
     },
@@ -169,18 +160,4 @@ const styles=StyleSheet.create({
     scrollContent:{
         paddingBottom:20,
     },
-    voteOption:{
-        backgroundColor:'rgba(255,255,255,0.15)',
-        borderRadius:12,
-        padding:18,
-        marginBottom:10,
-        alignItems:'center',
-        borderWidth:1,
-        borderColor:'rgba(255,255,255,0.2)',
-    },
-    voteOptionText:{
-        color:'white',
-        fontSize:18,
-        fontWeight:'bold',  
-    }
 });
