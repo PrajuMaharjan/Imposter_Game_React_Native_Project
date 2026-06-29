@@ -1,23 +1,42 @@
-import {Alert,View,Text,StyleSheet,TouchableOpacity,ImageBackground,ScrollView, BackHandler} from 'react-native';
+import {View,Text,StyleSheet,TouchableOpacity,ImageBackground,ScrollView, BackHandler} from 'react-native';
 import {useState,useMemo, useCallback} from 'react';
-import {useGame} from '../GameContext';
+import {NativeStackNavigationProp} from "@react-navigation/native-stack";
+import {RouteProp} from "@react-navigation/native"
+import {useGame} from '../../../store/GameContext';
 import { useFocusEffect } from '@react-navigation/native';
+import QuitButton from "../../components/QuitButton";
+import ScreenTitle from "../../components/ScreenTitle";
 
-export default function Results({navigation,route}){
+type RootParamList={
+    Results:{votes:Record<string,number>};
+    Imposter:{votes:Record<string,number>;mostVoted:string;imposterNames:string[]};
+    Home:undefined;
+};
+
+type ResultsScreenProps={
+    navigation:NativeStackNavigationProp<RootParamList,"Results">;
+    route:RouteProp<RootParamList,"Results">;
+};
+
+type PlayerEntry={
+    name:string;
+    votes:number;
+};
+
+export default function Results({navigation,route}:ResultsScreenProps){
     const {gameState}=useGame();
-    const playerNames=gameState.playerNames.map(n=>typeof n==="object"?n.name:n);
+    const playerNames=gameState.playerNames.map(n=>typeof n==="object"?(n as {name:string}).name:n);
     const imposterNames=gameState.imposterNames;
     const imposterCount=gameState.imposters;
-
 
     // Pass votes from VotingScreen
     const votes=route.params?.votes ?? Object.fromEntries(playerNames.map(name=>[name,0]));
 
-    const [revealed,setRevealed]=useState(false);
+    const [revealed,setRevealed]=useState<boolean>(false);
 
     // Sorting the players by vote count
-    const sortedPlayers=useMemo(()=>{
-        const players=playerNames.map(name=>({name,votes:votes[name]??0}));
+    const sortedPlayers=useMemo<PlayerEntry[]>(()=>{
+        const players:PlayerEntry[]=playerNames.map(name=>({name,votes:votes[name]??0}));
         if(!revealed) return players;
         return [...players].sort((a,b)=>b.votes-a.votes);
     },[revealed,playerNames,votes]);
@@ -30,9 +49,10 @@ export default function Results({navigation,route}){
         useCallback(()=>{
             const backhandler=BackHandler.addEventListener("hardwareBackPress",()=>true);
             return ()=>backhandler.remove();
-        })
-    )
-    const handleReveal=()=>{
+        },[])
+    );
+
+    const handleReveal=():void=>{
         if(!revealed){
             setRevealed(true);
         }else{
@@ -50,29 +70,18 @@ export default function Results({navigation,route}){
                         .slice(0,imposterCount)
                         .map(p=>p.name);
 
-    // Alert for X Press
-    const handleXPress=()=>{
-        Alert.alert("Are you sure you want to quit?","",
-            [
-                {text:'Yes',onPress:()=>navigation.reset({
-                        index:0,
-                        routes:[{name:'Home'}],
-                    })},
-                {text:'No',style:'cancel'}
-            ]
-        );
-    };
-
     return(
-        <ImageBackground source={require('../../assets/Images/HomeImage.png')} style={styles.background} resizeMode='cover'>
+        <ImageBackground source={require('../../../assets/Images/HomeImage.png')} style={styles.background} resizeMode='cover'>
             <View style={styles.overlay}>
                 {/* X buton */}
-                <TouchableOpacity style={styles.closeButton} onPress={handleXPress}>
-                    <Text style={styles.closeText}>✕</Text>
-                </TouchableOpacity>
+                <QuitButton  onConfirm={()=>navigation.reset({index:0,routes:[{name:"Home"}]})} />
 
-                <Text style={styles.title}>Results of Vote</Text>
-                <Text style={styles.subtitle}>{revealed?"Sorted by Vote Count":'Tap to reveal the vote count'}</Text>
+                <ScreenTitle label="Results of Vote" style={styles.title} />
+                
+                <Text style={styles.subtitle}>
+                    {revealed?"Sorted by Vote Count":'Tap to reveal the vote count'}
+                </Text>
+                
                 <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
                     {sortedPlayers.map((player)=>{
                         const isHighest=revealed && topNames.includes(player.name) && player.votes>0;
@@ -90,12 +99,13 @@ export default function Results({navigation,route}){
                         );
                     })}
                 </ScrollView> 
-            {/* Changing Button */}
-            <TouchableOpacity style={[styles.revealBtn,revealed && styles.imposterBtn]} onPress={handleReveal}>
-                <Text style={styles.revealBtnText}>
-                    {revealed ? "Reveal Imposter" : "Reveal Vote Count"}
-                </Text>
-            </TouchableOpacity>
+
+                {/* Changing Button */}
+                <TouchableOpacity style={[styles.revealBtn,revealed && styles.imposterBtn]} onPress={handleReveal}>
+                    <Text style={styles.revealBtnText}>
+                        {revealed ? "Reveal Imposter" : "Reveal Vote Count"}
+                    </Text>
+                </TouchableOpacity>
             </View>
         </ImageBackground>
     );
@@ -111,23 +121,8 @@ const styles=StyleSheet.create({
         padding:24,
         paddingTop:60,
     },
-    closeButton:{
-        position:'absolute',
-        top:40,
-        right:20,
-        zIndex:10,
-        padding:8,
-    },
-    closeText:{
-        fontSize:40,
-        color:'white',
-        fontWeight:'bold',
-    },
     title:{
         fontSize:28,
-        fontWeight:"bold",
-        color:"white",
-        textAlign:"center",
         marginTop:30,
         marginBottom:6,
     },
