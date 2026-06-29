@@ -10,7 +10,7 @@ export default function InfoBox({title,subText,highlight}:InfoBoxProps){
     return (
         <View style={styles.box}>
             <Text style={styles.boxTitle}>{title}</Text>
-            <Text style={styles.highlight}>{highlight}</Text>
+            {highlight ? <Text style={styles.highlight}>{highlight}</Text> : null}
             <Text style={styles.boxSubText}>{subText}</Text>
          </View>
     )

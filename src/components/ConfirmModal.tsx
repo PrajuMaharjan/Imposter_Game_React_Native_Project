@@ -47,17 +47,17 @@ export default function ConfirmModal({visible,title,body,buttons,onDismiss}:Conf
 
 function buttonContainerStyle(style:ButtonStyle):ViewStyle{
     switch(style){
-        case "destructive" : return{backgroundColor:"rgba(180,30,30,0.85"};
-        case "cancel" : return{backgroundColor:"rgba(255,255,255,0.08"};
-        default : return{backgroundColor:"rgba(255,255,255,0.2"};
+        case "destructive" : return{backgroundColor :"rgba(180,30,30,0.85)"};
+        case "cancel" : return{backgroundColor:"rgba(255,255,255,0.2)"};
+        default : return{backgroundColor:"green"};
     }
 }
 
 function buttonTextStyle(style:ButtonStyle):TextStyle{
     switch(style){
         case "destructive" : return{color:"white"};
-        case "cancel" : return{color:"rgba(255,255,255,0.5"};
-        default : return{color:"whire"};
+        case "cancel" : return{color:"white"};
+        default : return{color:"white"};
     }
 }
 
@@ -85,7 +85,7 @@ const styles=StyleSheet.create({
     },
     body:{
         fontSize:14,
-        color:"rgba(255,255,255,0.7)",
+        color:"white",
         textAlign:"center",
         lineHeight:20,
     },
