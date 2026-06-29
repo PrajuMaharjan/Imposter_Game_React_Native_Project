@@ -11,7 +11,7 @@ export default function ToggleRow({label,value,onValueChange}:ToggleRowProps){
         <View style={styles.toggleRow}>
             <View style={styles.toggleInfo}>
                 <Text style={styles.toggleLabel}>{label}</Text>
-        `   </View>
+            </View>
             
             <Switch value={value} onValueChange={onValueChange} trackColor={{false:'rgba(255,255,255,0.2)',true:'#2196F3'}} thumbColor={'white'} />
         </View>
