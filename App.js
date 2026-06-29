@@ -24,13 +24,13 @@ import Results_1 from './src/screens/WordGame/ResultsScreen';
 import Imposter_1 from './src/screens/WordGame/ImposterRevealScreen';
 
 /* Question Game Screens*/
-import GenreSelect_2 from './src/screens/QuestionGame/GenreSelectScreen';
-import PlayerEntry_2 from './src/screens/QuestionGame/PlayerNamesScreen';
-import RoleReveal_2 from './src/screens/QuestionGame/RoleRevealScreen';
-import Discussion_2 from './src/screens/QuestionGame/DiscussionScreen';
-import Voting_2 from './src/screens/QuestionGame/VotingScreen';
-import Results_2 from './src/screens/QuestionGame/ResultsScreen';
-import Imposter_2 from './src/screens/QuestionGame/ImposterRevealScreen';
+// import GenreSelect_2 from './src/screens/QuestionGame/GenreSelectScreen';
+// import PlayerEntry_2 from './src/screens/QuestionGame/PlayerNamesScreen';
+// import RoleReveal_2 from './src/screens/QuestionGame/RoleRevealScreen';
+// import Discussion_2 from './src/screens/QuestionGame/DiscussionScreen';
+// import Voting_2 from './src/screens/QuestionGame/VotingScreen';
+// import Results_2 from './src/screens/QuestionGame/ResultsScreen';
+// import Imposter_2 from './src/screens/QuestionGame/ImposterRevealScreen';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -43,7 +43,7 @@ export default function App() {
     async function prepare(){
     try{
       //Loading background image
-      await Asset.loadAsync(require('assets/Images/HomeImage.png'));
+      await Asset.loadAsync(require('./assets/Images/HomeImage.png'));
     }catch(e){
       console.warn(e);
     }finally{
@@ -63,7 +63,7 @@ if(!appReady) return null;
 
 return(
 <View style={{flex:1}} onLayout={onLayoutRootView}>
-<ImageBackground source={require('assets/Images/HomeImage.png')} style={{flex:1}} resizeMode='cover'>
+<ImageBackground source={require('./assets/Images/HomeImage.png')} style={{flex:1}} resizeMode='cover'>
   <GameProvider>
   <NavigationContainer>
   <Stack.Navigator initialRouteName="Home" screenOptions={{contentStyle:{backgroundColor:'black'},}}>
@@ -82,13 +82,13 @@ return(
   <Stack.Screen name='Results' component={Results_1} options={{headerShown:false}}/>
   <Stack.Screen name="Imposter" component={Imposter_1} options={{headerShown:false}}/>
   
-  <Stack.Screen name='Select Genre-2' component={GenreSelect_2} />
+  {/* <Stack.Screen name='Select Genre-2' component={GenreSelect_2} />
   <Stack.Screen name='Names-2' component={PlayerEntry_2} />
   <Stack.Screen name='Roles-2' component={RoleReveal_2} />
   <Stack.Screen name='Discussion-2' component={Discussion_2} />
   <Stack.Screen name='Vote-2' component={Voting_2} />
   <Stack.Screen name='Results-2' component={Results_2} />
-  <Stack.Screen name="Imposter-2" component={Imposter_1} />
+  <Stack.Screen name="Imposter-2" component={Imposter_2} /> */}
   </Stack.Navigator>
   </NavigationContainer>
   </GameProvider>

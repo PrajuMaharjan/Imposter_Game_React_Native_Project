@@ -2,6 +2,7 @@
   "expo": {
     "name": "Imposter Game",
     "slug": "ImposterGame",
+    "scheme":"imposter",
     "version": "1.3",
     "assetBundlePatterns": [
       "assets/*",
@@ -11,11 +12,6 @@
     "orientation": "portrait",
     "icon": "./assets/Images/Logo.png",
     "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/Images/Logo.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#000000"
-    },
     "ios": {
       "supportsTablet": true
     },
@@ -29,8 +25,15 @@
       "package": "com.praju_maharjan.ImposterGame"
     },
     "plugins": [
-      "expo-asset"
-    ],
+    [
+      "expo-splash-screen",
+        {
+          "image": "./assets/Images/Logo.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#000000"
+        }
+    ]
+  ],
     "extra": {
       "eas": {
         "projectId": "c3498fbe-a1db-4024-931a-3394da8e4479"
