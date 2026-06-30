@@ -32,6 +32,8 @@ import Imposter_1 from './src/screens/WordGame/ImposterRevealScreen';
 // import Results_2 from './src/screens/QuestionGame/ResultsScreen';
 // import Imposter_2 from './src/screens/QuestionGame/ImposterRevealScreen';
 
+import ComingSoonScreen from './src/screens/ComingSoonScreen';
+
 SplashScreen.preventAutoHideAsync();
 
 const Stack=createNativeStackNavigator();
@@ -89,6 +91,9 @@ return(
   <Stack.Screen name='Vote-2' component={Voting_2} />
   <Stack.Screen name='Results-2' component={Results_2} />
   <Stack.Screen name="Imposter-2" component={Imposter_2} /> */}
+
+  <Stack.Screen name='ComingSoon' component={ComingSoonScreen} options={{headerShown:false}}/>
+
   </Stack.Navigator>
   </NavigationContainer>
   </GameProvider>

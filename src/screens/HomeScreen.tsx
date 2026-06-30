@@ -7,6 +7,7 @@ type RootStackParamList={
   Home:undefined;
   GameSettings:undefined;
   Settings:undefined;
+  ComingSoon:undefined;
 };
 
 type HomeScreenProps={
@@ -20,8 +21,14 @@ return (
       <AppTitle />
       <View style={styles.buttonContainer}>
       
-        <MenuButton label="PLAY GAME"
+        <MenuButton label="REAL LIFE PLAY"
                     onPress={()=>navigation.navigate("GameSettings")}
+        />
+        <MenuButton label="ONLINE PLAY"
+                    onPress={()=>navigation.navigate("ComingSoon")}
+        />
+        <MenuButton label="LAN PLAY"
+                    onPress={()=>navigation.navigate("ComingSoon")}
         />
         <MenuButton label="SETTINGS"
                     onPress={()=>navigation.navigate("Settings")}
