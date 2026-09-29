@@ -46,5 +46,8 @@ yarn-error.*
 # Full worddata
 assets/Datasets/WordData_Full.json
 
+# Full questiondata
+assets/Datasets/QuestionData_Full.json
+
 # Service account key
 serviceAccountKey.json
